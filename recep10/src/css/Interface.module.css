@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.content img{
+    position: absolute;
+    margin-bottom: 60px;;
+}
+
+.geral{
+    display: flex;
+    margin-bottom: 550px;
+}
+
+.geral h1{
+    font-size: 40px;
+    color: rgb(170, 148, 133);
+    padding: 15px;
+    border-bottom: solid 1px rgb(131, 96, 43);
+    border-radius: 15px;
+}

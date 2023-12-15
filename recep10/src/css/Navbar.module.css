@@ -1,4 +1,61 @@
 .content{
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 600px;
+}
+
+.content button{
+    width: 150px;
+    height: 50px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    letter-spacing: 2px;
+    background-color: #aa9774;
+    border-radius: 30px;
+    color: white;
+}
+
+.content button:hover{
+    cursor: pointer;
+}
+
+dialog {
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 350px;
+    padding: 10px;
+    border: none;
+    border-radius: 2%;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(131, 129, 121, 0.5);
+    background-color: #dfd3bd;
+}
+
+dialog::backdrop{
+    background-color: rgb(0 0 0 / .5);
+    animation: fadein 0.3s ease-in-out;
+}
+
+.content dialog[open] {
+    animation: fadein 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.form{
+    display:flex;
+    justify-content: center;
+}
+
+@keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
 }

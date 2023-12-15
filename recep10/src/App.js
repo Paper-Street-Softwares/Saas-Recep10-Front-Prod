@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './components/Navbar'
+import Interface from './pages/Interface';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Interface/>
     </div>
   );
 }

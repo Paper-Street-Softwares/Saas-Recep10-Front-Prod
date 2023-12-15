@@ -4,3 +4,9 @@
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
+
+body {
+  background: linear-gradient(to bottom, #f7e7ce, #cabb9c);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
