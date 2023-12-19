@@ -58,6 +58,26 @@
     line-height: 1;
 }
 
+.register2{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0;
+    top: 150px;
+    width: 500px;
+    height: 300px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.data{
+    position: absolute;
+    top: 120px;
+    right: 170px;
+}
+
 .register input{
     width: 350px;
     line-height: 2;
@@ -67,6 +87,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+}
+
+.formulario2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.formulario2 select{
+    width: 350px;
+    height: 33px;
+}
+
+.formulario2 h1{
+    position: absolute;
+    top: 40px;
+    margin-bottom: 10px;
+    color: rgb(27, 27, 41);
 }
 
 .formulario select{
@@ -75,6 +115,8 @@
 }
 
 .formulario h1{
+    position: absolute;
+    top: 0;
     margin-bottom: 10px;
     color: rgb(27, 27, 41);
 }

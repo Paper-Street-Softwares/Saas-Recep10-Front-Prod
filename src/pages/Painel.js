@@ -1,5 +1,6 @@
 import style from '../css/Painel.module.css'
-import { abrirDialog, fecharDialog } from '../functions/DialogController2'
+import { abrirDialog2, fecharDialog2 } from '../functions/DialogController2'
+import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3'
 
 function Painel(){
     return(
@@ -7,14 +8,14 @@ function Painel(){
             <div className={style.faixa}></div>
             <div className={style.dashboard}>
                 <ul>
-                    <li onClick={abrirDialog}>REGISTRAR VISITANTE</li>
-                    <li>ADICIONAR VISITA</li>
+                    <li onClick={abrirDialog2}>REGISTRAR VISITANTE</li>
+                    <li onClick={abrirDialog3} >ADICIONAR VISITA</li>
                     <li>BUSCAR VISITAS</li>
                 </ul>
                 <dialog className={style.register} id="dialog2">
                     <form className={style.formulario}>
+                    <h1>Cadastro de Visitante</h1>
                         <label>
-                            <h1>Cadastro de Visitante</h1>
                             <div><br></br>
                                 <input type='text' placeholder="Nome completo"></input>
                             </div>
@@ -22,8 +23,8 @@ function Painel(){
                                 <input type='text' placeholder="Telefone"></input>
                             </div>
                             <div><br></br>
-                                <select>
-                                    <option value="" disabled selected>Gênero</option>
+                                <select defaultValue="">
+                                    <option value="" disabled>Gênero</option>
                                     <option>Masculino</option>
                                     <option>Feminino</option>
                                 </select>
@@ -43,8 +44,31 @@ function Painel(){
                         </label>
                     </form>
                     <div className={style.btns}>
-                        <button onClick={fecharDialog} className={style.btnback}>VOLTAR</button>
+                        <button onClick={fecharDialog2} className={style.btnback}>VOLTAR</button>
                         <button className={style.btnregister}>CADASTRAR</button>
+                    </div>
+                </dialog>
+
+                {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
+
+                <dialog className={style.register2} id="dialog3">
+                    <form className={style.formulario2}>
+                    <h1>Adicionar Visita</h1>
+                        <label>
+                            <div><br></br>
+                                <input className={style.data} type='text' placeholder="Data"></input>
+                            </div>
+                            <div><br></br>
+                                <select defaultValue="">
+                                    <option value="" disabled>Visitantes</option>
+                                    <option>Carlos Daniel</option>
+                                </select>
+                            </div>
+                        </label>
+                    </form>
+                    <div className={style.btns}>
+                        <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
+                        <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
                     </div>
                 </dialog>
             </div>

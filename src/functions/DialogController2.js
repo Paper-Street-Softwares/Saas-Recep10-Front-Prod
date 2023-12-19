@@ -1,11 +1,11 @@
-function abrirDialog() {
+function abrirDialog2() {
     const dialog = document.getElementById('dialog2');
     dialog.showModal();
   }
   
-  function fecharDialog() {
-    const dialog = document.querySelector('dialog');
+  function fecharDialog2() {
+    const dialog = document.getElementById('dialog2');
     dialog.close();
   }
   
-  export {abrirDialog, fecharDialog}
+  export {abrirDialog2, fecharDialog2}
