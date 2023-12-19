@@ -2,6 +2,7 @@ import style from "../css/Interface.module.css"
 import Navbar from "../components/Navbar"
 import logo from "../images/logo.png"
 import background from "../images/church.jpg"
+//import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function Interface(){
     return(

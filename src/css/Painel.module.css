@@ -1,0 +1,120 @@
+.content{
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(206, 204, 219);
+}
+
+.geral h1{
+    margin: 0;
+    padding: 0;
+}
+
+.faixa{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background-color:#5761c0 ;
+}
+
+.dashboard{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 100%;
+    height: 120px;
+    background-color: #41445f;
+}
+
+.dashboard ul{
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+.dashboard li {
+    margin-right: 20px;
+    list-style: none;
+    color: white;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.register{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0;
+    top: 150px;
+    width: 500px;
+    height: 500px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.register input{
+    width: 350px;
+    line-height: 2;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario select{
+    width: 350px;
+    height: 33px;
+}
+
+.formulario h1{
+    margin-bottom: 10px;
+    color: rgb(27, 27, 41);
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.btns button{
+    height: 40px;
+    width: 160px;
+    border: none;
+    margin: 15px;
+}
+
+.btnback{
+    background-color: rgb(91, 91, 134);
+    color: white;
+    font-size: 14px;
+}
+
+.btnback:hover{
+    cursor: pointer;
+    color: rgb(14, 0, 65);
+    background-color: rgb(50, 148, 205);
+    transition: 0.3s;
+}
+
+.btnregister{
+    background-color: rgb(118, 158, 87) ;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btnregister:hover{
+    cursor: pointer;
+    color: rgb(0, 65, 0);
+    background-color: yellowgreen;
+}

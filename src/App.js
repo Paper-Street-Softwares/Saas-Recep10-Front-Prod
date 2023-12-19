@@ -1,10 +1,17 @@
 import './App.css';
 import Interface from './pages/Interface';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Painel from './pages/Painel';
 
 function App() {
   return (
     <div className="App">
-      <Interface/>
+        <Router>
+          <Routes>
+              <Route path="/painel" element={<Painel/>} />
+              <Route path="/home" element={<Interface/>} />
+          </Routes>
+      </Router>
     </div>
   );
 }

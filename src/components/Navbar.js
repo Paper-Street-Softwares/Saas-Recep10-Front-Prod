@@ -15,7 +15,7 @@ function Navbar(){
                     <input type="text" name="campo" id="campologin" placeholder="Digite seu email aqui"></input>
                 </div>
                 <div className={style.login}>
-                    <input type="text" name="senha" id="camposenha" placeholder="Digite aqui sua senha"></input>
+                    <input type="text" name="senha" id="camposenha" placeholder="Digite sua senha aqui"></input>
                 </div>
             </dialog>
         </div>
