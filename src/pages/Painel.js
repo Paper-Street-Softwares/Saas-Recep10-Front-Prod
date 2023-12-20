@@ -1,15 +1,29 @@
 import style from '../css/Painel.module.css'
 import { abrirDialog, fecharDialog } from '../functions/DialogController2'
+import resgistervisit from "../images/registervisit.png"
+import resgistervisitor from "../images/registervisitor.png"
+import visits from "../images/visits.png"
+import visitors from "../images/visitors.png"
+import training from "../images/training.png"
 
 function Painel(){
     return(
         <div className={style.content}>
             <div className={style.faixa}></div>
             <div className={style.dashboard}>
+                <div className={style.painelicons}>
+                    <img className={style.iconreg} src={resgistervisit} />
+                    <img className={style.iconregvis} src={resgistervisitor} />
+                    <img className={style.iconvisitis} src={visits} />
+                    <img className={style.iconvisitor} src={visitors} />
+                    <img className={style.icontrain} src={training} />
+                </div>
                 <ul>
                     <li onClick={abrirDialog}>REGISTRAR VISITANTE</li>
                     <li>ADICIONAR VISITA</li>
                     <li>BUSCAR VISITAS</li>
+                    <li>BUSCAR VISITANTES</li>
+                    <li>TREINAMENTOS</li>
                 </ul>
                 <dialog className={style.register} id="dialog2">
                     <form className={style.formulario}>

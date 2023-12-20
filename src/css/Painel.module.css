@@ -13,7 +13,7 @@
 .faixa{
     position: absolute;
     width: 100%;
-    height: 80px;
+    height: 50px;
     background-color:#5761c0 ;
 }
 
@@ -22,9 +22,9 @@
     justify-content: center;
     position: absolute;
     right: 0;
-    top: 80px;
+    top: 50px;
     width: 100%;
-    height: 120px;
+    height: 150px;
     background-color: #41445f;
 }
 
@@ -117,4 +117,49 @@
     cursor: pointer;
     color: rgb(0, 65, 0);
     background-color: yellowgreen;
+}
+
+.iconreg {
+    position: absolute;
+    left: 520px;
+    margin-left: 50px !important;
+    top: 33px;    
+    max-width: 70px !important;
+    max-height: 70px !important;
+}
+
+.iconregvis {
+    position: absolute;
+    left: 735px;
+    margin-left: 50px !important;
+    top: 25px;    
+    max-width: 70px !important;
+    max-height: 70px !important;
+}
+
+.iconvisitis {
+    position: absolute;
+    left: 910px;
+    margin-left: 50px !important;
+    top: 25px;    
+    max-width: 70px !important;
+    max-height: 70px !important;
+}
+
+.iconvisitor {
+    position: absolute;
+    left: 1095px;
+    margin-left: 50px !important;
+    top: 25px;    
+    max-width: 70px !important;
+    max-height: 70px !important;
+}
+
+.icontrain {
+    position: absolute;
+    left: 1280px;
+    margin-left: 50px !important;
+    top: 25px;    
+    max-width: 70px !important;
+    max-height: 70px !important;
 }
