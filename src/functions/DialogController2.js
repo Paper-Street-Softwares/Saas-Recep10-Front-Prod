@@ -8,54 +8,44 @@ function fecharDialog2() {
   dialog.close();
 }
 
-const inputName = document.getElementById();
-
 function enviarVisitante() {
   const form = document.getElementById("form");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const data = new FormData(form);
 
-    // Construa o objeto de dados com os valores de todos os campos
-    const visitante = {
-      nome: data.get("nome"),
-      telefone: data.get("telefone"),
-      genero: data.get("genero"),
-      idade: data.get("idade"),
-      endereco: data.get("endereco"),
-      cidadeestado: data.get("cidadeestado"),
-      religiao: data.get("religiao"),
-      grupo: data.get("grupo"),
-      estudo: data.get("estudo"),
-    };
+    //apenas inputs
+    const name = String(document.getElementById('nome').value)
+    const phone = String(document.getElementById('telefone').value)
+    const gender = String(document.getElementById('genero').value)
+    const age = parseInt(document.getElementById('idade').value)
+    const address = String(document.getElementById('endereco').value)
+    const cityAndState = String(document.getElementById('cidadeestado').value)
+    const religion = String(document.getElementById('religiao').value)
+    const smallGroup = String(document.getElementById('grupo').value)
+    const bibleStudy = String(document.getElementById('estudo').value)
+    //apenas inputs
+
+    const data = new FormData(form);
 
     console.log(data);
 
-    const registerTest = {
-      name: "aloaloooalo",
-      phone: "5561992781077",
-      gender: "Masculino",
-      age: 30,
-      address: "Endereço",
-      cityAndState: "São Paulo - SP",
-      religion: "Adventista",
-      smallGroup: "Não frequenta",
-      bibleStudy: "Sim, com amigo",
+    const registerVisitor = {
+      name,
+      phone,
+      gender,
+      age,
+      address,
+      cityAndState,
+      religion,
+      smallGroup,
+      bibleStudy,
     };
 
-    console.log(registerTest);
+    console.log(registerVisitor);
 
-    // Envie o objeto de dados para o servidor
     try {
-      //       const res = await fetch(
-      //   "https://recep10-back.up.railway.app/api/visitantes",
-      //   {
-      //     method: "POST",
-      //     body: data,
-      //   }
-      // );
 
       const res = await fetch(
         "https://recep10-back.up.railway.app/api/visitantes",
@@ -64,17 +54,17 @@ function enviarVisitante() {
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify(registerTest),
+          body: JSON.stringify(registerVisitor),
         }
       );
 
-      // Se a solicitação for bem-sucedida, imprima uma mensagem de sucesso
       if (res.status === 201) {
         console.log("Visitante registrado com sucesso!");
+        //window.location.reload();
       }
     } catch (err) {
-      // Se a solicitação falhar, imprima uma mensagem de erro
       console.log(err.message);
+      window.alert('Erro')
     }
   });
 }

@@ -22,7 +22,7 @@ function Painel(){
                                 <br></br><br></br>
                                 <select id="genero" defaultValue=""><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select>
                                 <br></br><br></br>
-                                <input maxLength={3} id="idade" type='age' placeholder="Idade"></input>
+                                <input id="age" type="text" maxLength="3" pattern="([0-9]{3})" placeholder='Idade'/>
                                 <br></br><br></br>
                                 <input maxLength={50} id="endereco" type='text' placeholder="Endereço"></input>
                                 <br></br><br></br>
