@@ -9,6 +9,8 @@ function fecharDialog2() {
 }
 
 function enviarVisitante() {
+
+
   const form = document.getElementById("form");
 
   form.addEventListener("submit", async (event) => {
@@ -58,13 +60,16 @@ function enviarVisitante() {
         }
       );
 
+      const btn = document.getElementById("enviar")
+
+      btn.disabled = true;
+
       if (res.status === 201) {
         console.log("Visitante registrado com sucesso!");
-        //window.location.reload();
+        window.location.reload();
       }
     } catch (err) {
       console.log(err.message);
-      window.alert('Erro')
     }
   });
 }
