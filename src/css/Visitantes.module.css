@@ -11,7 +11,7 @@
     color: white;
     margin: 10px;
     margin-top: 50px;
-    margin-left: 210px;
+    margin-left: 240px;
 }
 
 .visitantes p{
@@ -19,15 +19,20 @@
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: rgb(36, 36, 73);
+    background-color: #3e3f5c;
     border-radius: 10px;
+    transition: 0.3s;
+}
+
+.visitantes p:hover{
+    background-color: #5d5f86;
 }
 
 .quadro{
     justify-content: center;
     position: absolute;
-    left: 50px;
-    background-color: white;
+    left: 80px;
+    background-color: rgb(36, 37, 46);
     width: 500px;
     height: 350px;
     border-radius: 10px;
@@ -51,5 +56,40 @@
 
 .nomes{
     max-height: 350px;
-    
+}
+
+.nomes:hover{
+    cursor: pointer;
+}
+
+.fechar{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 40px;
+    transition: 0.3s;
+}
+
+.fechar:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.visitante2{
+    position: absolute;
+    top: 10px;
+    right: 240px;
+    font-size: 33px !important;
+}
+
+.quadro2{
+    justify-content: center;
+    position: absolute;
+    right: 80px;
+    background-color: rgb(36, 37, 46);
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    padding: 10px;
 }

@@ -2,11 +2,15 @@ import style from '../css/Painel.module.css'
 import style2 from '../css/Visitantes.module.css'
 import { abrirDialog2, enviarVisitante, fecharDialog2 } from '../functions/DialogController2'
 import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3'
-import { abrirDialog4} from '../functions/DialogController4'
+import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import exit from '../images/exit.png'
 
 function Painel(){
+
+//MÉTODO PARA REQUISITAR TODOS OS VISITANTES
+
     useEffect(() => {
         axios.get("https://recep10-back.up.railway.app/api/visitantes")
             .then(response => {
@@ -18,6 +22,22 @@ function Painel(){
     }, []);
 
     const [visitors, setVisitors] = useState([]);
+
+//MÉTODO PARA REQUISITAR UM USUÁRIO POR ID
+
+const handleClick = (itemId) => {
+    console.log(itemId);
+
+    // Adicione o itemId ao final do endpoint da API
+    axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
+        .then(response => {
+            // Trate a resposta como necessário
+            console.log('Resposta da requisição:', response.data);
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+        });
+}
 
     return(        
         <div className={style.content}>
@@ -85,11 +105,18 @@ function Painel(){
                     <form>
                         <h1>Visitantes</h1>
                         <div className={style2.quadro}>
-                            {visitors.map(item => <div className={style2.nomes} key={item.id}>
+                            {visitors.map(item => <div className={style2.nomes} key={item.id} onClick={() => handleClick(item.id)}
+                            >
                                 <p>{item.name}</p>
                                 </div>)}
                         </div>
+
+                        <h1 className={style2.visitante2}>Visitante</h1>
+                        <div className={style2.quadro2}>
+                            <h2>TESTE</h2>
+                        </div>
                     </form>
+                    <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
 
             </div>
