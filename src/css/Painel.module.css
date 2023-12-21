@@ -28,11 +28,11 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    right: 0;
     top: 50px;
     width: 100%;
     height: 150px;
     background-color: #393f65;
+
 }
 
 .dashboard ul{
@@ -247,8 +247,12 @@ h2 {
 }
 
 .content li:hover {
-    transform: scale(1.05);
     cursor: pointer;
+}
+
+.painelicons{
+    display: flex;
+    position: absolute;
 }
 
 .painelicons img {
@@ -257,6 +261,6 @@ h2 {
 }
 
 .painelicons img:hover {
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 

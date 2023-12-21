@@ -1,5 +1,6 @@
 import style from '../css/Painel.module.css'
 import style2 from '../css/Visitantes.module.css'
+import { abrirDialog} from '../functions/DialogController'
 import { abrirDialog2, enviarVisitante, fecharDialog2 } from '../functions/DialogController2'
 import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3'
 import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
@@ -9,7 +10,7 @@ import exit from '../images/exit.png'
 import resgistervisit from '../images/registervisit.png';
 import resgistervisitor from '../images/registervisitor.png';
 import visits from '../images/visits.png';
-import visitors from '../images/visitors.png';
+import visitorsmg from '../images/visitors.png';
 import training from '../images/training.png';
 
 function Painel(){
@@ -69,11 +70,18 @@ function Painel(){
         <div className={style.content}>
             <div className={style.faixa}></div>
             <div className={style.dashboard}>
+                <div className={style.painelicons}>
+                    <img onClick={abrirDialog} className={style.iconreg} src={resgistervisit} alt="reg" />
+                    <img className={style.iconregvis} src={resgistervisitor} alt="reg2"/>
+                    <img className={style.iconvisitor} src={visitorsmg} alt="vis"/>
+                    <img className={style.iconvisitis} src={visits} alt="vis2"/>
+                    <img className={style.icontrain} src={training} alt="train"/>
+                </div>
                 <ul>
                     <li onClick={abrirDialog2}>REGISTRAR VISITANTE</li>
                     <li onClick={abrirDialog3}>ADICIONAR VISITA</li>
                     <li onClick={abrirDialog4}>BUSCAR VISITANTES</li>
-                    <li>BUSCAR VISITAS</li>
+                    <li>RELATÓRIOS</li>
                 </ul>
                 <dialog className={style.register} id="dialog2">
                     <form id="form" className={style.formulario}>
