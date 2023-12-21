@@ -10,11 +10,19 @@
     padding: 0;
 }
 
-.faixa{
+.navbar {
     position: absolute;
     width: 100%;
     height: 50px;
-    background-color:#5761c0 ;
+    background-color:#1b1e33;
+}
+
+.faixa{
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: 190px;
+    background-color:#1b1e33;
 }
 
 .dashboard{
@@ -25,7 +33,7 @@
     top: 50px;
     width: 100%;
     height: 150px;
-    background-color: #41445f;
+    background-color: #393f65;
 }
 
 .dashboard ul{
@@ -121,16 +129,16 @@
 
 .iconreg {
     position: absolute;
-    left: 520px;
+    left: 465px;
     margin-left: 50px !important;
-    top: 33px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
+    top: 28px;    
+    max-width: 77px !important;
+    max-height: 77px !important;
 }
 
 .iconregvis {
     position: absolute;
-    left: 735px;
+    left: 720px;
     margin-left: 50px !important;
     top: 25px;    
     max-width: 70px !important;
@@ -139,7 +147,7 @@
 
 .iconvisitis {
     position: absolute;
-    left: 910px;
+    left: 960px;
     margin-left: 50px !important;
     top: 25px;    
     max-width: 70px !important;
@@ -148,7 +156,7 @@
 
 .iconvisitor {
     position: absolute;
-    left: 1095px;
+    left: 1165px;
     margin-left: 50px !important;
     top: 25px;    
     max-width: 70px !important;
@@ -157,9 +165,56 @@
 
 .icontrain {
     position: absolute;
-    left: 1280px;
+    left: 1350px;
     margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
+    top: 28px;    
+    max-width: 77px !important;
+    max-height: 77px !important;
 }
+
+.body {
+    background-color: #2b2f4c;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4em;
+    margin: auto;
+}
+
+h2 {
+    margin: auto;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.content li {
+    color: white;
+    transition: 0.3s;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.content li:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.painelicons img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.painelicons img:hover {
+    transform: scale(1.1);
+}
+
