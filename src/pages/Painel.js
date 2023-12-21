@@ -6,8 +6,34 @@ import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import exit from '../images/exit.png'
+import resgistervisit from '../images/registervisit.png';
+import resgistervisitor from '../images/registervisitor.png';
+import visits from '../images/visits.png';
+import visitors from '../images/visitors.png';
+import training from '../images/training.png';
 
 function Painel(){
+  
+  const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setDataHoraAtual(new Date());
+    }, 1000);
+
+    // Limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const formatarData = (data) => {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return data.toLocaleDateString(undefined, options);
+  };
+
+  const formatarHora = (data) => {
+    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    return data.toLocaleTimeString(undefined, options);
+  };
 
 //MÉTODO PARA REQUISITAR TODOS OS VISITANTES
 
@@ -25,7 +51,7 @@ function Painel(){
 
 //MÉTODO PARA REQUISITAR UM USUÁRIO POR ID
 
-const handleClick = (itemId) => {
+  const handleClick = (itemId) => {
     console.log(itemId);
 
     // Adicione o itemId ao final do endpoint da API
@@ -97,6 +123,7 @@ const handleClick = (itemId) => {
                         <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
                         <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
                     </div>
+
                 </dialog>
 
                 {/* Abaixo Busca os VISITANTES */}
@@ -118,10 +145,17 @@ const handleClick = (itemId) => {
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
-
+              </div>
+              <div className={style.faixa} />
+              <div className={style.body}>
+                <h1>SEJA BEM-VINDO</h1>
+                <h2>
+                  Hoje é {formatarData(dataHoraAtual)} - {formatarHora(dataHoraAtual)}
+                </h2>
+              </div>
             </div>
-        </div>
-    )
+    );
+
 }
 
-export default Painel
+export default Painel;
