@@ -14,6 +14,8 @@ import visitorsmg from '../images/visitors.png';
 import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
+import { deleteUser } from '../functions/deleteUser';
+import '../functions/Search'
 
 
 function Painel(){
@@ -66,9 +68,14 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
     });
 
     const ativarEdicao = document.getElementById("edit")
+    const delDados = document.getElementById("del");
 
     ativarEdicao.style.pointerEvents = 'auto';
     ativarEdicao.style.cursor = 'pointer';
+
+    delDados.style.opacity = '1';
+    delDados.style.pointerEvents = 'auto';
+    delDados.style.cursor = 'pointer';
 
     anime({
         targets: ativarEdicao,
@@ -79,6 +86,29 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
 }
 
     const [visitor, setVisitor] = useState([]);
+
+  //MÉTODO PARA DELETAR USUÁRIO
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
+
+    const resultado = window.confirm("Deseja realmente apagar o visitante " + visitor.name + "? Se fizer isto, as visitas deste visitante também serão apagadas.");
+    if(resultado){
+      try {
+        const id = visitor.id; // Supondo que visitor tenha uma propriedade id
+    
+        if (!id) {
+          console.error('ID do visitante não encontrado.');
+          return;
+        }
+    
+        await deleteUser(id);
+        // Adicione aqui a lógica desejada após a exclusão do usuário, se necessário
+      } catch (error) {
+        console.error('Erro ao excluir usuário:', error);
+      }
+      window.location.reload();
+    }
+  };
 
     const handleUpdateUser = async (event) => {
         event.preventDefault();
@@ -204,10 +234,13 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                         <div>
                             <input className={style.data} type='date' placeholder="Data"></input>
                             <br></br><br></br>
-                            <select defaultValue="">
-                                <option id="vt" value="" disabled>Visitantes</option>
-                                <option>Carlos Daniel</option>
-                            </select>
+                            <div class="divSearch">
+                              <label htmlFor="search">Buscar Visitante: </label>
+                              <input type="search" />
+                            </div>
+                            <div class="content">
+
+                            </div>
                         </div>
                     </form>
                     <div className={style.btns}>
@@ -242,7 +275,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                                     <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
                                 <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-                                <button>APAGAR VISITANTE</button>
+                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
                                 <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
                             </div>
                     </form>
