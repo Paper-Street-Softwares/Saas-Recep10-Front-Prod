@@ -7,6 +7,10 @@
     box-shadow: none;
 }
 
+.visitante2{
+    position: absolute !important;
+}
+
 .visitantes h1{
     top: 70px;
     left: 210px;
@@ -95,5 +99,11 @@
 .fechar:hover{
     cursor: pointer;
     transform: scale(0.9);
+}
+
+@media screen and (max-width: 768px){
+    .quadro2{
+        background-color: red;
+    }
 }
 

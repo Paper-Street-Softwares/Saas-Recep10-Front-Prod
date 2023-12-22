@@ -12,6 +12,8 @@ import resgistervisitor from '../images/registervisitor.png';
 import visits from '../images/visits.png';
 import visitorsmg from '../images/visitors.png';
 import training from '../images/training.png';
+import anime from "animejs";
+import { updateUser } from '../functions/updateUser';
 
 function Painel(){
   
@@ -38,38 +40,94 @@ function Painel(){
 
 //MÉTODO PARA REQUISITAR TODOS OS VISITANTES
 
-    useEffect(() => {
-        axios.get("https://recep10-back.up.railway.app/api/visitantes")
-            .then(response => {
-                setVisitors(response.data);
-            })
-            .catch(error => {
-                console.error('Erro na requisição:', error);
-            }); 
-    }, []);
+useEffect(() => {
+    axios.get("https://recep10-back.up.railway.app/api/visitantes")
+        .then(response => {
+            setVisitors(response.data);
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+        }); 
+}, []);
 
-    const [visitors, setVisitors] = useState([]);
+const [visitors, setVisitors] = useState([]);
 
 //MÉTODO PARA REQUISITAR UM USUÁRIO POR ID
 
-  const handleClick = (itemId) => {
-    // Adicione o itemId ao final do endpoint da API
-        axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
-            .then(response => {
-                setVisitor(response.data)
-            })
-            .catch(error => {
-                console.error('Erro na requisição:', error);
-            });
+const handleClick = (itemId) => {
+// Adicione o itemId ao final do endpoint da API
+axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
+    .then(response => {
+        setVisitor(response.data)
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error);
+    });
+
+    const ativarEdicao = document.getElementById("edit")
+    ativarEdicao.style.pointerEvents = 'auto';
+    ativarEdicao.style.opacity = '1';
+    ativarEdicao.style.cursor = 'pointer';
 }
 
     const [visitor, setVisitor] = useState([]);
 
+    const handleUpdateUser = async (event) => {
+        event.preventDefault();
+      
+        const id = visitor.id; // Supondo que visitor tenha uma propriedade id
+      
+        if (!id) {
+          console.error('ID do visitante não encontrado.');
+          return;
+        }
+      
+        try {
+          await updateUser(id);
+          // Adicione aqui a lógica desejada após a atualização do usuário, se necessário
+        } catch (error) {
+          console.error('Erro ao atualizar usuário:', error);
+        }
+      };
+
     const habilitarInput = (event) => {
+
       event.preventDefault();
       const infosDiv = document.getElementById("infos");
       const inputs = infosDiv.querySelectorAll("input");
-      
+      const gend = document.getElementById("generoUpdate");
+      const d4 = document.getElementById("quadro");
+      const d5 = document.getElementById("quadro2");
+      const vt1 = document.getElementById("vt1");
+      const vt2 = document.getElementById("vt2");
+
+      gend.style.opacity = '1';
+      gend.style.pointerEvents = 'auto';
+
+      vt1.style.opacity = "1";
+      vt1.style.transition = "0.5s";
+      vt1.style.opacity = "0";
+
+      vt2.innerHTML = "Editar Dados";
+
+      d4.style.opacity = "1";
+      d4.style.transition = "0.5s";
+      d4.style.opacity = "0";
+      d4.style.pointerEvents = 'none';
+
+      anime({
+        targets: d5,
+        duration: 200,
+        easing: "linear",
+        left: 420,
+      });
+      anime({
+        targets: vt2,
+        duration: 200,
+        easing: "linear",
+        left: 180,
+      });
+
       for (const input of inputs) {
         input.disabled = false;
       }
@@ -135,7 +193,7 @@ function Painel(){
                             <input className={style.data} type='date' placeholder="Data"></input>
                             <br></br><br></br>
                             <select defaultValue="">
-                                <option value="" disabled>Visitantes</option>
+                                <option id="vt" value="" disabled>Visitantes</option>
                                 <option>Carlos Daniel</option>
                             </select>
                         </div>
@@ -150,30 +208,30 @@ function Painel(){
                 {/* Abaixo Busca os VISITANTES */}
 
                 <dialog id="dialog4" className={style2.visitantes}>
-                    <form>
-                        <h1>Visitantes</h1>
-                        <div className={style2.quadro}>
+                <form id="att">
+                        <h1 id="vt1">Visitantes</h1>
+                        <div id="quadro" className={style2.quadro}>
                             {visitors.map(item => <div className={style2.nomes} key={item.id} onClick={() => handleClick(item.id)}
                             >
                                 <p>{item.name}</p>
                                 </div>)}
                         </div>
-                            <h2 className={style2.visitante2}>Visitante</h2>
-                            <div className={style2.quadro2}>
+                            <h2 id="vt2" className={style2.visitante2}>Visitante</h2>
+                            <div id="quadro2" className={style2.quadro2}>
                                 <div id="infos" className={style2.infos}>
-                                    <input id="camponome" maxLength={53} type="text" disabled defaultValue={visitor.name}/>
-                                    <input id="campotelefone" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
-                                    <input id="campogenero" maxLength={53} type="text" disabled defaultValue={visitor.gender}/>
-                                    <input id="campoidade" maxLength={53} type="text" disabled defaultValue={visitor.age}/>
-                                    <input id="campoendereco" maxLength={53} type="text" disabled defaultValue={visitor.address}/>
-                                    <input id="campocidade" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/>
-                                    <input id="camporeligiao" maxLength={53} type="text" disabled defaultValue={visitor.religion}/>
-                                    <input id="campogrupo" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
-                                    <input id="campoestudo" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
+                                    <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/>
+                                    <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
+                                    <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" >Gênero</option><option>Masculino</option><option>Feminino</option></select>
+                                    <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/>
+                                    <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/>
+                                    <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/>
+                                    <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/>
+                                    <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
+                                    <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
-                                <button onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
+                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
                                 <button>APAGAR VISITANTE</button>
-                                <button>ATUALIZAR DADOS</button>
+                                <button id="upuser" onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
                             </div>
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
