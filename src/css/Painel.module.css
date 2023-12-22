@@ -1,5 +1,4 @@
-.content{
-    overflow: hidden;
+.content {
     width: 100%;
     height: 100vh;
 }
@@ -12,7 +11,7 @@
 .navbar {
     position: absolute;
     width: 100%;
-    height: 50px;
+    height: 30px;
     background-color:#1b1e33;
 }
 
@@ -20,35 +19,52 @@
     position: absolute;
     width: 100%;
     height: 10px;
-    top: 190px;
+    top: 135px;
     background-color:#1b1e33;
+}
+
+.card {
+    top: 30%;
+    cursor: pointer;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 35px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    margin: 0 50px 0 50px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.15);
+}
+
+.card p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    color: white;
+    font-size: 2dvh;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 8px;
+    text-align: center;
 }
 
 .dashboard{
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 50px;
+    top: 30px;
     width: 100%;
-    height: 150px;
+    height: 110px;
     background-color: #393f65;
 
-}
-
-.dashboard ul{
-    justify-content: center;
-    display: flex;
-    position: absolute;
-    bottom: 0;
-}
-
-.dashboard li {
-    margin-right: 20px;
-    list-style: none;
-    color: white;
-    font-size: 17px;
-    letter-spacing: 2px;
-    font-weight: bold;
 }
 
 .register{
@@ -169,51 +185,6 @@
     background-color: yellowgreen;
 }
 
-.iconreg {
-    position: absolute;
-    left: 465px;
-    margin-left: 50px !important;
-    top: 28px;    
-    max-width: 77px !important;
-    max-height: 77px !important;
-}
-
-.iconregvis {
-    position: absolute;
-    left: 720px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.iconvisitis {
-    position: absolute;
-    left: 960px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.iconvisitor {
-    position: absolute;
-    left: 1165px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.icontrain {
-    position: absolute;
-    left: 1350px;
-    margin-left: 50px !important;
-    top: 28px;    
-    max-width: 77px !important;
-    max-height: 77px !important;
-}
-
 .body {
     background-color: #2b2f4c;
     height: 100%;
@@ -226,7 +197,7 @@ h1 {
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 4em;
+    font-size: 62px;
     margin: auto;
 }
 
@@ -236,31 +207,6 @@ h2 {
     position: relative;
     text-align: center;
     top: 50%;
+    font-size: larger;
     transform: translateY(-50%);
 }
-
-.content li {
-    color: white;
-    transition: 0.3s;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.content li:hover {
-    cursor: pointer;
-}
-
-.painelicons{
-    display: flex;
-    position: absolute;
-}
-
-.painelicons img {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.painelicons img:hover {
-    transform: scale(1.04);
-}
-
