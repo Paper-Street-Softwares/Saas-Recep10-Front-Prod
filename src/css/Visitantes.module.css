@@ -7,6 +7,10 @@
     box-shadow: none;
 }
 
+.visitante2{
+    position: absolute !important;
+}
+
 .visitantes h1{
     top: 70px;
     left: 210px;
