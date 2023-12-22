@@ -151,21 +151,29 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
 
     return(        
         <div className={style.content}>
-            <div className={style.faixa}></div>
             <div className={style.dashboard}>
-                <div className={style.painelicons}>
-                    <img onClick={abrirDialog} className={style.iconreg} src={resgistervisit} alt="reg" />
-                    <img className={style.iconregvis} src={resgistervisitor} alt="reg2"/>
-                    <img className={style.iconvisitor} src={visitorsmg} alt="vis"/>
-                    <img className={style.iconvisitis} src={visits} alt="vis2"/>
-                    <img className={style.icontrain} src={training} alt="train"/>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog} className={style.icon} src={resgistervisit} alt="reg" />
+                        <p onClick={abrirDialog}>REGISTRAR VISITANTE</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog2} className={style.icon} src={resgistervisitor} alt="reg2"/>
+                        <p onClick={abrirDialog2}>ADICIONAR VISITA</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog3} className={style.icon} src={visitorsmg} alt="vis"/>
+                        <p onClick={abrirDialog3}>BUSCAR VISITA</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog4} className={style.icon} src={visits} alt="vis2"/>
+                        <p onClick={abrirDialog4}>BUSCAR VISITANTES</p>
+                    </div>
+                    <div className={style.card}>
+                        <img className={style.icon} src={training} alt="train"/>
+                        <p>TREINAMENTO</p>
+                    </div>
                 </div>
-                <ul>
-                    <li onClick={abrirDialog2}>REGISTRAR VISITANTE</li>
-                    <li onClick={abrirDialog3}>ADICIONAR VISITA</li>
-                    <li onClick={abrirDialog4}>BUSCAR VISITANTES</li>
-                    <li>RELATÓRIOS</li>
-                </ul>
+                <div className={style.horizon} />
                 <dialog className={style.register} id="dialog2">
                     <form id="form" className={style.formulario}>
                         <h1>Cadastro de Visitante</h1>
@@ -248,7 +256,6 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
-              </div>
               <div className={style.faixa} />
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>

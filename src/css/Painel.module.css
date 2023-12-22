@@ -1,63 +1,69 @@
-.content{
-    overflow: hidden;
+.content {
     width: 100%;
     height: 100vh;
 }
 
-.geral h1{
+.geral h1 {
     margin: 0;
     padding: 0;
 }
 
-.navbar {
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    background-color:#1b1e33;
-}
-
-.faixa{
-    position: absolute;
-    width: 100%;
-    height: 10px;
-    top: 190px;
-    background-color:#1b1e33;
-}
-
-.dashboard{
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    height: 150px;
-    background-color: #393f65;
-
-}
-
-.dashboard ul{
+.card {
+    top: 30%;
+    cursor: pointer;
     justify-content: center;
     display: flex;
-    position: absolute;
-    bottom: 0;
+    flex-direction: column;
+    position: relative;
+    max-width: 35px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    margin: 20px 50px 0 50px;
+    transition: 0.3s;
 }
 
-.dashboard li {
-    margin-right: 20px;
+.card:hover {
+    transform: scale(1.15);
+}
+
+.card p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
     list-style: none;
-    color: white;
-    font-size: 17px;
+    color: rgb(255, 255, 255);
+    font-size: 1.5dvh;
     letter-spacing: 2px;
     font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
 }
 
-.register{
+.dashboard {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 30px;
+    background-color: #556b2f00;
+}
+
+.horizon {
+    width: 100%;
+    height: 105px; /* Ajuste a altura conforme necessário */
+    background-color: #000; /* Cor da linha */
+}
+
+.register {
     position: absolute;
     justify-content: center;
     align-items: center;
     background-color: white;
     border-radius: 0;
-    top: 190px;
+    top: 190px;     
     width: 400px;
     height: 580px;
     font-size: 16px;
@@ -65,7 +71,7 @@
     line-height: 1;
 }
 
-.register2{
+.register2 {
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -79,56 +85,56 @@
     line-height: 1;
 }
 
-.data{
+.data {
     position: absolute;
     top: 120px;
     right: 170px;
 }
 
-.register input{
+.register input {
     width: 350px;
     line-height: 2;
 }
 
-.formulario{
+.formulario {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
 }
 
-.formulario2{
+.formulario2 {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 120px;
 }
 
-.formulario2 select{
+.formulario2 select {
     width: 350px;
     height: 33px;
 }
 
-.formulario2 h1{
+.formulario2 h1 {
     position: absolute;
     top: 40px;
     margin-bottom: 10px;
     color: rgb(27, 27, 41);
 }
 
-.formulario select{
+.formulario select {
     width: 350px;
     height: 33px;
 }
 
-.formulario h1{
+.formulario h1 {
     position: absolute;
     top: 0;
     margin-bottom: 10px;
     color: rgb(27, 27, 41);
 }
 
-.btns{
+.btns {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -136,87 +142,42 @@
     bottom: 10px;
 }
 
-.btns button{
+.btns button {
     height: 40px;
     width: 160px;
     border: none;
     margin: 15px;
 }
 
-.btnback{
+.btnback {
     background-color: rgb(91, 91, 134);
     color: white;
     font-size: 14px;
 }
 
-.btnback:hover{
+.btnback:hover {
     cursor: pointer;
     color: rgb(14, 0, 65);
     background-color: rgb(50, 148, 205);
     transition: 0.3s;
 }
 
-.btnregister{
+.btnregister {
     background-color: rgb(118, 158, 87) ;
     color: white;
     font-size: 14px;
     transition: 0.3s;
 }
 
-.btnregister:hover{
+.btnregister:hover {
     cursor: pointer;
     color: rgb(0, 65, 0);
     background-color: yellowgreen;
 }
 
-.iconreg {
-    position: absolute;
-    left: 465px;
-    margin-left: 50px !important;
-    top: 28px;    
-    max-width: 77px !important;
-    max-height: 77px !important;
-}
-
-.iconregvis {
-    position: absolute;
-    left: 720px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.iconvisitis {
-    position: absolute;
-    left: 960px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.iconvisitor {
-    position: absolute;
-    left: 1165px;
-    margin-left: 50px !important;
-    top: 25px;    
-    max-width: 70px !important;
-    max-height: 70px !important;
-}
-
-.icontrain {
-    position: absolute;
-    left: 1350px;
-    margin-left: 50px !important;
-    top: 28px;    
-    max-width: 77px !important;
-    max-height: 77px !important;
-}
-
 .body {
-    background-color: #2b2f4c;
-    height: 100%;
+    background: linear-gradient(to bottom right, #2ecc71, #3498db);
+    height: 88%;
     width: 100%;
 }
 
@@ -224,9 +185,9 @@ h1 {
     color: rgba(255, 255, 255, 0.4);
     position: relative;
     text-align: center;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
-    font-size: 4em;
+    font-size: 62px;
     margin: auto;
 }
 
@@ -235,36 +196,33 @@ h2 {
     color: rgba(255, 255, 255, 0.7);
     position: relative;
     text-align: center;
-    top: 50%;
+    top: 40%;
+    font-size: larger;
     transform: translateY(-50%);
 }
 
-.content li {
-    color: white;
-    transition: 0.3s;
-    margin-left: 30px;
-    margin-right: 30px;
-}
+@media (max-width: 767px) {
+    .dashboard {
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+    }
 
-.content li:hover {
-    cursor: pointer;
-}
-
-.painelicons{
-    display: flex;
-    position: absolute;
-}
-
-.painelicons{
-    padding: 20px !important;
-}
-
-.painelicons img {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.painelicons img:hover {
-    transform: scale(1.04);
-}
-
+    .horizon {
+        display: none;
+    }
+    
+    .card img {
+        display: none;
+    }
+  
+    .card {
+      flex-direction: row; /* Torna os cards uma linha novamente */
+      top: 0;
+      margin: 10px 0;
+    }
+  
+    .card p {
+      font-size: 1rem; /* Reduza o tamanho da fonte para melhor ajuste em dispositivos móveis */
+    }
+  }
