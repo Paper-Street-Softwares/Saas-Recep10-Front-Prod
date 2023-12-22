@@ -255,6 +255,10 @@ h2 {
     position: absolute;
 }
 
+.painelicons{
+    padding: 20px !important;
+}
+
 .painelicons img {
     cursor: pointer;
     transition: 0.3s;

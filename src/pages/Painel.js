@@ -53,18 +53,31 @@ function Painel(){
 //MÉTODO PARA REQUISITAR UM USUÁRIO POR ID
 
   const handleClick = (itemId) => {
-    console.log(itemId);
-
     // Adicione o itemId ao final do endpoint da API
-    axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
-        .then(response => {
-            // Trate a resposta como necessário
-            console.log('Resposta da requisição:', response.data);
-        })
-        .catch(error => {
-            console.error('Erro na requisição:', error);
-        });
+        axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
+            .then(response => {
+                setVisitor(response.data)
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
 }
+
+    const [visitor, setVisitor] = useState([]);
+
+    const habilitarInput = (event) => {
+      event.preventDefault();
+      const infosDiv = document.getElementById("infos");
+      const inputs = infosDiv.querySelectorAll("input");
+      
+      for (const input of inputs) {
+        input.disabled = false;
+      }
+    };
+
+    useEffect(() => {
+        console.log(visitor); // Isso será executado sempre que visitor mudar
+      }, [visitor]);
 
     return(        
         <div className={style.content}>
@@ -145,11 +158,23 @@ function Painel(){
                                 <p>{item.name}</p>
                                 </div>)}
                         </div>
-
-                        <h1 className={style2.visitante2}>Visitante</h1>
-                        <div className={style2.quadro2}>
-                            <h2>TESTE</h2>
-                        </div>
+                            <h2 className={style2.visitante2}>Visitante</h2>
+                            <div className={style2.quadro2}>
+                                <div id="infos" className={style2.infos}>
+                                    <input id="camponome" maxLength={53} type="text" disabled value={visitor.name}/>
+                                    <input id="campotelefone" maxLength={53} type="text" disabled value={visitor.phone}/>
+                                    <input id="campogenero" maxLength={53} type="text" disabled value={visitor.gender}/>
+                                    <input id="campoidade" maxLength={53} type="text" disabled value={visitor.age}/>
+                                    <input id="campoendereco" maxLength={53} type="text" disabled value={visitor.address}/>
+                                    <input id="campocidade" maxLength={53} type="text" disabled value={visitor.cityAndState}/>
+                                    <input id="camporeligiao" maxLength={53} type="text" disabled value={visitor.religion}/>
+                                    <input id="campogrupo" maxLength={53} type="text" disabled value={visitor.smallGroup}/>
+                                    <input id="campoestudo" maxLength={53} type="text" disabled value={visitor.bibleStudy}/>
+                                </div>
+                                <button onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
+                                <button>APAGAR VISITANTE</button>
+                                <button>ATUALIZAR DADOS</button>
+                            </div>
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
