@@ -161,15 +161,15 @@ function Painel(){
                             <h2 className={style2.visitante2}>Visitante</h2>
                             <div className={style2.quadro2}>
                                 <div id="infos" className={style2.infos}>
-                                    <input id="camponome" maxLength={53} type="text" disabled value={visitor.name}/>
-                                    <input id="campotelefone" maxLength={53} type="text" disabled value={visitor.phone}/>
-                                    <input id="campogenero" maxLength={53} type="text" disabled value={visitor.gender}/>
-                                    <input id="campoidade" maxLength={53} type="text" disabled value={visitor.age}/>
-                                    <input id="campoendereco" maxLength={53} type="text" disabled value={visitor.address}/>
-                                    <input id="campocidade" maxLength={53} type="text" disabled value={visitor.cityAndState}/>
-                                    <input id="camporeligiao" maxLength={53} type="text" disabled value={visitor.religion}/>
-                                    <input id="campogrupo" maxLength={53} type="text" disabled value={visitor.smallGroup}/>
-                                    <input id="campoestudo" maxLength={53} type="text" disabled value={visitor.bibleStudy}/>
+                                    <input id="camponome" maxLength={53} type="text" disabled defaultValue={visitor.name}/>
+                                    <input id="campotelefone" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
+                                    <input id="campogenero" maxLength={53} type="text" disabled defaultValue={visitor.gender}/>
+                                    <input id="campoidade" maxLength={53} type="text" disabled defaultValue={visitor.age}/>
+                                    <input id="campoendereco" maxLength={53} type="text" disabled defaultValue={visitor.address}/>
+                                    <input id="campocidade" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/>
+                                    <input id="camporeligiao" maxLength={53} type="text" disabled defaultValue={visitor.religion}/>
+                                    <input id="campogrupo" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
+                                    <input id="campoestudo" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
                                 <button onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
                                 <button>APAGAR VISITANTE</button>
