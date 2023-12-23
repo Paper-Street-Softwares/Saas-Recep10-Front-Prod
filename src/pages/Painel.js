@@ -16,9 +16,14 @@ import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
 import { deleteUser } from '../functions/deleteUser';
 import '../functions/Search'
+import setupSearch from '../functions/Search'
+import FormRegister from '../components/FormRegister'
 
 
 function Painel(){
+  useEffect(() => {
+    setupSearch();
+  }, []);
   
   const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
 
@@ -228,27 +233,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
 
                 {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
 
-                <dialog className={style.register2} id="dialog3">
-                    <form className={style.formulario2}>
-                    <h1>Adicionar Visita</h1>
-                        <div>
-                            <input className={style.data} type='date' placeholder="Data"></input>
-                            <br></br><br></br>
-                            <div class="divSearch">
-                              <label htmlFor="search">Buscar Visitante: </label>
-                              <input type="search" />
-                            </div>
-                            <div class="content">
-
-                            </div>
-                        </div>
-                    </form>
-                    <div className={style.btns}>
-                        <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
-                        <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
-                    </div>
-
-                </dialog>
+                <FormRegister/>
 
                 {/* Abaixo Busca os VISITANTES */}
 
