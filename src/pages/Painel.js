@@ -14,13 +14,17 @@ import visitorsmg from '../images/visitors.png';
 import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
+import { deleteUser } from '../functions/deleteUser';
 import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
 import { TbReport } from "react-icons/tb";
 import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
+import AdicionarVisita from '../functions/AdicionarVisita'
 
 function Painel(){
+  /*Não mover o baseUrl pra baixo*/
+  const baseUrl = 'https://recep10-back.up.railway.app'
   
   const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
 
@@ -46,7 +50,7 @@ function Painel(){
 //MÉTODO PARA REQUISITAR TODOS OS VISITANTES
 
 useEffect(() => {
-    axios.get("https://recep10-back.up.railway.app/api/visitantes")
+    axios.get(`${baseUrl}/api/visitantes`)
         .then(response => {
             setVisitors(response.data);
         })
@@ -61,7 +65,9 @@ const [visitors, setVisitors] = useState([]);
 
 const handleClick = (itemId) => {
 // Adicione o itemId ao final do endpoint da API
-axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
+
+
+axios.get(`${baseUrl}/api/visitantes/${itemId}`)
     .then(response => {
         setVisitor(response.data)
     })
@@ -70,9 +76,14 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
     });
 
     const ativarEdicao = document.getElementById("edit")
+    const delDados = document.getElementById("del");
 
     ativarEdicao.style.pointerEvents = 'auto';
     ativarEdicao.style.cursor = 'pointer';
+
+    delDados.style.opacity = '1';
+    delDados.style.pointerEvents = 'auto';
+    delDados.style.cursor = 'pointer';
 
     anime({
         targets: ativarEdicao,
@@ -80,12 +91,37 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
         easing: 'linear',
         opacity: 1
     })
+
 }
 
     const [visitor, setVisitor] = useState([]);
 
+  //MÉTODO PARA DELETAR USUÁRIO
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
+
+    const resultado = window.confirm("Deseja realmente apagar o visitante " + visitor.name + "? Se fizer isto, as visitas deste visitante também serão apagadas.");
+    if(resultado){
+      try {
+        const id = visitor.id; // Supondo que visitor tenha uma propriedade id
+    
+        if (!id) {
+          console.error('ID do visitante não encontrado.');
+          return;
+        }
+    
+        await deleteUser(id);
+        // Adicione aqui a lógica desejada após a exclusão do usuário, se necessário
+      } catch (error) {
+        console.error('Erro ao excluir usuário:', error);
+      }
+      window.location.reload();
+    }
+  };
+
     const handleUpdateUser = async (event) => {
         event.preventDefault();
+
         const id = visitor.id; // Supondo que visitor tenha uma propriedade id
       
         if (!id) {
@@ -152,8 +188,10 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
     useEffect(() => {
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
-      
-    return(     
+
+
+    return(        
+
         <div className={style.content}>
             <div className={style.dashboard}>
                     <div className={style.card}>
@@ -202,6 +240,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
 
                 {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
 
+
                 <dialog className={style.register2} id="dialog3">
                     <form className={style.formulario2}>
                     <h1>Adicionar Visita</h1>
@@ -219,6 +258,10 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                         <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
                     </div>
                 </dialog>
+
+                
+                <AdicionarVisita/>
+
 
                 {/* Abaixo Busca os VISITANTES */}
 
@@ -243,9 +286,11 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                                     <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
                                     <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
+
                                 <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)} className={style2.btnalt}>EDITAR DADOS</button>
-                                <button className={style2.btnback}>APAGAR VISITANTE</button>
+                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser} className={style2.btnback}>APAGAR VISITANTE</button>
                                 <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser} className={style2.btnregister}>ATUALIZAR DADOS</button>
+
                             </div>
                   </div>
                 </form>

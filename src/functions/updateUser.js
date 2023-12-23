@@ -31,7 +31,8 @@ export const updateUser = async (id) => {
         
             if (response.ok) {
               console.log('Usuário atualizado com sucesso!');
-              return response.json(); // Pode retornar algum dado específico do servidor, se aplicável
+              window.location.reload();
+              return response.json();
             } else if (response.status === 404) {
               console.error('Usuário não encontrado: ' + id);
             } else if (response.status === 400) {
