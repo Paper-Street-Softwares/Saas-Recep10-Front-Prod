@@ -14,6 +14,10 @@ import visitorsmg from '../images/visitors.png';
 import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
+import { deleteUser } from '../functions/deleteUser';
+import '../functions/Search'
+import setupSearch from '../functions/Search'
+import FormRegister from '../components/FormRegister'
 import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
 import { TbReport } from "react-icons/tb";
@@ -21,6 +25,9 @@ import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
 
 function Painel(){
+  useEffect(() => {
+    setupSearch();
+  }, []);
   
   const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
 
@@ -70,9 +77,14 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
     });
 
     const ativarEdicao = document.getElementById("edit")
+    const delDados = document.getElementById("del");
 
     ativarEdicao.style.pointerEvents = 'auto';
     ativarEdicao.style.cursor = 'pointer';
+
+    delDados.style.opacity = '1';
+    delDados.style.pointerEvents = 'auto';
+    delDados.style.cursor = 'pointer';
 
     anime({
         targets: ativarEdicao,
@@ -80,12 +92,37 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
         easing: 'linear',
         opacity: 1
     })
+
 }
 
     const [visitor, setVisitor] = useState([]);
 
+  //MÉTODO PARA DELETAR USUÁRIO
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
+
+    const resultado = window.confirm("Deseja realmente apagar o visitante " + visitor.name + "? Se fizer isto, as visitas deste visitante também serão apagadas.");
+    if(resultado){
+      try {
+        const id = visitor.id; // Supondo que visitor tenha uma propriedade id
+    
+        if (!id) {
+          console.error('ID do visitante não encontrado.');
+          return;
+        }
+    
+        await deleteUser(id);
+        // Adicione aqui a lógica desejada após a exclusão do usuário, se necessário
+      } catch (error) {
+        console.error('Erro ao excluir usuário:', error);
+      }
+      window.location.reload();
+    }
+  };
+
     const handleUpdateUser = async (event) => {
         event.preventDefault();
+
         const id = visitor.id; // Supondo que visitor tenha uma propriedade id
       
         if (!id) {
@@ -153,7 +190,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
 
-    return(     
+    return(        
         <div className={style.content}>
             <div className={style.dashboard}>
                     <div className={style.card}>
@@ -201,6 +238,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                 </dialog>
 
                 {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
+                <FormRegister/>
 
                 <dialog className={style.register2} id="dialog3">
                     <form className={style.formulario2}>
@@ -246,7 +284,8 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                                     <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
                                 <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-                                <button>APAGAR VISITANTE</button>
+
+                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
                                 <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
                             </div>
                     </form>

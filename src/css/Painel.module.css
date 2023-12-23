@@ -239,6 +239,35 @@ h2 {
     transform: translateY(-50%);
 }
 
+.content li {
+    color: white;
+    transition: 0.3s;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.content li:hover {
+    cursor: pointer;
+}
+
+.painelicons{
+    display: flex;
+    position: absolute;
+}
+
+.painelicons{
+    padding: 20px !important;
+}
+
+.painelicons img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.painelicons img:hover {
+    transform: scale(1.04);
+}
+
 @media (max-width: 767px) {
     .dashboard {
       flex-direction: column;
