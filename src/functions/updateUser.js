@@ -14,7 +14,7 @@ export const updateUser = async (id) => {
         smallGroup: String(document.getElementById('grupoUpdate').value),
         bibleStudy: String(document.getElementById('estudoUpdate').value),
       };
-
+      
       const x = document.getElementById('generoUpdate').value
 
       if(x === ''){
