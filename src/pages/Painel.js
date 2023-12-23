@@ -189,7 +189,9 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
 
+
     return(        
+
         <div className={style.content}>
             <div className={style.dashboard}>
                     <div className={style.card}>
@@ -216,7 +218,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                 <div className={style.horizon} />
                 <dialog className={style.register} id="dialog2">
                     <form id="form" className={style.formulario}>
-                        <h1>Cadastro de Visitante</h1>
+                        <h1>Cadastro de Visita</h1>
                             <div>
                                 <input maxLength={53} id="nome" type='text' placeholder="Nome"></input>
                                 <input maxLength={17} id="telefone" type='text' pattern="[0-9]{9,17}" placeholder="Telefone"></input>
@@ -227,7 +229,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                                 <input maxLength={20} id="religiao" type='text' placeholder="Religião"></input>
                                 <input maxLength={53} id="grupo" type='text' placeholder="Frequenta pequeno grupo? Se sim, qual?"></input>
                                 <input maxLength={53} id="estudo" type='text' placeholder="Faz estudo bíblico? Se sim, com quem?"></input>
-                        </div>
+                            </div>
                         <div className={style.btns}>
                             <button onClick={fecharDialog2} className={style.btnback}>VOLTAR</button>
                             <button id="enviar" onClick={enviarVisitante} type="submit" className={style.btnregister}>CADASTRAR</button>
@@ -237,23 +239,43 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                 </dialog>
 
                 {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
+
+
+                <dialog className={style.register2} id="dialog3">
+                    <form className={style.formulario2}>
+                    <h1>Adicionar Visita</h1>
+                        <div>
+                            <input className={style.data} type='date' placeholder="Data"></input>
+                            <br></br><br></br>
+                            <select defaultValue="">
+                                <option id="vt" value="" disabled>Visitantes</option>
+                                <option>Carlos Daniel</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div className={style.btns}>
+                        <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
+                        <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
+                    </div>
+                </dialog>
+
                 
                 <AdicionarVisita/>
+
 
                 {/* Abaixo Busca os VISITANTES */}
 
                 <dialog id="dialog4" className={style2.visitantes}>
-                <form id="att">
-                        <h1 id="vt1">Visitantes</h1>
-                        <div id="quadro" className={style2.quadro}>
-                            {visitors.map(item => <div className={style2.nomes} key={item.id} onClick={() => handleClick(item.id)}
-                            >
+                <form id="form" className={style.formulario}>
+                  <h1 id="vt1">ALTERAR</h1>
+                  <div className={style2.box}>
+                        <div className={style2.quadro}>
+                            {visitors.map(item => <div className={style2.nomes} key={item.id} onClick={() => handleClick(item.id)}>
                                 <p>{item.name}</p>
                                 </div>)}
                         </div>
-                            <h2 id="vt2" className={style2.visitante2}>Visitante</h2>
-                            <div id="quadro2" className={style2.quadro2}>
-                                <div id="infos" className={style2.infos}>
+                            <div className={style2.quadro2}>
+                                <div className={style2.infos}>
                                     <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/>
                                     <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
                                     <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select>
@@ -264,12 +286,14 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                                     <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
                                     <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
-                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
 
-                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
-                                <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
+                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)} className={style2.btnalt}>EDITAR DADOS</button>
+                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser} className={style2.btnback}>APAGAR VISITANTE</button>
+                                <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser} className={style2.btnregister}>ATUALIZAR DADOS</button>
+
                             </div>
-                    </form>
+                  </div>
+                </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
               <div className={style.faixa} />
