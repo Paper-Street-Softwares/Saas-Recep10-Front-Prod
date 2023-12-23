@@ -18,6 +18,11 @@ import { deleteUser } from '../functions/deleteUser';
 import '../functions/Search'
 import setupSearch from '../functions/Search'
 import FormRegister from '../components/FormRegister'
+import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
+import { CiCalendarDate, CiSearch } from "react-icons/ci";
+import { TbReport } from "react-icons/tb";
+import { IoIosMore } from "react-icons/io";
+import { PiUserPlusThin } from "react-icons/pi";
 
 function Painel(){
   useEffect(() => {
@@ -139,7 +144,6 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
       const infosDiv = document.getElementById("infos");
       const inputs = infosDiv.querySelectorAll("input");
       const attDados = document.getElementById("upuser");
-
       const gend = document.getElementById("generoUpdate");
       const d4 = document.getElementById("quadro");
       const d5 = document.getElementById("quadro2");
@@ -188,41 +192,41 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
 
     return(        
         <div className={style.content}>
-            <div className={style.faixa}></div>
             <div className={style.dashboard}>
-                <div className={style.painelicons}>
-                    <img onClick={abrirDialog} className={style.iconreg} src={resgistervisit} alt="reg" />
-                    <img className={style.iconregvis} src={resgistervisitor} alt="reg2"/>
-                    <img className={style.iconvisitor} src={visitorsmg} alt="vis"/>
-                    <img className={style.iconvisitis} src={visits} alt="vis2"/>
-                    <img className={style.icontrain} src={training} alt="train"/>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog} className={style.icon} src={resgistervisit} alt="reg" />
+                        <p onClick={abrirDialog}>REGISTRAR VISITANTE</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog2} className={style.icon} src={resgistervisitor} alt="reg2"/>
+                        <p onClick={abrirDialog2}>ADICIONAR VISITA</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog3} className={style.icon} src={visitorsmg} alt="vis"/>
+                        <p onClick={abrirDialog3}>BUSCAR VISITA</p>
+                    </div>
+                    <div className={style.card}>
+                        <img onClick={abrirDialog4} className={style.icon} src={visits} alt="vis2"/>
+                        <p onClick={abrirDialog4}>BUSCAR VISITANTES</p>
+                    </div>
+                    <div className={style.card}>
+                        <img className={style.icon} src={training} alt="train"/>
+                        <p>TREINAMENTO</p>
+                    </div>
                 </div>
-                <ul>
-                    <li onClick={abrirDialog2}>REGISTRAR VISITANTE</li>
-                    <li onClick={abrirDialog3}>ADICIONAR VISITA</li>
-                    <li onClick={abrirDialog4}>BUSCAR VISITANTES</li>
-                    <li>RELATÓRIOS</li>
-                </ul>
+                <div className={style.horizon} />
                 <dialog className={style.register} id="dialog2">
                     <form id="form" className={style.formulario}>
                         <h1>Cadastro de Visitante</h1>
                             <div>
-                                <input maxLength={53} id="nome" type='text' placeholder="Nome completo"></input>
-                                <br></br><br></br>
+                                <input maxLength={53} id="nome" type='text' placeholder="Nome"></input>
                                 <input maxLength={17} id="telefone" type='text' pattern="[0-9]{9,17}" placeholder="Telefone"></input>
-                                <br></br><br></br>
                                 <select id="genero" defaultValue=""><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select>
-                                <br></br><br></br>
                                 <input id="idade" type="text" maxLength={3} pattern="[0-9]{1,3}" placeholder="Idade"/>
-                                <br></br><br></br>
                                 <input maxLength={50} id="endereco" type='text' placeholder="Endereço"></input>
-                                <br></br><br></br>
                                 <input maxLength={50} id="cidadeestado" type='text' placeholder="Cidade e Estado"></input>
-                                <br></br><br></br>
                                 <input maxLength={20} id="religiao" type='text' placeholder="Religião"></input>
-                                <br></br><br></br>
                                 <input maxLength={53} id="grupo" type='text' placeholder="Frequenta pequeno grupo? Se sim, qual?"></input>
-                                <br></br><br></br>
                                 <input maxLength={53} id="estudo" type='text' placeholder="Faz estudo bíblico? Se sim, com quem?"></input>
                         </div>
                         <div className={style.btns}>
@@ -287,13 +291,30 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
-              </div>
               <div className={style.faixa} />
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>
                 <h2>
                   Hoje é {formatarData(dataHoraAtual)} - {formatarHora(dataHoraAtual)}
                 </h2>
+              </div>
+              <div className={style.navbar}>
+                <div className={style.navbarborder} />
+                  <div onClick={abrirDialog} className={style.icon}>
+                    <PiUserPlusThin />
+                  </div>
+                  <div onClick={abrirDialog3} className={style.icon}>
+                    <CiCalendarDate />
+                  </div>
+                  <div onClick={abrirDialog4} className={style.icon}>
+                    <CiSearch />
+                  </div> 
+                  {/*<div className={style.icon}>
+                    <TbReport />
+                  </div> */}
+                  <div className={style.icon}>
+                    <IoIosMore />
+                  </div>                 
               </div>
             </div>
     );
