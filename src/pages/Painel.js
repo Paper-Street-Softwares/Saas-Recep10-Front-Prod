@@ -15,19 +15,16 @@ import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
 import { deleteUser } from '../functions/deleteUser';
-import '../functions/Search'
-import setupSearch from '../functions/Search'
-import FormRegister from '../components/FormRegister'
 import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
 import { TbReport } from "react-icons/tb";
 import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
+import AdicionarVisita from '../functions/AdicionarVisita'
 
 function Painel(){
-  useEffect(() => {
-    setupSearch();
-  }, []);
+  /*Não mover o baseUrl pra baixo*/
+  const baseUrl = 'https://recep10-back.up.railway.app'
   
   const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
 
@@ -53,7 +50,7 @@ function Painel(){
 //MÉTODO PARA REQUISITAR TODOS OS VISITANTES
 
 useEffect(() => {
-    axios.get("https://recep10-back.up.railway.app/api/visitantes")
+    axios.get(`${baseUrl}/api/visitantes`)
         .then(response => {
             setVisitors(response.data);
         })
@@ -68,7 +65,9 @@ const [visitors, setVisitors] = useState([]);
 
 const handleClick = (itemId) => {
 // Adicione o itemId ao final do endpoint da API
-axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
+
+
+axios.get(`${baseUrl}/api/visitantes/${itemId}`)
     .then(response => {
         setVisitor(response.data)
     })
@@ -238,26 +237,8 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                 </dialog>
 
                 {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
-                <FormRegister/>
-
-                <dialog className={style.register2} id="dialog3">
-                    <form className={style.formulario2}>
-                    <h1>Adicionar Visita</h1>
-                        <div>
-                            <input className={style.data} type='date' placeholder="Data"></input>
-                            <br></br><br></br>
-                            <select defaultValue="">
-                                <option id="vt" value="" disabled>Visitantes</option>
-                                <option>Carlos Daniel</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div className={style.btns}>
-                        <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
-                        <button onClick={abrirDialog3} className={style.btnregister}>ADICIONAR</button>
-                    </div>
-
-                </dialog>
+                
+                <AdicionarVisita/>
 
                 {/* Abaixo Busca os VISITANTES */}
 
