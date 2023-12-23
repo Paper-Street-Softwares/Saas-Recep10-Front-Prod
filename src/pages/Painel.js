@@ -152,7 +152,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
     useEffect(() => {
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
-
+      
     return(     
         <div className={style.content}>
             <div className={style.dashboard}>
@@ -191,7 +191,7 @@ axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
                                 <input maxLength={20} id="religiao" type='text' placeholder="Religião"></input>
                                 <input maxLength={53} id="grupo" type='text' placeholder="Frequenta pequeno grupo? Se sim, qual?"></input>
                                 <input maxLength={53} id="estudo" type='text' placeholder="Faz estudo bíblico? Se sim, com quem?"></input>
-                        </div>
+                            </div>
                         <div className={style.btns}>
                             <button onClick={fecharDialog2} className={style.btnback}>VOLTAR</button>
                             <button id="enviar" onClick={enviarVisitante} type="submit" className={style.btnregister}>CADASTRAR</button>

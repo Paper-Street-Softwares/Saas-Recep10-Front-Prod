@@ -71,9 +71,9 @@
 }
 
 .register::backdrop {
-    background-color: #14635600;
-    backdrop-filter: blur(5px);
-    transition: backdrop-filter 0.3s ease-in-out;
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
 }
 
 .register2 {
@@ -95,11 +95,10 @@
 }
 
 .register2::backdrop {
-    background-color: #14635600;
-    backdrop-filter: blur(5px);
-    transition: backdrop-filter 0.3s ease-in-out;
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
 }
-
 
 .data {
     border-radius: 8px;
@@ -273,7 +272,7 @@ h2 {
     }
   }
 
-@media (max-width: 425px) {
+@media (max-width: 430px) {
     .body {
         margin: 0;
         padding: 0;

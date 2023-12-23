@@ -150,10 +150,25 @@
     margin-top: 50px;
 }
 
-@media (max-width: 425px) {
+.box::backdrop {
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
+}
+
+@media (max-width: 430px) {
     .formulario {
         display: flex;
         flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .visitantes h1 {
+        top: 0;
     }
 
     .visitantes {
@@ -168,6 +183,7 @@
         width: 100%;
         border-radius: 10px;
         top: 0;
+        max-height: 300px;
     }
     
     .visitantes h1 {
@@ -181,7 +197,7 @@
         width: 100%;
         border-radius: 10px;
         overflow-y: scroll;
-        top: 5%;
+        top: 0;
     }
 
     .visitantes {
