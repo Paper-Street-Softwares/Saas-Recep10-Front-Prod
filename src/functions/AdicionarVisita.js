@@ -6,7 +6,6 @@ import SearchFilter from './SearchFilter';
 const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [visitDate, setVisitDate] = useState('');
-  const [message, setMessage] = useState('');
 
   useEffect(() => {
     axios.get("https://recep10-back.up.railway.app/api/visitantes")
@@ -28,44 +27,43 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
     setVisitDate(date);
   };
 
-  const handleAddVisit = () => {
-    if (selectedUser && visitDate) {
+  const handleAddVisit = async () => {
+    try {
+      if (!selectedUser || !visitDate) {
+        window.alert("Selecione uma Data e um Visitante!");
+        return;
+      }
+
+      // Carregar as visitas antes de verificar se o usuário já possui uma visita na data especificada
+      const response = await axios.get("https://recep10-back.up.railway.app/api/visitas");
+      const visits = response.data;
+
+      // Verificar se o usuário já possui uma visita na data especificada
+      const hasVisitOnDate = visits.some(visitor => {
+        return (
+          visitor.visitanteId === selectedUser.id &&
+          visitor.visitDate === visitDate
+        );
+      });
+
+      if (hasVisitOnDate) {
+        window.alert("Já existe uma visita neste dia, selecione outra data.");
+        return;
+      }
+
+      // Continuar com a lógica de adicionar visita se o usuário não tiver visita na data
       const visitData = {
         visitDate,
         visitanteId: selectedUser.id,
       };
-  
-      axios.post("https://recep10-back.up.railway.app/api/visitas", visitData)
-        .then(response => {
-          setMessage('Visita adicionada com sucesso!');
-        })
-        .catch(error => {
-          console.error('Erro na requisição POST:', error);
-  
-          if (error.response) {
-            // O servidor retornou uma resposta com um status diferente de 2xx
-            console.error('Resposta do servidor:', error.response.data);
-            console.error('Status do erro:', error.response.status);
-            console.error('Cabeçalhos do erro:', error.response.headers);
-          } else if (error.request) {
-            // A requisição foi feita, mas não houve resposta do servidor
-            console.error('Sem resposta do servidor:', error.request);
-          } else {
-            // Algo aconteceu na configuração da requisição que gerou o erro
-            console.error('Erro de configuração da requisição:', error.message);
-          }
-  
-          setMessage('Erro ao adicionar visita. Consulte o console para mais informações.');
-        });
-    } else {
-      const errorMessage = selectedUser
-        ? 'Selecione uma data para adicionar uma visita.'
-        : 'Selecione um usuário e uma data para adicionar uma visita.';
-  
-      setMessage(`O id do usuário é: ${selectedUser?.id || 'N/A'}. ${errorMessage}`);
+
+      await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
+      window.alert('Visita adicionada com sucesso!');
+    } catch (error) {
+      console.error('Erro ao realizar operações:', error);
+      window.alert("Ja existe uma data cadastrada neste dia para este visitante!");
     }
   };
-  
 
   return (
     <dialog className={style.register2} id="dialog3">
@@ -78,7 +76,6 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
         <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
         <button onClick={handleAddVisit} className={style.btnregister}>ADICIONAR</button>
       </div>
-      {message && <p>{message}</p>}
     </dialog>
   );
 };

@@ -5,6 +5,7 @@ const SearchFilter = ({ onUserClick }) => {
   const [visitors, setVisitors] = useState([]);
   const [names, setNames] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedUserName, setSelectedUserName] = useState('');
 
   useEffect(() => {
     axios.get("https://recep10-back.up.railway.app/api/visitantes")
@@ -30,6 +31,8 @@ const SearchFilter = ({ onUserClick }) => {
 
   const handleUserClick = (userId, userName) => {
     onUserClick(userId, userName);
+    setSelectedUserName(userName);
+    setSearchTerm(userName); // Atualiza o termo de pesquisa para o nome clicado
   };
 
   return (

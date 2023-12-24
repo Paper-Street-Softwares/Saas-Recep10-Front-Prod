@@ -49,7 +49,7 @@
 .horizon {
     width: 100%;
     height: 105px; 
-    background-color: #4bd8bc; 
+    background-color: #ADD8E6; 
 }
 
 .register {
@@ -63,7 +63,7 @@
     transform: translate(-50%, -40%);
     background-color: rgba(253, 0, 0, 0);
     border-radius: 8px;     
-    width: 450px;
+    width: 400px;
     height: 580px;
     font-size: 16px;
     font-weight: 500;
@@ -71,9 +71,8 @@
 }
 
 .register::backdrop {
-    background-color: #ffffff;
-    max-height: 90%;
-    transition: backdrop-filter 0s ease-in-out;
+    backdrop-filter: blur(5px);
+    transition: backdrop-filter 0.3s ease-in-out;
 }
 
 .register2 {
@@ -95,15 +94,12 @@
 }
 
 .register2::backdrop {
-    background-color: #ffffff;
-    max-height: 90%;
-    transition: backdrop-filter 0s ease-in-out;
+    backdrop-filter: blur(5px);
+    transition: backdrop-filter 0.3s ease-in-out;
 }
 
+
 .data {
-    border-radius: 8px;
-    color: #cac6c6b4;
-    border: 1px solid #ccc;
     position: absolute;
     top: 120px;
     right: 130px;
@@ -115,21 +111,20 @@
     border-radius: 8px;
     border-width: 1px;
     border-style: solid;
-    border-color: #cccccc70;
+    border-color: #ccc;
     color: #333;
-    margin-bottom: 8px;
-    margin-top: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .register input::placeholder {
-    color: #cac6c6b4;
+    color: #cac6c6;
     font-size: 12px;
     padding: 10px;
 }
 
 .formulario {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
@@ -144,19 +139,15 @@
 }
 
 .formulario2 select {
-    color: #cac6c6b4;
-    border-radius: 8px;
-    border-color: #cac6c6b4;
     width: 350px;
     height: 33px;
-    padding: 0 0 0 10px;
 }
 
 .formulario2 h1 {
     position: absolute;
     top: -100px;
     margin-bottom: 10px;
-    color: #43cfb8bb;
+    color: #146356;
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -164,20 +155,15 @@
 }
 
 .formulario select {
-    color: #cac6c6b4;
-    border-color: #cac6c6b4;
-    border-radius: 8px;
     width: 350px;
     height: 33px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 .formulario h1 {
     position: absolute;
     top: -120px;
     margin-bottom: 10px;
-    color: #43cfb8bb;
+    color: #146356;
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -204,7 +190,13 @@
     color: white;
     font-size: 12px;
     border-radius: 20px;
-    box-shadow: none;
+}
+
+.btnback:hover {
+    cursor: pointer;
+    color: rgb(14, 0, 65);
+    background-color: rgb(50, 148, 205);
+    transition: 0.3s;
 }
 
 .btnregister {
@@ -213,7 +205,12 @@
     font-size: 12px;
     transition: 0.3s;
     border-radius: 20px;
-    box-shadow: none;
+}
+
+.btnregister:hover {
+    cursor: pointer;
+    color: rgb(0, 65, 0);
+    background-color: yellowgreen;
 }
 
 .body {
@@ -301,7 +298,7 @@ h2 {
     }
   }
 
-@media (max-width: 430px) {
+@media (max-width: 450px) {
     .body {
         margin: 0;
         padding: 0;
@@ -310,12 +307,7 @@ h2 {
         position: relative;
         padding-bottom: 300px;
     }
-
-    .register,
-    .register2 {
-        box-shadow: none;
-    }
-
+    
     .navbar {
         position: fixed;
         bottom: 0;
@@ -340,7 +332,7 @@ h2 {
     }
 
     .card {
-        background-color: rgba(255, 0, 0, 0); 
+        background-color: rgba(255, 255, 255, 0); 
         border-radius: 8px;
         max-width: calc(50% - 20px); 
         cursor: pointer;
