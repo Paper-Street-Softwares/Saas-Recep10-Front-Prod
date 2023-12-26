@@ -40,7 +40,7 @@ const Login = () => {
       <h2>Login</h2>
       <form>
         <label htmlFor="email">Email:</label>
-        <input
+        <input id="inputlogin"
           type="text"
           id="email"
           value={email}
