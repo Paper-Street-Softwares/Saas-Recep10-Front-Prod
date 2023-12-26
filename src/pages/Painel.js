@@ -21,7 +21,6 @@ import { PiUserPlusThin } from "react-icons/pi";
 import AdicionarVisita from '../functions/AdicionarVisita'
 import Relatorio from '../functions/Relatorio'
 import SearchFilterUpdate from '../functions/SearchFilterUpdate'
-import { IoExitOutline } from "react-icons/io5";
 
 
 function Painel(){

@@ -71,7 +71,7 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
     <dialog className={style.register2} id="dialog3">
       <form className={style.formulario2}>
         <h1>Adicionar Visita</h1>
-        <input id="datavisita" type="date" onChange={handleDateChange}></input>
+        <input type="date" onChange={handleDateChange}></input>
         <SearchFilter onUserClick={handleUserClick} />
       </form>
       <div className={style.btns}>

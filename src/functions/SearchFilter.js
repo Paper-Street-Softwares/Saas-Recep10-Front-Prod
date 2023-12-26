@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import style from '../css/Painel.module.css'
 
 const SearchFilter = ({ onUserClick }) => {
   const [visitors, setVisitors] = useState([]);
@@ -38,11 +39,11 @@ const SearchFilter = ({ onUserClick }) => {
   return (
     <div>
       <h2>Lista de Nomes</h2>
-      <input
+      <input className={style.nameInput}
         type="text"
         value={searchTerm}
         onChange={filterNames}
-        placeholder="Digite um nome..."
+        placeholder="Digite um nome..."        
       />
 
       {searchTerm && (

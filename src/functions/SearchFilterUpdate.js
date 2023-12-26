@@ -7,6 +7,7 @@ const SearchFilterUpdate = ({ onUserClick }) => {
   const [names, setNames] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedUserName, setSelectedUserName] = useState('');
+  const [showList, setShowList] = useState(false);
 
   const handleClick = (itemId) => {
     axios.get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
@@ -57,6 +58,7 @@ const SearchFilterUpdate = ({ onUserClick }) => {
     );
 
     setNames(filteredNames);
+    setShowList(true);
   };
 
   const handleUserClick = (userId, userName) => {
@@ -65,11 +67,12 @@ const SearchFilterUpdate = ({ onUserClick }) => {
       onUserClick(userId, userName);
       setSelectedUserName(userName);
       setSearchTerm(userName); // Atualiza o termo de pesquisa para o nome clicado
+      setShowList(false);
     }
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <input
         type="text"
         value={searchTerm}
@@ -78,13 +81,15 @@ const SearchFilterUpdate = ({ onUserClick }) => {
       />
 
       {searchTerm && (
-        <ul>
-          {names.map((visitor, index) => (
-            <li key={index} onClick={() => handleUserClick(visitor.id, visitor.name)}>
-              {visitor.name}
-            </li>
-          ))}
-        </ul>
+        <div className="float-list">
+          <ul>
+            {names.map((visitor, index) => (
+              <li key={index} onClick={() => handleUserClick(visitor.id, visitor.name)}>
+                {visitor.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
