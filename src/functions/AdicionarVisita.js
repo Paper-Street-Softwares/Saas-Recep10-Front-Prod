@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from '../css/Painel.module.css';
 import SearchFilter from './SearchFilter';
+import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
+
 
 const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -73,7 +75,7 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
         <SearchFilter onUserClick={handleUserClick} />
       </form>
       <div className={style.btns}>
-        <button onClick={fecharDialog3} className={style.btnback}>VOLTAR</button>
+        <button onClick={fecharDialog4} className={style.btnback}>VOLTAR</button>
         <button onClick={handleAddVisit} className={style.btnregister}>ADICIONAR</button>
       </div>
     </dialog>

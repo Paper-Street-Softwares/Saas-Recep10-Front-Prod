@@ -50,10 +50,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
 .error {
   border: 1px solid red;
 }

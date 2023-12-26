@@ -112,6 +112,41 @@
 .regaut h1 {
     display: flex;
     justify-content: center;
+    align-items: center;
+    top: 0;
+}
+
+.regaut p {
+    display: flex;
+    justify-content: center;
+}
+
+.regaut button {
+    background-color: #ff9999;
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 37%;
+}
+
+.regaut input {
+    width: 350px;
+    line-height: 2;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc70;
+    color: #333;
+    margin: 8px 0 0 8px;
+}
+
+.regaut input::placeholder {
+    color: #cac6c6b4;
+    font-size: 12px;
+    padding: 10px;
 }
 
 .register2 {
@@ -418,7 +453,7 @@ h2 {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin-top: 150px;
         margin-bottom: 10px;
-        font-size: 36px;
+        font-size: 45px;
     }
 
     h2 {

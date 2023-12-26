@@ -1,6 +1,6 @@
 import style from '../css/Painel.module.css'
 import style2 from '../css/Visitantes.module.css'
-import { abrirDialog} from '../functions/DialogController'
+import { abrirDialog, fecharDialog} from '../functions/DialogController'
 import { abrirDialog2, enviarVisitante, fecharDialog2 } from '../functions/DialogController2'
 import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3'
 import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
@@ -15,14 +15,14 @@ import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
 import { deleteUser } from '../functions/deleteUser';
-import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
-import { TbReport } from "react-icons/tb";
 import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
 import AdicionarVisita from '../functions/AdicionarVisita'
 import Relatorio from '../functions/Relatorio'
 import SearchFilterUpdate from '../functions/SearchFilterUpdate'
+import { IoExitOutline } from "react-icons/io5";
+
 
 function Painel(){
   /*Não mover o baseUrl pra baixo*/
@@ -254,26 +254,28 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                         <div id="quadro" className={style2.quadro}>
                         <SearchFilterUpdate onUserClick={handleClick} />
                         </div>
-                            <h2 id="vt2" className={style2.visitante2}>Visitante</h2>
                             <div id="quadro2" style={{opacity:'0'}} className={style2.quadro2}>
-                                <div id="infos" className={style2.infos}>
-                                    <label>Nome: <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/></label>
-                                    <label>Telefone: <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/></label>
-                                    <label>Gênero: <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select></label>
-                                    <label>Idade: <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/></label>
-                                    <label>Endereço: <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/></label>
-                                    <label>Cidade e Estado: <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/></label>
-                                    <label>Religião: <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/></label>
-                                    <label>Pequeno Grupo: <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/></label>
-                                    <label>Estudo Bíblico: <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/></label>
+                                <div id="infos" className={style2.quadro2}>
+                                    <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name} placeholder="Nome"/>
+                                    <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
+                                    <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select>
+                                    <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/>
+                                    <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/>
+                                    <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/>
+                                    <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/>
+                                    <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
+                                    <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
                                 </div>
-                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-
-                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
-                                <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
+                                <div className={style2.btns}>
+                                  <button className={style2.btnalt} id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
+                                  <button className={style2.btnexc} id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
+                                  <button className={style2.btnatt} id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR</button>
+                                </div>
                             </div>
                     </form>
-                    <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
+                    <div onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}>
+                    <IoExitOutline />
+                    </div>
                 </dialog>
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>
