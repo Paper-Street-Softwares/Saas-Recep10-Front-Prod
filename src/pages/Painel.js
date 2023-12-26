@@ -193,7 +193,8 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
 
-    return(        
+    return(      
+
         <div className={style.content}>
             <div className={style.dashboard}>
                     <div className={style.card}>
@@ -248,7 +249,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                 {/* Abaixo Busca os VISITANTES */}
 
                 <dialog id="dialog4" className={style2.visitantes}>
-                <form id="att">
+                <form id="att" className={style.formulario2}>
                         <h1 id="vt1">Visitantes</h1>
                         <div id="quadro" className={style2.quadro}>
                         <SearchFilterUpdate onUserClick={handleClick} />
@@ -274,7 +275,6 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
-              <div className={style.faixa} />
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>
                 <h2>

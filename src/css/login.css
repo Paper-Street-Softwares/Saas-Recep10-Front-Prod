@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -8,6 +7,10 @@ body {
 }
 
 .login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   padding: 20px;
   border-radius: 8px;

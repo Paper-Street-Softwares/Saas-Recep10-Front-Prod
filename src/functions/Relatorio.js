@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import style from '../css/Painel.module.css'
 
 const Relatorio = ({ onUserClick }) => {
   const [visitors, setVisitors] = useState([]);
@@ -66,16 +67,11 @@ const Relatorio = ({ onUserClick }) => {
 
   return (
     <div>
-      <dialog id="rel">
+      <dialog className={style.regaut} id="rel">
         <h1 style={{ pointerEvents: 'none' }}>Relatório</h1>
         <div>
           <p onClick={fecharDialog}>FECHAR</p>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={filterNames}
-            placeholder="Digite um nome..."
-          />
+          <input type="text" value={searchTerm} onChange={filterNames} placeholder="Digite um nome..." />
           {isRelDialogOpen && (
             <table>
               <thead>

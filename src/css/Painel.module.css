@@ -1,7 +1,16 @@
 .content {
     width: 100%;
     height: 100vh;
+    display: flex;
 }
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
 
 .card {
     top: 30%;
@@ -49,7 +58,7 @@
 .horizon {
     width: 100%;
     height: 105px; 
-    background-color: #ADD8E6; 
+    background-color: #4bd8bc; 
 }
 
 .register {
@@ -63,7 +72,7 @@
     transform: translate(-50%, -40%);
     background-color: rgba(253, 0, 0, 0);
     border-radius: 8px;     
-    width: 400px;
+    width: 450px;
     height: 580px;
     font-size: 16px;
     font-weight: 500;
@@ -71,8 +80,38 @@
 }
 
 .register::backdrop {
-    backdrop-filter: blur(5px);
-    transition: backdrop-filter 0.3s ease-in-out;
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
+}
+
+.regaut {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(253, 0, 0, 0);
+    border-radius: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background-color: rgba(253, 0, 0, 0);
+    border-radius: 8px;     
+    width: 450px;
+    height: 580px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.regaut::backdrop {
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
+}
+
+.regaut h1 {
+    display: flex;
+    justify-content: center;
 }
 
 .register2 {
@@ -83,23 +122,26 @@
     border-radius: 0;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
     background-color: rgba(253, 0, 0, 0);
-    top: 150px;
+    top: 250px;
     width: 500px;
-    height: 300px;
+    height: 400px;
     font-size: 16px;
     font-weight: 500;
     line-height: 1;
 }
 
 .register2::backdrop {
-    backdrop-filter: blur(5px);
-    transition: backdrop-filter 0.3s ease-in-out;
+    background-color: #ffffff;
+    max-height: 90%;
+    transition: backdrop-filter 0s ease-in-out;
 }
 
-
 .data {
+    border-radius: 8px;
+    color: #cac6c6b4;
+    border: 1px solid #ccc;
     position: absolute;
     top: 120px;
     right: 130px;
@@ -111,20 +153,21 @@
     border-radius: 8px;
     border-width: 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: #cccccc70;
     color: #333;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 .register input::placeholder {
-    color: #cac6c6;
+    color: #cac6c6b4;
     font-size: 12px;
     padding: 10px;
 }
 
 .formulario {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
@@ -139,15 +182,19 @@
 }
 
 .formulario2 select {
+    color: #cac6c6b4;
+    border-radius: 8px;
+    border-color: #cac6c6b4;
     width: 350px;
     height: 33px;
+    padding: 0 0 0 10px;
 }
 
 .formulario2 h1 {
     position: absolute;
     top: -100px;
     margin-bottom: 10px;
-    color: #146356;
+    color: #43cfb8bb;
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -155,15 +202,20 @@
 }
 
 .formulario select {
+    color: #cac6c6b4;
+    border-color: #cac6c6b4;
+    border-radius: 8px;
     width: 350px;
     height: 33px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .formulario h1 {
     position: absolute;
     top: -120px;
     margin-bottom: 10px;
-    color: #146356;
+    color: #43cfb8bb;
     font-size: xx-large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -190,13 +242,7 @@
     color: white;
     font-size: 12px;
     border-radius: 20px;
-}
-
-.btnback:hover {
-    cursor: pointer;
-    color: rgb(14, 0, 65);
-    background-color: rgb(50, 148, 205);
-    transition: 0.3s;
+    box-shadow: none;
 }
 
 .btnregister {
@@ -205,18 +251,13 @@
     font-size: 12px;
     transition: 0.3s;
     border-radius: 20px;
-}
-
-.btnregister:hover {
-    cursor: pointer;
-    color: rgb(0, 65, 0);
-    background-color: yellowgreen;
+    box-shadow: none;
 }
 
 .body {
     background: white;
     height: 88%;
-    width: 100%;
+    width: 100vh;
 }
 
 h1 {
@@ -231,7 +272,7 @@ h1 {
 
 h2 {
     margin: auto;
-    color: #28b29a;
+    color: #28b29a !important;
     position: relative;
     text-align: center;
     top: 40%;
@@ -268,6 +309,10 @@ h2 {
     transform: scale(1.04);
 }
 
+.body {
+    background-color: white;
+}
+
 @media (max-width: 767px) {
     .dashboard {
       flex-direction: column;
@@ -298,17 +343,27 @@ h2 {
     }
   }
 
-@media (max-width: 450px) {
+@media (max-width: 430px) {
     .body {
         margin: 0;
         padding: 0;
-        height: 100%;
+        height: 80vh;
         overflow-x: hidden;
         position: relative;
-        padding-bottom: 300px;
+        padding-bottom: 250px;
     }
-    
-    .navbar {
+
+    .content {
+        background-color: white;
+    }
+
+    .register,
+    .register2,
+    .regaut {
+        box-shadow: none;
+    }
+
+   .navbar {
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -332,7 +387,7 @@ h2 {
     }
 
     .card {
-        background-color: rgba(255, 255, 255, 0); 
+        background-color: rgba(255, 0, 0, 0); 
         border-radius: 8px;
         max-width: calc(50% - 20px); 
         cursor: pointer;
@@ -363,11 +418,11 @@ h2 {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin-top: 150px;
         margin-bottom: 10px;
-        font-size: 45px;
+        font-size: 36px;
     }
 
     h2 {
-        font-size: small;
+        font-size: small !important;
     }
 
     .icon {
