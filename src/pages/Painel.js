@@ -1,6 +1,6 @@
 import style from '../css/Painel.module.css'
 import style2 from '../css/Visitantes.module.css'
-import { abrirDialog} from '../functions/DialogController'
+import { abrirDialog, fecharDialog} from '../functions/DialogController'
 import { abrirDialog2, enviarVisitante, fecharDialog2 } from '../functions/DialogController2'
 import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3'
 import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
@@ -15,20 +15,23 @@ import training from '../images/training.png';
 import anime from "animejs";
 import { updateUser } from '../functions/updateUser';
 import { deleteUser } from '../functions/deleteUser';
-import { FaUserPlus, FaUser, FaIdBadge, FaBell, FaEnvelope, FaSettings } from 'react-icons/fa';
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
-import { TbReport } from "react-icons/tb";
 import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
 import AdicionarVisita from '../functions/AdicionarVisita'
 import Relatorio from '../functions/Relatorio'
 import SearchFilterUpdate from '../functions/SearchFilterUpdate'
+import { IoExitOutline } from "react-icons/io5";
+
 
 function Painel(){
   /*Não mover o baseUrl pra baixo*/
   const baseUrl = 'https://recep10-back.up.railway.app'
   
   const [dataHoraAtual, setDataHoraAtual] = useState(new Date());
+
+  const [dialogAtiva, setDialogAtiva] = useState(false);
+  const [visitanteSelecionado, setVisitanteSelecionado] = useState(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -73,6 +76,7 @@ const handleClick = (itemId) => {
 axios.get(`${baseUrl}/api/visitantes/${itemId}`)
     .then(response => {
         setVisitor(response.data)
+        setVisitanteSelecionado(itemId);
     })
     .catch(error => {
         console.error('Erro na requisição:', error);
@@ -175,13 +179,14 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
         targets: d5,
         duration: 200,
         easing: "linear",
-        left: 420,
+        left: 0,
       });
+
       anime({
         targets: vt2,
         duration: 200,
         easing: "linear",
-        left: 180,
+        left: 0,
       });
 
       for (const input of inputs) {
@@ -193,7 +198,8 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
 
-    return(        
+    return(      
+
         <div className={style.content}>
             <div className={style.dashboard}>
                     <div className={style.card}>
@@ -253,9 +259,8 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                         <div id="quadro" className={style2.quadro}>
                         <SearchFilterUpdate onUserClick={handleClick} />
                         </div>
-                            <h2 id="vt2" className={style2.visitante2}>Visitante</h2>
-                            <div id="quadro2" style={{opacity:'0'}} className={style2.quadro2}>
-                                <div id="infos" className={style2.infos}>
+                            <h2 id="vt2" className={style2.visitante2}></h2>
+                            <div id="quadro2" className={`${style2.quadro2} ${dialogAtiva ? style2.active : ''}`}>                                <div id="infos" className={style2.infos}>
                                     <label>Nome: <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/></label>
                                     <label>Telefone: <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/></label>
                                     <label>Gênero: <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select></label>
@@ -267,14 +272,12 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                                     <label>Estudo Bíblico: <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/></label>
                                 </div>
                                 <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-
                                 <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
                                 <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
                             </div>
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
-              <div className={style.faixa} />
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>
                 <h2>
@@ -283,7 +286,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
               </div>
               <div className={style.navbar}>
                 <div className={style.navbarborder} />
-                  <div onClick={abrirDialog} className={style.icon}>
+                  <div onClick={abrirDialog2} src={resgistervisitor} className={style.icon}>
                     <PiUserPlusThin />
                   </div>
                   <div onClick={abrirDialog3} className={style.icon}>

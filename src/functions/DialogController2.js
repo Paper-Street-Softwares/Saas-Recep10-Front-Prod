@@ -19,7 +19,7 @@ function enviarVisitante(event) {
     window.alert("Selecione um gênero!!!")
     event.preventDefault();
   }
-  else{
+  else {
     const form = document.getElementById("form");
 
     form.addEventListener("submit", async (event) => {
