@@ -216,6 +216,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                         <img className={style.icon} src={training} alt="train"/>
                         <p>TREINAMENTO</p>
                     </div>
+                    <Relatorio onUserClick={handleClick}/>
                 </div>
                 <div className={style.horizon} />
                 <dialog className={style.register} id="dialog2">
@@ -298,7 +299,6 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                     <IoIosMore />
                   </div>                 
               </div>
-              <Relatorio/>
             </div>
             
     );
