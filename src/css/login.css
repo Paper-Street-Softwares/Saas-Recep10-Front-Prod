@@ -34,7 +34,7 @@ label {
   font-weight: bold;
 }
 
-input {
+.login-container input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
