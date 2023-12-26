@@ -249,33 +249,31 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                 {/* Abaixo Busca os VISITANTES */}
 
                 <dialog id="dialog4" className={style2.visitantes}>
-                <form id="att" className={style.formulario2}>
+                <form id="att">
                         <h1 id="vt1">Visitantes</h1>
                         <div id="quadro" className={style2.quadro}>
                         <SearchFilterUpdate onUserClick={handleClick} />
                         </div>
+                            <h2 id="vt2" className={style2.visitante2}></h2>
                             <div id="quadro2" style={{opacity:'0'}} className={style2.quadro2}>
-                                <div id="infos" className={style2.quadro2}>
-                                    <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name} placeholder="Nome"/>
-                                    <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/>
-                                    <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select>
-                                    <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/>
-                                    <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/>
-                                    <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/>
-                                    <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/>
-                                    <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/>
-                                    <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/>
+                                <div id="infos" className={style2.infos}>
+                                    <label>Nome: <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/></label>
+                                    <label>Telefone: <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/></label>
+                                    <label>Gênero: <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select></label>
+                                    <label>Idade: <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/></label>
+                                    <label>Endereço: <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/></label>
+                                    <label>Cidade e Estado: <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/></label>
+                                    <label>Religião: <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/></label>
+                                    <label>Pequeno Grupo: <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/></label>
+                                    <label>Estudo Bíblico: <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/></label>
                                 </div>
-                                <div className={style2.btns}>
-                                  <button className={style2.btnalt} id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-                                  <button className={style2.btnexc} id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
-                                  <button className={style2.btnatt} id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR</button>
-                                </div>
+                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
+
+                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
+                                <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
                             </div>
                     </form>
-                    <div onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}>
-                    <IoExitOutline />
-                    </div>
+                    <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
                 </dialog>
               <div className={style.body}>
                 <h1>SEJA BEM-VINDO</h1>
