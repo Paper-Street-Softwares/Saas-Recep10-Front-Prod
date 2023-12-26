@@ -51,14 +51,15 @@
 
 .quadro2 {
     justify-content: center;
-    position: absolute;
-    width: 48%;
+    position: static;
+    width: 100%;
     height: 90%;
     background-color: rgb(255, 0, 0);
     border-radius: 10px;
     padding: 10px;
-    right: 10px;
+    right: 0;
     top: 50px;
+    left: auto;
 }
 
 .quadro2 input {
@@ -168,18 +169,40 @@
 }
 
 @media (max-width: 430px) {
+    .visitantes {
+        background-color: #2bff00;
+        position: absolute;
+        width: 100%;
+        height: 80%;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .visitantes h1 {
+        margin: 4%;
+        left: 20%;
+    }
+
+    .quadro {
+        width: 95%;
+        position: absolute;
+    }
+
     .quadro2 {
       position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translate(-50%, -100%);
       justify-content: center;
       background-color: rgb(255, 0, 0);
-      width: 100%;
-      max-width: 500px;
-      height: 350px;
+      width: 95%;
+      height: 90%;
       border-radius: 10px;
       padding: 10px;
+    }
+
+    .quadro2.active {
+        position: absolute;
+        z-index: 2;
     }
 
     .btnalt,

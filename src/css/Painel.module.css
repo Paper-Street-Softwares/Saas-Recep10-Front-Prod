@@ -73,7 +73,7 @@
     background-color: rgba(253, 0, 0, 0);
     border-radius: 8px;     
     width: 450px;
-    height: 580px;
+    height: 650px;
     font-size: 16px;
     font-weight: 500;
     line-height: 1;
@@ -397,7 +397,7 @@ h2 {
     .regaut {
         box-shadow: none;
     }
-
+    
    .navbar {
         position: fixed;
         bottom: 0;
@@ -464,6 +464,20 @@ h2 {
         font-size: 24px;
         padding: 10px;
         color: #24bc9e;
+    }
+
+    .btns {
+        position: absolute;
+        bottom: 0;
+        margin-top: 20px;
+        display: flex;        
+    }
+
+    .btn button {
+        height: 40px;
+        width: 160px;
+        border: none;
+        margin: 15px;
     }
 }
 
