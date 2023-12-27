@@ -1,11 +1,13 @@
 function abrirDialog2() {
+  
   const dialog = document.getElementById("dialog2");
   dialog.showModal();
 }
 
-function fecharDialog2() {
+function fecharDialog2(event) {
   const dialog = document.getElementById("dialog2");
   dialog.close();
+  event.preventDefault();
 }
 
 function enviarVisitante(event) {
@@ -75,6 +77,7 @@ function enviarVisitante(event) {
   
         if (res.status === 201) {
           console.log("Visitante registrado com sucesso!");
+          window.alert("Visitante registrado com sucesso!")
           window.location.reload();
         }
       } catch (err) {

@@ -50,8 +50,9 @@
 }
 
 .quadro2 {
-    position: relative;
-    position: static;
+    visibility: hidden;
+    justify-content: left;
+    position: absolute;
     width: 100%;
     height: 90%;
     background-color: rgb(255, 0, 0);

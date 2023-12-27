@@ -1,7 +1,6 @@
-// Login.js
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import "../css/login.css";
 import loginFunction from "../functions/login";
 
@@ -11,6 +10,7 @@ const Login = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(["jwt"]); // Adiciona esta linha para usar os cookies
 
   const handleLogin = async () => {
     setEmailError(false);
@@ -28,10 +28,18 @@ const Login = () => {
       return;
     }
 
-    const success = await loginFunction(email, password);
+    const token = await loginFunction(email, password);
 
-    if (success) {
+    if (token) {
+      // Armazena o token nos cookies
+      setCookie("jwt", token, { path: "/" });
+
+      // Redireciona para a página desejada após o login
       navigate("/painel");
+    } else {
+      // Lidar com falha na autenticação
+      // Exemplo: exibir uma mensagem de erro
+      console.error("Falha na autenticação");
     }
   };
 
@@ -40,7 +48,7 @@ const Login = () => {
       <h2>Login</h2>
       <form>
         <label htmlFor="email">Email:</label>
-        <input id="inputlogin"
+        <input
           type="text"
           id="email"
           value={email}
