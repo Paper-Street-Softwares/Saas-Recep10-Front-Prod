@@ -1,9 +1,9 @@
 .visitantes {
     background-color: #2bff00;
     position: absolute;
-    top: 100px;
+    top: -100px;
     width: 100%;
-    height: 550px;
+    height: 80%;
     box-shadow: none;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     position: absolute;
     width: 48%;
     height: 90%;
-    background-color: rgb(0, 17, 255);
+    background-color: rgba(0, 17, 255, 0);
     border-radius: 10px;
     overflow-y: scroll;
     padding: 10px;
@@ -51,8 +51,8 @@
 
 .quadro2 {
     visibility: hidden;
-    justify-content: center;
-    position: static;
+    justify-content: left;
+    position: absolute;
     width: 100%;
     height: 90%;
     background-color: rgb(255, 0, 0);
@@ -63,21 +63,31 @@
     left: auto;
 }
 
+.quadro2-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .quadro2 input {
     display: flex;
-    width: 45%;
+    width: 95%;
     margin-bottom: 8px;
     margin-left: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
 }
 
 .quadro2 select {
     color: black;
     margin-left: 8px;
     margin-bottom: 8px;
-    width: 92%;
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
 }
 
 .btnalt {
+    position: absolute;
     background-color: #fff599;
     color: rgba(0, 0, 0, 0.815);
     font-size: 12px;
@@ -85,9 +95,12 @@
     box-shadow: none;
     margin-left: 5px;
     font-weight: bolder;
+    bottom: 10px;
+    width: 30%;
 }
 
 .btnexc {
+    position: absolute;
     background-color: #ff9999;
     color: rgba(0, 0, 0, 0.815);
     font-size: 12px;
@@ -95,9 +108,12 @@
     box-shadow: none;
     margin-left: 5px;
     font-weight: bolder;
+    bottom: 10px;
+    width: 30%;
 }
 
 .btnatt {
+    position: absolute;
     background-color: #24bc9e ;
     color: rgba(0, 0, 0, 0.815);
     font-size: 12px;
@@ -107,11 +123,8 @@
     margin-left: 5px;
     font-weight: bolder;
     width: 100px;
-}
-
-.btns {
-    display: flex;
-    justify-content: center;
+    bottom: 10px;
+    width: 30%;
 }
 
 .visitantes p {
@@ -171,10 +184,10 @@
 
 @media (max-width: 430px) {
     .visitantes {
-        background-color: #2bff00;
+        background-color: #2bff0000;
         position: absolute;
         width: 100%;
-        height: 80%;
+        height: 100%;
         box-shadow: none;
         display: flex;
         flex-direction: column;
@@ -182,47 +195,112 @@
     }
 
     .visitantes h1 {
+        color: #24bc9e;
         margin: 4%;
-        left: 20%;
+        left: 15%;
+        top: 90px;
     }
 
     .quadro {
+        background-color: rgba(0, 0, 255, 0);
         width: 95%;
         position: absolute;
+        top: 30%;
+    }
+
+    .quadro input {
+        width: 100%;
+        border: 1px solid #ccc;
+    }
+
+
+    .quadro2 label {
+        color: #a1a1a1;
+        margin-left: 15px;
+    }
+
+    .quadro2 label select {
+        padding: 10px;
     }
 
     .quadro2 {
-      position: absolute;
-      justify-content: center;
-      background-color: rgb(255, 0, 0);
-      width: 95%;
-      height: 90%;
-      border-radius: 10px;
-      padding: 10px;
+        visibility: hidden;
+        position: absolute;
+        justify-content: left;
+        text-align: left;
+        background-color: rgba(255, 0, 0, 0);
+        width: 95%;
+        height: 100%;
+        border-radius: 10px;
+        padding: 10px;
+        top: 100px;
+        right: 0;
+        left: 10px;
     }
 
-    .quadro2.active {
-        position: absolute;
-        z-index: 2;
+    .quadro2-container {
+        flex-direction: column;
+    }
+
+    .visitantes ul {
+        border: #24bc9e;
+        margin: 20px;
+        box-shadow: 0 0 10px #178b74a2;
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    .visitantes li {
+        color: #24bc9e;
+        letter-spacing: 2px;
+    }
+
+    .btns {
+        width: 100%;
+        left: 0;
     }
 
     .btnalt,
     .btnexc,
-    .btnatt {
+    .btnatt { 
         position: absolute;
-        bottom: 0;
-        transform: translateX(-50%);
+        bottom: 150px;
+        width: calc(33.33% - 10px);
+    }
+
+    .visitantes h2 {
+        top: 0;
     }
 
     .btnalt {
-        left: calc(50% - 120px);
+        left: 0;
+        background-color: #fff599;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        border-radius: 20px;
+        box-shadow: none;
+        margin-left: 5px;
     }
     
     .btnexc {
-        left: 50%;
+        left: calc(33.33%);
+        background-color: #ff9999;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        border-radius: 20px;
+        box-shadow: none;
+        margin-left: 5px;
     }
     
     .btnatt {
-        left: calc(50% + 120px);
+        left: calc(66.66%);
+        background-color: #24bc9e ;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        transition: 0.3s;
+        border-radius: 20px;
+        box-shadow: none;    
+        margin-left: 5px;
+        width: 120px;
     }
   }

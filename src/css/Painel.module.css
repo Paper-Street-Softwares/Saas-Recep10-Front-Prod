@@ -17,7 +17,7 @@ input {
 }
 
 .nameInput {
-    width: 100%;
+    width: 30vh;
 }
 
 .card {
@@ -212,6 +212,10 @@ input {
     padding: 10px;
 }
 
+.register .btns {
+    bottom: -10px;
+}
+
 .formulario {
     display: flex;
     flex-direction: column;
@@ -260,7 +264,7 @@ input {
 .formulario select {
     color: #cac6c6b4;
     border-color: #cac6c6b4;
-    border-radius: 8px;
+    border-radius: 5px;
     width: 350px;
     height: 33px;
     margin-top: 5px;
@@ -430,6 +434,11 @@ h2 {
     .register2,
     .regaut {
         box-shadow: none;
+    }
+
+    .register select {
+        padding: 10px;
+        height: 40px;
     }
     
    .navbar {
