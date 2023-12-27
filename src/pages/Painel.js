@@ -69,6 +69,11 @@ const [visitors, setVisitors] = useState([]);
 
 const handleClick = (itemId) => {
 // Adicione o itemId ao final do endpoint da API
+const pegarQuadro = document.getElementById('quadro')
+const pegarQuadro2 = document.getElementById('quadro2')
+pegarQuadro.style.visibility = 'hidden';
+pegarQuadro.disabled = true;
+pegarQuadro2.style.visibility = 'visible';
 
 
 
@@ -94,7 +99,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
 
     anime({
         targets: [ativarEdicao, quadroVisitante],
-        duration: 200,
+        duration: 10,
         easing: 'linear',
         opacity: 1
     })
@@ -197,6 +202,8 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
         console.log(visitor); // Isso será executado sempre que visitor mudar
       }, [visitor]);
 
+      
+
     return(      
 
         <div className={style.content}>
@@ -237,7 +244,7 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                                 <input maxLength={20} id="religiao" type='text' placeholder="Religião"></input>
                                 <input maxLength={53} id="grupo" type='text' placeholder="Frequenta pequeno grupo? Se sim, qual?"></input>
                                 <input maxLength={53} id="estudo" type='text' placeholder="Faz estudo bíblico? Se sim, com quem?"></input>
-                        </div>
+                            </div>
                         <div className={style.btns}>
                             <button onClick={fecharDialog2} className={style.btnback}>VOLTAR</button>
                             <button id="enviar" onClick={enviarVisitante} type="submit" className={style.btnregister}>CADASTRAR</button>
@@ -258,21 +265,22 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
                         <div id="quadro" className={style2.quadro}>
                         <SearchFilterUpdate onUserClick={handleClick} />
                         </div>
+                            <div id="quadro2" className={`${style2.quadro2} ${dialogAtiva ? style2.active : ''}`}>                                
                             <h2 id="vt2" className={style2.visitante2}></h2>
-                            <div id="quadro2" className={`${style2.quadro2} ${dialogAtiva ? style2.active : ''}`}>                                <div id="infos" className={style2.infos}>
-                                    <label>Nome: <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/></label>
-                                    <label>Telefone: <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/></label>
-                                    <label>Gênero: <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select></label>
-                                    <label>Idade: <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/></label>
-                                    <label>Endereço: <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/></label>
-                                    <label>Cidade e Estado: <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/></label>
-                                    <label>Religião: <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/></label>
-                                    <label>Pequeno Grupo: <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/></label>
-                                    <label>Estudo Bíblico: <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/></label>
-                                </div>
-                                <button id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
-                                <button id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR VISITANTE</button>
-                                <button id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR DADOS</button>
+                              <div id="infos" className={style2.infos}>                             
+                                <label>Nome: <input id="nomeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.name}/></label>
+                                <label>Telefone: <input id="telefoneUpdate" maxLength={53} type="text" disabled defaultValue={visitor.phone}/></label>
+                                <label>Gênero: <select id="generoUpdate" defaultValue="" style={{ pointerEvents: 'none', opacity: '50%' }}><option value="" disabled>Gênero</option><option>Masculino</option><option>Feminino</option></select></label>
+                                <label>Idade: <input id="idadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.age}/></label>
+                                <label>Endereço: <input id="enderecoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.address}/></label>
+                                <label>Cidade e Estado: <input id="cidadeUpdate" maxLength={53} type="text" disabled defaultValue={visitor.cityAndState}/></label>
+                                <label>Religião: <input id="religiaoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.religion}/></label>
+                                <label>Pequeno Grupo: <input id="grupoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.smallGroup}/></label>
+                                <label>Estudo Bíblico: <input id="estudoUpdate" maxLength={53} type="text" disabled defaultValue={visitor.bibleStudy}/></label>
+                              </div> 
+                                <button className={style2.btnalt} id="edit" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={(event) => habilitarInput(event)}>EDITAR DADOS</button>
+                                <button className={style2.btnexc} id="del" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleDeleteUser}>APAGAR</button>
+                                <button className={style2.btnatt} id="upuser" style={{ pointerEvents: 'none', opacity: '50%' }} onClick={handleUpdateUser}>ATUALIZAR</button>
                             </div>
                     </form>
                     <img onClick={fecharDialog4} alt="close2" className={style2.fechar} src={exit}></img>
