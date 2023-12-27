@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import "../css/login.css";
-import loginFunction from "../functions/login";
+import "../../css/login.css";
+import loginFunction from "../../functions/auth/login";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -73,6 +73,7 @@ const Login = () => {
           Login
         </button>
       </form>
+      <Link to="/forget-password">Esqueceu a senha?</Link>
     </div>
   );
 };
