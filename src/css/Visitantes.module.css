@@ -50,6 +50,7 @@
 }
 
 .quadro2 {
+    visibility: hidden;
     justify-content: center;
     position: static;
     width: 100%;

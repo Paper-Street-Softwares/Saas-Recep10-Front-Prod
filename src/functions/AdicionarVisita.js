@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from '../css/Painel.module.css';
 import SearchFilter from './SearchFilter';
-import { abrirDialog4, fecharDialog4} from '../functions/DialogController4'
+import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3';
 
-
-const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
+const AdicionarVisita = ({ abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [visitDate, setVisitDate] = useState('');
 
@@ -24,12 +23,17 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
     setSelectedUser({ id: userId, name: userName });
   };
 
+  const handleBackClick = (event) => {
+    event.preventDefault(); // Evita a recarga da página
+    fecharDialog3();
+  };
+
   const handleDateChange = (event) => {
     const date = event.target.value;
     setVisitDate(date);
   };
 
-  const handleAddVisit = async () => {
+  const handleAddVisit = async (event) => {
     try {
       if (!selectedUser || !visitDate) {
         window.alert("Selecione uma Data e um Visitante!");
@@ -61,6 +65,7 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
 
       await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
       window.alert('Visita adicionada com sucesso!');
+      
     } catch (error) {
       console.error('Erro ao realizar operações:', error);
       window.alert("Ja existe uma data cadastrada neste dia para este visitante!");
@@ -75,7 +80,7 @@ const AdicionarVisita = ({ fecharDialog3, abrirDialog3 }) => {
         <SearchFilter onUserClick={handleUserClick} />
       </form>
       <div className={style.btns}>
-        <button onClick={fecharDialog4} className={style.btnback}>VOLTAR</button>
+        <button onClick={handleBackClick} className={style.btnback}>VOLTAR</button>
         <button onClick={handleAddVisit} className={style.btnregister}>ADICIONAR</button>
       </div>
     </dialog>

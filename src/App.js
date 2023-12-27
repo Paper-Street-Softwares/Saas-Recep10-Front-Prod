@@ -10,14 +10,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route
-            path="/painel"
-            element={
-              <PrivateRoute>
-                <Painel />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/painel" element={<PrivateRoute><Painel/></PrivateRoute>}/>
           <Route path="/home" element={<Interface />} />
           <Route path="/" element={<Login />} />
         </Routes>
