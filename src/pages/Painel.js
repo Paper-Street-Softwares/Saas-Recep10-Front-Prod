@@ -21,6 +21,7 @@ import { PiUserPlusThin } from "react-icons/pi";
 import AdicionarVisita from '../functions/AdicionarVisita'
 import Relatorio from '../functions/Relatorio'
 import SearchFilterUpdate from '../functions/SearchFilterUpdate'
+import Welcome from '../components/Welcome'
 
 
 function Painel(){
@@ -205,8 +206,8 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
       
 
     return(      
-
         <div className={style.content}>
+          {/* DESCOMENTAR E ESTILIZAR>>>> <Welcome/> */}
             <div className={style.dashboard}>
                     <div className={style.card}>
                         <img onClick={abrirDialog} className={style.icon} src={resgistervisit} alt="reg" />
