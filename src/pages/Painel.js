@@ -20,7 +20,7 @@ import anime from "animejs";
 import { updateUser } from "../functions/updateUser";
 import { deleteUser } from "../functions/deleteUser";
 
-import AdicionarVisita from "../functions/AdicionarVisita";
+import AdicionarVisita from "../components/AdicionarVisita";
 import Relatorio from "../functions/Relatorio";
 import SearchFilterUpdate from "../functions/SearchFilterUpdate";
 
@@ -235,7 +235,6 @@ function Painel() {
     // </div>
 
     <div className={style.content}>
-      <Navbar />
       <div className={style.dashboard}>
         <Relatorio onUserClick={handleClick} />
       </div>

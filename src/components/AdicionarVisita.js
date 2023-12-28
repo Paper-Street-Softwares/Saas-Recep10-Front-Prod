@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import style from '../css/Painel.module.css';
-import SearchFilter from './SearchFilter';
-import { abrirDialog3, fecharDialog3 } from '../functions/DialogController3';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import style from "../css/Painel.module.css";
+import SearchFilter from "../functions/SearchFilter";
+import { abrirDialog3, fecharDialog3 } from "../functions/DialogController3";
 
 const AdicionarVisita = ({ abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
-  const [visitDate, setVisitDate] = useState('');
+  const [visitDate, setVisitDate] = useState("");
 
   useEffect(() => {
-    axios.get("https://recep10-back.up.railway.app/api/visitantes")
-      .then(response => {
+    axios
+      .get("https://recep10-back.up.railway.app/api/visitantes")
+      .then((response) => {
         // Apenas para exemplo, não é necessário carregar visitantes aqui se o SearchFilter já os carrega
       })
-      .catch(error => {
-        console.error('Erro na requisição:', error);
+      .catch((error) => {
+        console.error("Erro na requisição:", error);
       });
   }, []);
 
   const handleUserClick = (userId, userName) => {
-    console.log('ID do usuário clicado:', userId);
+    console.log("ID do usuário clicado:", userId);
     setSelectedUser({ id: userId, name: userName });
   };
 
@@ -41,11 +42,13 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       }
 
       // Carregar as visitas antes de verificar se o usuário já possui uma visita na data especificada
-      const response = await axios.get("https://recep10-back.up.railway.app/api/visitas");
+      const response = await axios.get(
+        "https://recep10-back.up.railway.app/api/visitas"
+      );
       const visits = response.data;
 
       // Verificar se o usuário já possui uma visita na data especificada
-      const hasVisitOnDate = visits.some(visitor => {
+      const hasVisitOnDate = visits.some((visitor) => {
         return (
           visitor.visitanteId === selectedUser.id &&
           visitor.visitDate === visitDate
@@ -63,12 +66,16 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
-      window.alert('Visita adicionada com sucesso!');
-      
+      await axios.post(
+        "https://recep10-back.up.railway.app/api/visitas",
+        visitData
+      );
+      window.alert("Visita adicionada com sucesso!");
     } catch (error) {
-      console.error('Erro ao realizar operações:', error);
-      window.alert("Ja existe uma data cadastrada neste dia para este visitante!");
+      console.error("Erro ao realizar operações:", error);
+      window.alert(
+        "Ja existe uma data cadastrada neste dia para este visitante!"
+      );
     }
   };
 
@@ -80,8 +87,12 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         <SearchFilter onUserClick={handleUserClick} />
       </form>
       <div className={style.btns}>
-        <button onClick={handleBackClick} className={style.btnback}>VOLTAR</button>
-        <button onClick={handleAddVisit} className={style.btnregister}>ADICIONAR</button>
+        <button onClick={handleBackClick} className={style.btnback}>
+          VOLTAR
+        </button>
+        <button onClick={handleAddVisit} className={style.btnregister}>
+          ADICIONAR
+        </button>
       </div>
     </dialog>
   );
