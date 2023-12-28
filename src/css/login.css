@@ -1,20 +1,18 @@
 body {
   margin: 0;
-  justify-content: center;
-  align-items: center;
-  background-color: hsl(0, 0%, 95%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .login-container {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 380px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  border: none;
 }
 
 .login-container input {
@@ -22,13 +20,42 @@ body {
   padding: 8px;
   border: 1px solid #ccc;
   border: 4px;
+  height: 30px;
+}
+
+.login-container a {
+  text-decoration: none;
+}
+
+#a1 {
+  text-align: right;
+  font-size: 14px;
+  color: #23b39b;
+}
+
+#a2 {
+  font-size: 14px;
+}
+
+#a3 {
+  font-size: 14px;
+  color: #23b39b;
+  margin-left: 10px;
+}
+
+.signup-links {
+  display: flex;
+  text-align: left;
+  margin-top: 10px;
 }
 
 h2 {
-  margin-top: 30px;
-  font-size: 30px;
-  text-align: center;
-  color: #333;
+  font-size: 20px !important;
+  text-align: left;
+}
+
+label {
+  font-size: 16px;
 }
 
 form {
@@ -38,18 +65,19 @@ form {
 }
 
 .login-container input {
-  padding: 8px;
+  padding: 18px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 button {
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #23b79d;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  margin-top: 150px;
 }
 
 .error {

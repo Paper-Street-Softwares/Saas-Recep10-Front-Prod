@@ -69,11 +69,12 @@ const Login = () => {
         {passwordError && (
           <p className="error-message">Este campo não pode ficar vazio.</p>
         )}
-        <button type="button" onClick={handleLogin}>
-          Login
-        </button>
-      </form>
-      <Link to="/forget-password">Esqueceu a senha?</Link>
+        <a id="a1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
+        <button type="button" onClick={handleLogin}>Acessar</button>
+        <div className="signup-links">
+        <a id="a2">Não tem conta?</a><a id="a3" href="https://wa.me/5561992781077">Cadastre-se.</a>
+        </div>
+      </form>      
     </div>
   );
 };
