@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../../css/login.css";
 import loginFunction from "../../functions/auth/login";
-import logoRecep10 from "../../images/logoRecep10.jpg"
+import logoRecep10 from "../../images/logoRecep10.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -46,33 +46,63 @@ const Login = () => {
 
   return (
     <div className="body-Login">
-      <div className="login-container">
-        <div id="imgLogoRecep10-container">
-          <img id="imgLogoRecep10" src={logoRecep10} />
+      <div className="header-Login"></div>
+      <div className="main-Login">
+        <div className="top-Section-Login">
+          <div id="imgLogoRecep10-Login">
+            <img id="imgLogoRecep10-Login" src={logoRecep10} />
+          </div>
         </div>
-        <h2 id="loginh2">Entre com seu e-mail e senha</h2>
-        <form id="loginform">
-          <div class="inputgroup">
-            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className={emailError ? "error" : ""} />
-            <label id="labellabel" class="placeholder">E-mail</label>
+        <div className="mid-Section-Login">
+          <h2 id="title-Login">Entre com seu e-mail e senha</h2>
+          <form id="form-Login">
+            <div class="inputs-Login">
+              <input
+                type="text"
+                id="emailInput-Login"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={emailError ? "error" : ""}
+                placeholder="email"
+              />
               {emailError && (
-              <p className="error-message">Este campo não pode ficar vazio.</p>
-          )}
+                <p className="error-message">
+                  Este campo não pode ficar vazio.
+                </p>
+              )}
+
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={passwordError ? "error" : ""}
+                placeholder="Senha"
+              />
+              {passwordError && (
+                <p className="error-message">
+                  Este campo não pode ficar vazio.
+                </p>
+              )}
+            </div>
+            <a id="links-Login" href="https://wa.me/5561992781077">
+              Esqueceu sua senha?
+            </a>
+          </form>
+        </div>
+        <div className="bot-Section-Login">
+          <button id="buttonSignup-Login" type="button" onClick={handleLogin}>
+            Acessar
+          </button>
+          <div className="signupLinks-Login">
+            <p id="texts-Login">Não tem conta?</p>
+            <a id="links-Login" href="https://wa.me/5561992781077">
+              Cadastre-se.
+            </a>
           </div>
-          <div class="inputgroup">
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className={passwordError ? "error" : ""} />
-            {passwordError && (
-              <p className="error-message">Este campo não pode ficar vazio.</p>
-            )}
-            <label id="loginlabel" class="placeholder">Senha</label>
-          </div>
-          <a id="logina1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
-          <button type="button" onClick={handleLogin}>Acessar</button>
-          <div className="signup-links">
-          <a id="logina2">Não tem conta?</a><a id="logina3" href="https://wa.me/5561992781077">Cadastre-se.</a>
-          </div>
-        </form>      
+        </div>
       </div>
+      <div className="footer-Login"></div>
     </div>
   );
 };
