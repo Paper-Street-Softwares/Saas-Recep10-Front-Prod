@@ -1,28 +1,11 @@
 import style from "../css/Painel.module.css";
-import style2 from "../css/Visitantes.module.css";
-import { abrirDialog, fecharDialog } from "../functions/DialogController";
-import {
-  abrirDialog2,
-  enviarVisitante,
-  fecharDialog2,
-} from "../functions/DialogController2";
-import { abrirDialog3, fecharDialog3 } from "../functions/DialogController3";
-import { abrirDialog4, fecharDialog4 } from "../functions/DialogController4";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import exit from "../images/exit.png";
-import resgistervisit from "../images/registervisit.png";
-import resgistervisitor from "../images/registervisitor.png";
-import visits from "../images/visits.png";
-import visitorsmg from "../images/visitors.png";
-import training from "../images/training.png";
 import anime from "animejs";
 import { updateUser } from "../functions/updateUser";
 import { deleteUser } from "../functions/deleteUser";
-
 import AdicionarVisita from "../components/main/AdicionarVisita";
-import Relatorio from "../functions/Relatorio";
-import SearchFilterUpdate from "../functions/SearchFilterUpdate";
+import Relatorios from "../components/main/Relatorios";
 
 // REFATORAÇÃO DO CÓDIGO
 import Navbar from "../components/structure/Navbar";
@@ -236,160 +219,16 @@ function Painel() {
 
     <div className={style.content}>
       <div className={style.dashboard}>
-        <Relatorio onUserClick={handleClick} />
+        <Relatorios onUserClick={handleClick} />
       </div>
       <div className={style.horizon} />
 
       <CadastrarVisitante />
 
-      {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
-
       <AdicionarVisita />
-
-      {/* Abaixo Busca os VISITANTES */}
 
       <AlterarVisitante />
 
-      {/* <dialog id="dialog4" className={style2.visitantes}>
-        <form id="att">
-          <h1 id="vt1">Visitantes</h1>
-          <div id="quadro" className={style2.quadro}>
-            <SearchFilterUpdate onUserClick={handleClick} />
-          </div>
-          <div
-            id="quadro2"
-            className={`${style2.quadro2} ${dialogAtiva ? style2.active : ""}`}
-          >
-            <h2 id="vt2" className={style2.visitante2}></h2>
-            <div id="infos" className={style2.infos}>
-              <label>
-                Nome:{" "}
-                <input
-                  id="nomeUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.name}
-                />
-              </label>
-              <label>
-                Telefone:{" "}
-                <input
-                  id="telefoneUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.phone}
-                />
-              </label>
-              <label>
-                Gênero:{" "}
-                <select
-                  id="generoUpdate"
-                  defaultValue=""
-                  style={{ pointerEvents: "none", opacity: "50%" }}
-                >
-                  <option value="" disabled>
-                    Gênero
-                  </option>
-                  <option>Masculino</option>
-                  <option>Feminino</option>
-                </select>
-              </label>
-              <label>
-                Idade:{" "}
-                <input
-                  id="idadeUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.age}
-                />
-              </label>
-              <label>
-                Endereço:{" "}
-                <input
-                  id="enderecoUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.address}
-                />
-              </label>
-              <label>
-                Cidade e Estado:{" "}
-                <input
-                  id="cidadeUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.cityAndState}
-                />
-              </label>
-              <label>
-                Religião:{" "}
-                <input
-                  id="religiaoUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.religion}
-                />
-              </label>
-              <label>
-                Pequeno Grupo:{" "}
-                <input
-                  id="grupoUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.smallGroup}
-                />
-              </label>
-              <label>
-                Estudo Bíblico:{" "}
-                <input
-                  id="estudoUpdate"
-                  maxLength={53}
-                  type="text"
-                  disabled
-                  defaultValue={visitor.bibleStudy}
-                />
-              </label>
-            </div>
-            <button
-              className={style2.btnalt}
-              id="edit"
-              style={{ pointerEvents: "none", opacity: "50%" }}
-              onClick={(event) => habilitarInput(event)}
-            >
-              EDITAR DADOS
-            </button>
-            <button
-              className={style2.btnexc}
-              id="del"
-              style={{ pointerEvents: "none", opacity: "50%" }}
-              onClick={handleDeleteUser}
-            >
-              APAGAR
-            </button>
-            <button
-              className={style2.btnatt}
-              id="upuser"
-              style={{ pointerEvents: "none", opacity: "50%" }}
-              onClick={handleUpdateUser}
-            >
-              ATUALIZAR
-            </button>
-          </div>
-        </form>
-        <img
-          onClick={fecharDialog4}
-          alt="close2"
-          className={style2.fechar}
-          src={exit}
-        ></img>
-      </dialog> */}
       <div className={style.body}>
         <h1>SEJA BEM-VINDO</h1>
         <h2>
