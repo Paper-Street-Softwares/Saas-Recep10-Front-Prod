@@ -45,32 +45,34 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div id="imgLogoRecep10-container">
-        <img id="imgLogoRecep10" src={logoRecep10} />
-      </div>
-      <h2 id="loginh2">Entre com seu e-mail e senha</h2>
-      <form id="loginform">
-        <div class="inputgroup">
-          <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className={emailError ? "error" : ""} />
-          <label id="labellabel" class="placeholder">E-mail</label>
-            {emailError && (
-            <p className="error-message">Este campo não pode ficar vazio.</p>
-        )}
+    <div className="body-Login">
+      <div className="login-container">
+        <div id="imgLogoRecep10-container">
+          <img id="imgLogoRecep10" src={logoRecep10} />
         </div>
-        <div class="inputgroup">
-          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className={passwordError ? "error" : ""} />
-          {passwordError && (
-            <p className="error-message">Este campo não pode ficar vazio.</p>
+        <h2 id="loginh2">Entre com seu e-mail e senha</h2>
+        <form id="loginform">
+          <div class="inputgroup">
+            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className={emailError ? "error" : ""} />
+            <label id="labellabel" class="placeholder">E-mail</label>
+              {emailError && (
+              <p className="error-message">Este campo não pode ficar vazio.</p>
           )}
-          <label id="loginlabel" class="placeholder">Senha</label>
-        </div>
-        <a id="logina1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
-        <button type="button" onClick={handleLogin}>Acessar</button>
-        <div className="signup-links">
-        <a id="logina2">Não tem conta?</a><a id="logina3" href="https://wa.me/5561992781077">Cadastre-se.</a>
-        </div>
-      </form>      
+          </div>
+          <div class="inputgroup">
+            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className={passwordError ? "error" : ""} />
+            {passwordError && (
+              <p className="error-message">Este campo não pode ficar vazio.</p>
+            )}
+            <label id="loginlabel" class="placeholder">Senha</label>
+          </div>
+          <a id="logina1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
+          <button type="button" onClick={handleLogin}>Acessar</button>
+          <div className="signup-links">
+          <a id="logina2">Não tem conta?</a><a id="logina3" href="https://wa.me/5561992781077">Cadastre-se.</a>
+          </div>
+        </form>      
+      </div>
     </div>
   );
 };
