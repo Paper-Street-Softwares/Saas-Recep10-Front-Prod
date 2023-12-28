@@ -5,10 +5,10 @@ body {
 
 .login-container {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 380px;
+  width: 350px;
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
@@ -27,41 +27,99 @@ body {
   text-decoration: none;
 }
 
-#a1 {
+#logina1 {
   text-align: right;
   font-size: 14px;
   color: #23b39b;
 }
 
-#a2 {
+#logina2 {
   font-size: 14px;
 }
 
-#a3 {
+#logina3 {
   font-size: 14px;
   color: #23b39b;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .signup-links {
   display: flex;
+  justify-content: center;
   text-align: left;
   margin-top: 10px;
 }
 
-h2 {
-  font-size: 20px !important;
-  text-align: left;
+#imgLogoRecep10-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  margin-bottom: 50px;
 }
 
-label {
+#imgLogoRecep10 {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+#login {
+  font-size: 20px !important;
+  text-align: left !important;
+}
+
+#loginlabel {
   font-size: 16px;
 }
 
-form {
+#loginh2 {
+  text-align: left !important;
+}
+
+#loginform {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+}
+
+.inputgroup {
+  position: relative;
+}
+
+.inputgroup input {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #04aa6d;
+  margin-top: 10px;
+}
+
+.placeholder {
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  font-size: 14px;
+  padding: 0 5px;
+  color: #b3b3b3;
+  pointer-events: none;
+}
+
+.inputgroup input:focus + .placeholder {
+  top: 0;
+  background-color: #fff;
+}
+
+,
+.inputgrou input:not(:placeholder-shown) + .placeholder, .inputgroup input:not(:placeholder-shown) + .placeholder {
+  display: none;
+  top: 0;
+  background-color: #fff;
 }
 
 .login-container input {
@@ -77,7 +135,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .error {

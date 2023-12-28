@@ -77,7 +77,7 @@ input {
     border-radius: 0;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
     background-color: rgba(253, 0, 0, 0);
     border-radius: 8px;     
     width: 450px;
@@ -204,6 +204,7 @@ input {
     color: #333;
     margin-bottom: 8px;
     margin-top: 8px;
+    margin-right: 8px;
 }
 
 .register input::placeholder {
@@ -339,7 +340,7 @@ h2 {
     margin: auto;
     color: #34c4ac !important;
     position: relative;
-    text-align: center;
+    text-align: center !important;
     top: 40%;
     font-size: larger;
     transform: translateY(-50%);
@@ -517,7 +518,6 @@ h2 {
     h2 {
         font-size: small !important;
         margin-top: 15px;
-        text-align: center;
     }
 
     .icon {

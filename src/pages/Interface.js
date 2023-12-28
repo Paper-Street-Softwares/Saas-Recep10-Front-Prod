@@ -1,6 +1,5 @@
 import style from "../css/Interface.module.css"
 import style2 from "../css/Navbar.module.css"
-import logo from "../images/logo.png"
 import background from "../images/church.jpg"
 import { useNavigate } from 'react-router-dom'
 import { abrirDialog, fecharDialog } from '../functions/DialogController'
@@ -36,7 +35,7 @@ const navigate = useNavigate();
                         <li>SOBRE NÓS</li>
                     </ul>
                 </div>
-                <img className={style.logoinicio} src={logo} alt="logo"></img>
+                {/* <img className={style.logoinicio} src={logo} alt="logo"></img> */}
         </div>
     )
 }
