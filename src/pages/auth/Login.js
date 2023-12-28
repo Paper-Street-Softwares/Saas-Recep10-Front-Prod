@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../../css/login.css";
 import loginFunction from "../../functions/auth/login";
+import logoRecep10 from "../../images/logoRecep10.jpg"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -45,34 +46,29 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <form>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={emailError ? "error" : ""}
-        />
-        {emailError && (
-          <p className="error-message">Este campo não pode ficar vazio.</p>
+      <div id="imgLogoRecep10-container">
+        <img id="imgLogoRecep10" src={logoRecep10} />
+      </div>
+      <h2 id="loginh2">Entre com seu e-mail e senha</h2>
+      <form id="loginform">
+        <div class="inputgroup">
+          <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className={emailError ? "error" : ""} />
+          <label id="labellabel" class="placeholder">E-mail</label>
+            {emailError && (
+            <p className="error-message">Este campo não pode ficar vazio.</p>
         )}
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={passwordError ? "error" : ""}
-        />
-        {passwordError && (
-          <p className="error-message">Este campo não pode ficar vazio.</p>
-        )}
-        <a id="a1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
+        </div>
+        <div class="inputgroup">
+          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className={passwordError ? "error" : ""} />
+          {passwordError && (
+            <p className="error-message">Este campo não pode ficar vazio.</p>
+          )}
+          <label id="loginlabel" class="placeholder">Senha</label>
+        </div>
+        <a id="logina1" href="https://wa.me/5561992781077">Esqueceu sua senha?</a>
         <button type="button" onClick={handleLogin}>Acessar</button>
         <div className="signup-links">
-        <a id="a2">Não tem conta?</a><a id="a3" href="https://wa.me/5561992781077">Cadastre-se.</a>
+        <a id="logina2">Não tem conta?</a><a id="logina3" href="https://wa.me/5561992781077">Cadastre-se.</a>
         </div>
       </form>      
     </div>
