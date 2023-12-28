@@ -75,6 +75,8 @@ pegarQuadro.style.visibility = 'hidden';
 pegarQuadro.disabled = true;
 pegarQuadro2.style.visibility = 'visible';
 
+
+
 axios.get(`${baseUrl}/api/visitantes/${itemId}`)
     .then(response => {
         setVisitor(response.data)
@@ -83,6 +85,25 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
     .catch(error => {
         console.error('Erro na requisição:', error);
     });
+
+    const quadroVisitante = document.getElementById('quadro2')
+    const ativarEdicao = document.getElementById("edit")
+    const delDados = document.getElementById("del");
+
+    ativarEdicao.style.pointerEvents = 'auto';
+    ativarEdicao.style.cursor = 'pointer';
+
+    delDados.style.opacity = '1';
+    delDados.style.pointerEvents = 'auto';
+    delDados.style.cursor = 'pointer';
+
+    anime({
+        targets: [ativarEdicao, quadroVisitante],
+        duration: 10,
+        easing: 'linear',
+        opacity: 1
+    })
+
 }
 
     const [visitor, setVisitor] = useState([]);
@@ -133,6 +154,44 @@ axios.get(`${baseUrl}/api/visitantes/${itemId}`)
       event.preventDefault();
       const infosDiv = document.getElementById("infos");
       const inputs = infosDiv.querySelectorAll("input");
+      const attDados = document.getElementById("upuser");
+      const gend = document.getElementById("generoUpdate");
+      const d4 = document.getElementById("quadro");
+      const d5 = document.getElementById("quadro2");
+      const vt1 = document.getElementById("vt1");
+      const vt2 = document.getElementById("vt2");
+
+      gend.style.opacity = '1';
+      gend.style.pointerEvents = 'auto';
+
+      attDados.style.opacity = '1';
+      attDados.style.pointerEvents = 'auto';
+      attDados.style.cursor = 'pointer';
+
+      vt1.style.opacity = "1";
+      vt1.style.transition = "0.5s";
+      vt1.style.opacity = "0";
+
+      vt2.innerHTML = "Editar Dados";
+
+      d4.style.opacity = "1";
+      d4.style.transition = "0.5s";
+      d4.style.opacity = "0";
+      d4.style.pointerEvents = 'none';
+
+      anime({
+        targets: d5,
+        duration: 200,
+        easing: "linear",
+        left: 0,
+      });
+
+      anime({
+        targets: vt2,
+        duration: 200,
+        easing: "linear",
+        left: 0,
+      });
 
       for (const input of inputs) {
         input.disabled = false;
