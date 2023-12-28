@@ -1,11 +1,11 @@
-import style from "../css/Painel.module.css";
+import style from "../../css/Painel.module.css";
 import {
   abrirDialog2,
   enviarVisitante,
   fecharDialog2,
-} from "../functions/DialogController2";
+} from "../../functions/DialogController2";
 
-const Cadastro = () => {
+const CadastrarVisitante = () => {
   return (
     <dialog className={style.register} id="dialog2">
       <form id="form" className={style.formulario}>
@@ -87,4 +87,4 @@ const Cadastro = () => {
   );
 };
 
-export default Cadastro;
+export default CadastrarVisitante;

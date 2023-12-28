@@ -1,13 +1,13 @@
-import style2 from "../css/Visitantes.module.css";
-import SearchFilterUpdate from "../functions/SearchFilterUpdate";
-import { abrirDialog4, fecharDialog4 } from "../functions/DialogController4";
+import style2 from "../../css/Visitantes.module.css";
+import SearchFilterUpdate from "../../functions/SearchFilterUpdate";
+import { abrirDialog4, fecharDialog4 } from "../../functions/DialogController4";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import anime from "animejs";
-import { updateUser } from "../functions/updateUser";
-import { deleteUser } from "../functions/deleteUser";
+import { updateUser } from "../../functions/updateUser";
+import { deleteUser } from "../../functions/deleteUser";
 
-const Alterar = () => {
+const AlterarVisitante = () => {
   const baseUrl = "https://recep10-back.up.railway.app";
   const [visitor, setVisitor] = useState([]);
   const [dialogAtiva, setDialogAtiva] = useState(false);
@@ -278,4 +278,4 @@ const Alterar = () => {
   );
 };
 
-export default Alterar;
+export default AlterarVisitante;

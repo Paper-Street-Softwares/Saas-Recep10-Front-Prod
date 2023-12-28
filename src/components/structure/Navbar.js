@@ -1,4 +1,4 @@
-import style from "../css/Painel.module.css";
+import style from "../../css/Painel.module.css";
 import { CiCalendarDate, CiSearch } from "react-icons/ci";
 import { IoIosMore } from "react-icons/io";
 import { PiUserPlusThin } from "react-icons/pi";
@@ -6,9 +6,9 @@ import {
   abrirDialog2,
   enviarVisitante,
   fecharDialog2,
-} from "../functions/DialogController2";
-import { abrirDialog3, fecharDialog3 } from "../functions/DialogController3";
-import { abrirDialog4, fecharDialog4 } from "../functions/DialogController4";
+} from "../../functions/DialogController2";
+import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
+import { abrirDialog4, fecharDialog4 } from "../../functions/DialogController4";
 
 const Navbar = () => {
   return (

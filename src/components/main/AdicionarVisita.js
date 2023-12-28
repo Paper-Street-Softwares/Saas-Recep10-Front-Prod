@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import style from "../css/Painel.module.css";
-import SearchFilter from "../functions/SearchFilter";
-import { abrirDialog3, fecharDialog3 } from "../functions/DialogController3";
+import style from "../../css/Painel.module.css";
+import SearchFilter from "../../functions/SearchFilter";
+import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
 
 const AdicionarVisita = ({ abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);

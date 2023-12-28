@@ -20,14 +20,14 @@ import anime from "animejs";
 import { updateUser } from "../functions/updateUser";
 import { deleteUser } from "../functions/deleteUser";
 
-import AdicionarVisita from "../components/AdicionarVisita";
+import AdicionarVisita from "../components/main/AdicionarVisita";
 import Relatorio from "../functions/Relatorio";
 import SearchFilterUpdate from "../functions/SearchFilterUpdate";
 
 // REFATORAÇÃO DO CÓDIGO
-import Navbar from "../components/Navbar";
-import Cadastro from "../components/Cadastro";
-import Alterar from "../components/Alterar";
+import Navbar from "../components/structure/Navbar";
+import CadastrarVisitante from "../components/main/CadastrarVisitante";
+import AlterarVisitante from "../components/main/AlterarVisitante";
 
 function Painel() {
   /*Não mover o baseUrl pra baixo*/
@@ -240,7 +240,7 @@ function Painel() {
       </div>
       <div className={style.horizon} />
 
-      <Cadastro />
+      <CadastrarVisitante />
 
       {/* Acima abre o REGISTRO DE VISITANTES e Abaixo ADICIONA VISITAS aos visitantes */}
 
@@ -248,7 +248,7 @@ function Painel() {
 
       {/* Abaixo Busca os VISITANTES */}
 
-      <Alterar />
+      <AlterarVisitante />
 
       {/* <dialog id="dialog4" className={style2.visitantes}>
         <form id="att">
