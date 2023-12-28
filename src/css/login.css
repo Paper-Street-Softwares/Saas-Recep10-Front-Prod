@@ -106,3 +106,9 @@
 .top-Section-Login {
   margin-bottom: 80px;
 }
+
+@media (max-width: 375px) {
+  .main-Login {
+    width: 90%;
+  }
+}
