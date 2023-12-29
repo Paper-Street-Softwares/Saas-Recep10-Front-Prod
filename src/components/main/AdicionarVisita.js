@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import style from "../../css/Painel.module.css";
+import style from "../../css/main/adicionarvisita.css";
+import inputstyle from "../../css/structure/input.css";
 import SearchFilter from "../../functions/SearchFilter";
 import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
 
@@ -87,21 +88,29 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   };
 
   return (
-    <dialog className={style.register2} id="dialog3">
-      <form className={style.formulario2}>
-        <h1>Adicionar Visita</h1>
-        <input type="date" onChange={handleDateChange}></input>
-        <SearchFilter onUserClick={handleUserClick} />
-      </form>
-      <div className={style.btns}>
-        <button onClick={handleBackClick} className={style.btnback}>
-          VOLTAR
-        </button>
-        <button onClick={handleAddVisit} className={style.btnregister}>
-          ADICIONAR
-        </button>
+    <div className="main-AdicionarVisita">
+      <div className="title-AdicionarVisita">
+        <p className="titles-Global">Adicionar Visita</p>
       </div>
-    </dialog>
+      <div className="form-AdicionarVisita">
+        <form className="inputsForm-AdicionarVisita">
+          <input
+            className="inputs-Global"
+            type="date"
+            onChange={handleDateChange}
+          ></input>
+          <SearchFilter onUserClick={handleUserClick} />
+          <div className="buttonGroup">
+            <button onClick={handleBackClick} className="buttonBack-Global">
+              VOLTAR
+            </button>
+            <button onClick={handleAddVisit} className="button-Global">
+              ADICIONAR
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

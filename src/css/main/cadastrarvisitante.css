@@ -5,7 +5,7 @@
 }
 
 .main-CadastrarVisitantes {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,17 +14,15 @@
 
 .title-CadastrarVisitantes {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .form-CadastrarVisitantes {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.dialog-CadastrarVisitantes {
 }
 
 .inputsForm-CadastrarVisitantes {

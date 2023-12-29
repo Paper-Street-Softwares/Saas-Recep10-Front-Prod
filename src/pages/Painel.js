@@ -205,14 +205,16 @@ function Painel() {
           {/* <Relatorios /> */}
 
 
+          {/* <CadastrarVisitante /> */}
+
+
           {/* <Modal/> */}
 
           
-          <CadastrarVisitante />
-
           {/* <AdicionarVisita /> */}
 
-          {/* <AlterarVisitante /> */}
+          <AlterarVisitante />
+
         </div>
         <div className="bot-Section-Painel"></div>
       </div>
