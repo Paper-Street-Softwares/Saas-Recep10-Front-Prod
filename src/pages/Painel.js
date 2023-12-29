@@ -1,3 +1,4 @@
+import style from "../css/painel.css";
 import AdicionarVisita from "../components/main/AdicionarVisita";
 import Relatorios from "../components/main/Relatorios";
 import Navbar from "../components/structure/Navbar";
@@ -191,29 +192,25 @@ function Painel() {
   // }, [visitor]);
 
   return (
-    <div>
-      <Relatorios />
+    <div className="body-Painel">
+      <div className="header-Painel"></div>
+      <div className="main-Painel">
+        <div className="top-Section-Painel"></div>
+        <div className="mid-Section-Painel">
+          <Relatorios />
 
-      <CadastrarVisitante />
+          <CadastrarVisitante />
 
-      <AdicionarVisita />
+          <AdicionarVisita />
 
-      <AlterarVisitante />
-
-      <Navbar />
+          <AlterarVisitante />
+        </div>
+        <div className="bot-Section-Painel"></div>
+      </div>
+      <div className="footer-Painel">
+        <Navbar />
+      </div>
     </div>
-    // <div className="body-Painel">
-    //   <div className="header-Painel"></div>
-    //   <div className="main-Painel">
-    //     <div className="top-Section-Painel">
-    //     </div>
-    //     <div className="mid-Section-Painel">
-    //     </div>
-    //     <div className="bot-Section-Painel">
-    //     </div>
-    //   </div>
-    //   <div className="footer-Painel"></div>
-    // </div>
 
     // <div className={style.content}>
     //   {/* <div className={style.dashboard}>
