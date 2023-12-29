@@ -1,4 +1,5 @@
-import style from "../../css/Painel.module.css";
+import style from "../../css/main/cadastrarvisitante.css";
+import inputstyle from "../../css/structure/input.css";
 import {
   abrirDialog2,
   enviarVisitante,
@@ -7,24 +8,28 @@ import {
 
 const CadastrarVisitante = () => {
   return (
-    <dialog className={style.register} id="dialog2">
-      <form id="form" className={style.formulario}>
-        <h1>Cadastro de Visitante</h1>
-        <div>
+    <div className="main-CadastrarVisitantes">
+      <div className="title-CadastrarVisitantes">
+        <p className="titles-Global">Cadastro de Visitante</p>
+      </div>
+      <div className="form-CadastrarVisitantes">
+        <form className="inputsForm-CadastrarVisitantes">
           <input
+            className="inputs-Global"
             maxLength={53}
             id="nome"
             type="text"
             placeholder="Nome"
           ></input>
           <input
+            className="inputs-Global"
             maxLength={17}
             id="telefone"
             type="text"
             pattern="[0-9]{9,17}"
             placeholder="Telefone"
           ></input>
-          <select id="genero" defaultValue="">
+          <select className="inputs-Global" id="genero" defaultValue="">
             <option value="" disabled>
               Gênero
             </option>
@@ -32,6 +37,7 @@ const CadastrarVisitante = () => {
             <option>Feminino</option>
           </select>
           <input
+            className="inputs-Global"
             id="idade"
             type="text"
             maxLength={3}
@@ -39,51 +45,60 @@ const CadastrarVisitante = () => {
             placeholder="Idade"
           />
           <input
+            className="inputs-Global"
             maxLength={50}
             id="endereco"
             type="text"
             placeholder="Endereço"
           ></input>
           <input
+            className="inputs-Global"
             maxLength={50}
             id="cidadeestado"
             type="text"
             placeholder="Cidade e Estado"
           ></input>
           <input
+            className="inputs-Global"
             maxLength={20}
             id="religiao"
             type="text"
             placeholder="Religião"
           ></input>
           <input
+            className="inputs-Global"
             maxLength={53}
             id="grupo"
             type="text"
             placeholder="Frequenta pequeno grupo? Se sim, qual?"
           ></input>
           <input
+            className="inputs-Global"
             maxLength={53}
             id="estudo"
             type="text"
             placeholder="Faz estudo bíblico? Se sim, com quem?"
           ></input>
-        </div>
-        <div className={style.btns}>
-          <button onClick={fecharDialog2} className={style.btnback}>
-            VOLTAR
-          </button>
-          <button
-            id="enviar"
-            onClick={enviarVisitante}
-            type="submit"
-            className={style.btnregister}
-          >
-            CADASTRAR
-          </button>
-        </div>
-      </form>
-    </dialog>
+
+          <div className={style.btns}>
+            <div className="buttonGroup">
+              <button onClick={fecharDialog2} className="buttonBack-Global">
+                VOLTAR
+              </button>
+              <button
+                id="enviar"
+                onClick={enviarVisitante}
+                type="submit"
+                className="button-Global"
+              >
+                CADASTRAR
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <dialog className="dialog-CadastrarVisitantes" id="dialog2"></dialog>
+    </div>
   );
 };
 
