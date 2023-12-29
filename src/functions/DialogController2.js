@@ -84,9 +84,9 @@ function enviarVisitante(event) {
         btn.disabled = true;
   
         if (res.status === 201) {
-          event.preventDefault();
           const genericModall = document.getElementById('genericModal');
           genericModall.showModal();
+          window.location.reload();
         }
       } catch (err) {
         console.log(err.message);

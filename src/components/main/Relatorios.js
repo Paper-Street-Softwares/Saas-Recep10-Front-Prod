@@ -1,163 +1,104 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import style from "../../css/Painel.module.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Modal from 'react-modal';
 
-const Relatorios = ({ onUserClick }) => {
-  const [visitors, setVisitors] = useState([]);
-  const [names, setNames] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedUserDetails, setSelectedUserDetails] = useState({});
-  const [isRelDialogOpen, setIsRelDialogOpen] = useState(false);
+Modal.setAppElement('#root'); // Define o elemento raiz para acessibilidade
 
-  const handleClick = (itemId) => {
-    axios
-      .get(`https://recep10-back.up.railway.app/api/visitantes/${itemId}`)
-      .then((response) => {
-        setSelectedUserDetails(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro na requisição:", error);
-      });
-  };
+const Relatorios = () => {
+  const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://recep10-back.up.railway.app/api/visitantes")
-      .then((response) => {
-        setVisitors(response.data);
-        setNames(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro na requisição:", error);
-      });
+    fetchUsers();
   }, []);
 
-  const filterNames = (event) => {
-    const value = event.target.value.toUpperCase();
-    setSearchTerm(value);
-
-    const filteredNames = visitors.filter((visitor) =>
-      visitor.name.toUpperCase().includes(value)
-    );
-
-    setNames(filteredNames);
-  };
-
-  const handleUserClick = (userId, userName) => {
-    const dialog = document.getElementById("detalhes");
-    dialog.showModal();
-
-    // Verifica se a função onUserClick foi passada como propriedade antes de chamá-la
-    if (typeof onUserClick === "function") {
-      onUserClick(userId, userName);
-      handleClick(userId); // Atualiza os detalhes do usuário ao clicar
-      setSearchTerm(userName); // Atualiza o termo de pesquisa para o nome clicado
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('https://recep10-back.up.railway.app/api/visitantes');
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
     }
   };
 
-  const abrirDialog = () => {
-    const dialog = document.getElementById("rel");
-    dialog.showModal();
-    setIsRelDialogOpen(true);
+  const filterUsers = () => {
+    return users.filter(user =>
+      user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   };
 
-  const fecharDialog = () => {
-    const dialog = document.getElementById("rel");
-    dialog.close();
-    setIsRelDialogOpen(false);
+  const openModal = async (userId) => {
+    try {
+      const response = await axios.get(`https://recep10-back.up.railway.app/api/visitantes/${userId}`);
+      setSelectedUser(response.data);
+      setModalIsOpen(true);
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedUser(null);
+    setModalIsOpen(false);
   };
 
   return (
     <div>
-      <dialog className={style.regaut} id="rel">
-        <h1 style={{ pointerEvents: "none" }}>RELATÓRIO</h1>
-        <div>
-          <button className={style.button} onClick={fecharDialog}>
-            FECHAR
-          </button>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={filterNames}
-            placeholder="Digite um nome..."
-          />
-          {isRelDialogOpen && (
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Visitas</th>
-                  <th>Detalhes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {names.map((visitor, index) => (
-                  <tr key={index}>
-                    <td>{visitor.name}</td>
-                    <td>{visitor._count.visits}</td>
-                    <td>
-                      <button
-                        onClick={() => {
-                          handleUserClick(visitor.id, visitor.name);
-                        }}
-                      >
-                        Saiba mais
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </dialog>
-      <dialog id="detalhes">
-        <table>
-          <tbody>
-            <tr>
-              <td>Name: {selectedUserDetails.name}</td>
-            </tr>
-            <tr>
-              <td>Phone: {selectedUserDetails.phone}</td>
-            </tr>
-            <tr>
-              <td>Gender: {selectedUserDetails.gender}</td>
-            </tr>
-            <tr>
-              <td>Age: {selectedUserDetails.age}</td>
-            </tr>
-            <tr>
-              <td>Address: {selectedUserDetails.address}</td>
-            </tr>
-            <tr>
-              <td>City and State: {selectedUserDetails.cityAndState}</td>
-            </tr>
-            <tr>
-              <td>Religion: {selectedUserDetails.religion}</td>
-            </tr>
-            <tr>
-              <td>Small Group: {selectedUserDetails.smallGroup}</td>
-            </tr>
-            <tr>
-              <td>Bible Study: {selectedUserDetails.bibleStudy}</td>
-            </tr>
-            <tr>
-              <td>Visits: {selectedUserDetails._count?.visits}</td>
-            </tr>
-            <tr>
+      <input
+        type="text"
+        placeholder="Search by name"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Visitas</th>
+            <th>Detalhes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filterUsers().map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user._count.visits}</td>
               <td>
-                <button
-                  onClick={() => document.getElementById("detalhes").close()}
-                >
-                  Fechar
-                </button>
+                <button onClick={() => openModal(user.id)}>Saiba Mais</button>
               </td>
             </tr>
-          </tbody>
-        </table>
-      </dialog>
+          ))}
+        </tbody>
+      </table>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="User Details"
+      >
+        {selectedUser && (
+          <div>
+            <h2>{selectedUser.name}</h2>
+            <p>Telefone: {selectedUser.phone}</p>
+            <p>Gênero: {selectedUser.gender}</p>
+            <p>Idade: {selectedUser.age}</p>
+            <p>Endereço: {selectedUser.address}</p>
+            <p>Cidade e Estado: {selectedUser.cityAndState}</p>
+            <p>Religião: {selectedUser.religion}</p>
+            <p>Pequeno Grupo: {selectedUser.smallGroup}</p>
+            <p>Estudo Bíblico: {selectedUser.bibleStudy}</p>
+            <p>Visitas: {selectedUser._count.visits}</p>
+            {/* Adicione outras informações conforme necessário */}
+            <button onClick={closeModal}>Fechar</button>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };
 
 export default Relatorios;
+

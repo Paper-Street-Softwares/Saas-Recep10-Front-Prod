@@ -1,4 +1,3 @@
-// Painel.js
 import style from "../css/painel.css";
 import AdicionarVisita from "../components/main/AdicionarVisita";
 import CadastrarVisitante from "../components/main/CadastrarVisitante";
@@ -6,11 +5,20 @@ import AlterarVisitante from "../components/main/AlterarVisitante";
 import Header from "../components/structure/Header";
 import Navbar from "../components/structure/Navbar";
 import Home from "../components/main/Home";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../components/structure/Modal";
+import Relatorios from '../components/main/Relatorios';
 
 function Painel() {
   const [activeComponent, setActiveComponent] = useState('home');
+  const [pageReloaded, setPageReloaded] = useState(false);
+
+  useEffect(() => {
+    if (!pageReloaded) {
+      console.log('Página atualizada uma vez.');
+      setPageReloaded(true);
+    }
+  }, [pageReloaded]); 
 
   const handleComponentChange = (component) => {
     setActiveComponent(component);
@@ -27,11 +35,12 @@ function Painel() {
         <div className="mid-Section-Painel">
 
           {/* COMPONENTES QUE VÃO SER RENDERIZADOS */}
-          <Modal/>
+          <Modal />
           {activeComponent === 'home' && <Home />}
           {activeComponent === 'CadastrarVisitante' && <CadastrarVisitante />}
           {activeComponent === 'AdicionarVisita' && <AdicionarVisita />}
           {activeComponent === 'AlterarVisitante' && <AlterarVisitante />}
+          {activeComponent === 'Relatorios' && <Relatorios />}
           {/* COMPONENTES QUE VÃO SER RENDERIZADOS */}
 
         </div>

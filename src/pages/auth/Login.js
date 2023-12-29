@@ -56,7 +56,7 @@ const Login = () => {
         <div className="mid-Section-Login">
           <h2 id="title-Login">Entre com seu e-mail e senha</h2>
           <form id="form-Login">
-            <div class="inputs-Login">
+            <div className="inputs-Login">
               <input
                 type="text"
                 id="emailInput-Login"

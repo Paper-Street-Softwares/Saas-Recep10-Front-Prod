@@ -50,6 +50,14 @@ const Navbar = ({ onComponentChange }) => {
         <div className="iconName-Navbar">Alterar</div>
       </div>
 
+      {/* RELATORIOS */}
+      <div className="individualIcon-Navbar">
+        <div onClick={() => onComponentChange('Relatorios')} className="iconNavbar-Navbar">
+          <GrSearch />
+        </div>
+        <div className="iconName-Navbar">Relatorios</div>
+      </div>
+
       {/* MAIS */}
       {/* <div className="iconNavbar-Navbar">
         <IoIosMore />
