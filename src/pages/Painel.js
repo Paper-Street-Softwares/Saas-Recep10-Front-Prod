@@ -204,9 +204,9 @@ function Painel() {
 
           {/* <CadastrarVisitante /> */}
 
-          {/* <AdicionarVisita /> */}
+          <AdicionarVisita />
 
-          <AlterarVisitante />
+          {/* <AlterarVisitante /> */}
         </div>
         <div className="bot-Section-Painel"></div>
       </div>
