@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.navbar-Navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.iconNavbar-Navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.iconNavbar-Navbar svg {
+  color: #23b79d;
+  font-size: 24px;
+}
+
+.individualIcon-Navbar {
+  display: inline-block;
+  justify-content: center;
+}
+
+.iconName-Navbar {
+  font-size: 14px;
+  color: #23b79d;
+}
