@@ -6,13 +6,14 @@
 
 .inputs-Global {
   position: relative;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   box-sizing: border-box;
   outline: none;
   border: 1px solid #0a0a0a52;
-  margin-top: 15px;
+  margin-top: 10px;
   border-radius: 10px;
+  font-size: 10px;
 }
 
 .giantTitle-Global {
@@ -31,12 +32,11 @@
 .button-Global {
   background-color: #3cac97;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
   box-shadow: none;
   width: 100%;
-  height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 30px;
+  margin-top: 15px;
   border-radius: 10px;
   border: none;
 }
@@ -44,12 +44,11 @@
 .buttonBack-Global {
   background-color: #dbf3f3;
   color: #4ca494;
-  font-size: 12px;
+  font-size: 10px;
   box-shadow: none;
   width: 100%;
-  height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 30px;
+  margin-top: 15px;
   border-radius: 10px;
   border: none;
 }
@@ -60,9 +59,8 @@
   font-size: 12px;
   box-shadow: none;
   width: 100%;
-  height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 30px;
+  margin-top: 15px;
   border-radius: 10px;
   border: none;
 }

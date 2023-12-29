@@ -7,7 +7,7 @@
 .navbar-Navbar {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
 }
 
 .iconNavbar-Navbar {
@@ -17,7 +17,7 @@
 
 .iconNavbar-Navbar svg {
   color: #23b79d;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .individualIcon-Navbar {
@@ -26,6 +26,6 @@
 }
 
 .iconName-Navbar {
-  font-size: 14px;
+  font-size: 10px;
   color: #23b79d;
 }
