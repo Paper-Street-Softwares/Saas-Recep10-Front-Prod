@@ -202,7 +202,7 @@ function Painel() {
         <div className="top-Section-Painel"></div>
         <div className="mid-Section-Painel">
 
-          <Modal/>
+          {/* <Modal/>
 
           <Relatorios />
 
@@ -210,7 +210,7 @@ function Painel() {
 
           <AdicionarVisita />
 
-          <AlterarVisitante />
+          <AlterarVisitante /> */}
         </div>
         <div className="bot-Section-Painel"></div>
       </div>
