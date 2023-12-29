@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header-Hearder {
+}
+
+.profilePic-Header {
+}
+
+#profilePic-Header {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.welcomeMesage-Header {
+}
+
+.userName-Header {
+}

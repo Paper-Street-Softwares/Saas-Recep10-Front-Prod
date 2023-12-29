@@ -4,6 +4,7 @@ import Relatorios from "../components/main/Relatorios";
 import Navbar from "../components/structure/Navbar";
 import CadastrarVisitante from "../components/main/CadastrarVisitante";
 import AlterarVisitante from "../components/main/AlterarVisitante";
+import Header from "../components/structure/Header";
 
 function Painel() {
   // /*Não mover o baseUrl pra baixo*/
@@ -193,17 +194,19 @@ function Painel() {
 
   return (
     <div className="body-Painel">
-      <div className="header-Painel"></div>
+      <div className="header-Painel">
+        <Header />
+      </div>
       <div className="main-Painel">
         <div className="top-Section-Painel"></div>
         <div className="mid-Section-Painel">
-          <Relatorios />
+          {/* <Relatorios />
 
           <CadastrarVisitante />
 
           <AdicionarVisita />
 
-          <AlterarVisitante />
+          <AlterarVisitante /> */}
         </div>
         <div className="bot-Section-Painel"></div>
       </div>
