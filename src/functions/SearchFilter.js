@@ -49,9 +49,10 @@ const SearchFilter = ({ onUserClick }) => {
         placeholder="Digite um nome..."
       />
       {searchTerm && (
-        <ul>
+        <ul className="uls-Global">
           {names.map((visitor, index) => (
             <li
+              className="lis-Global"
               key={index}
               onClick={() => handleUserClick(visitor.id, visitor.name)}
             >
