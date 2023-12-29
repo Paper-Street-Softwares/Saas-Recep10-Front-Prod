@@ -1,3 +1,6 @@
+
+import { useState } from "react";
+
 function abrirDialog2() {
   
   const dialog = document.getElementById("dialog2");
@@ -8,6 +11,11 @@ function fecharDialog2(event) {
   const dialog = document.getElementById("dialog2");
   dialog.close();
   event.preventDefault();
+}
+
+function fecharModal(event){
+  const genericModall = document.getElementById('genericModal');
+  genericModall.close();
 }
 
 function enviarVisitante(event) {
@@ -76,9 +84,9 @@ function enviarVisitante(event) {
         btn.disabled = true;
   
         if (res.status === 201) {
-          console.log("Visitante registrado com sucesso!");
-          window.alert("Visitante registrado com sucesso!")
-          window.location.reload();
+          event.preventDefault();
+          const genericModall = document.getElementById('genericModal');
+          genericModall.showModal();
         }
       } catch (err) {
         console.log(err.message);
@@ -88,4 +96,4 @@ function enviarVisitante(event) {
 
 }
 
-export { abrirDialog2, fecharDialog2, enviarVisitante };
+export { abrirDialog2, fecharDialog2, enviarVisitante, fecharModal };

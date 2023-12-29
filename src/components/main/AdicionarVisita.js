@@ -36,16 +36,21 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   };
 
   const handleAddVisit = async (event) => {
+    event.preventDefault();
     try {
+      event.preventDefault();
       if (!selectedUser || !visitDate) {
-        window.alert("Selecione uma Data e um Visitante!");
+        event.preventDefault();
+        const successModall = document.getElementById('genericModal');
+        const msgModall = document.getElementById('msgmodal');
+        msgModall.innerHTML = 'Verifique se a data e o visitante estão selecionados.'
+        successModall.showModal();
         return;
+        event.preventDefault();
       }
 
       // Carregar as visitas antes de verificar se o usuário já possui uma visita na data especificada
-      const response = await axios.get(
-        "https://recep10-back.up.railway.app/api/visitas"
-      );
+      const response = await axios.get("https://recep10-back.up.railway.app/api/visitas");
       const visits = response.data;
 
       // Verificar se o usuário já possui uma visita na data especificada
@@ -67,16 +72,20 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post(
-        "https://recep10-back.up.railway.app/api/visitas",
-        visitData
-      );
-      window.alert("Visita adicionada com sucesso!");
+      await axios.post("https://recep10-back.up.railway.app/api/visitas",visitData);
+
+      const successModall = document.getElementById('genericModal');
+      const msgModall = document.getElementById('msgmodal');
+      msgModall.innerHTML = 'Visita adicionada com sucesso ao visitante ' + selectedUser.name
+      successModall.showModal();
+
     } catch (error) {
+      event.preventDefault();
       console.error("Erro ao realizar operações:", error);
-      window.alert(
-        "Ja existe uma data cadastrada neste dia para este visitante!"
-      );
+      const badModall = document.getElementById('genericModal');
+      const msgModall = document.getElementById('msgmodal');
+      msgModall.innerHTML = 'Ja existe uma visita cadastrada neste dia no visitante ' + selectedUser.name
+      badModall.showModal();
     }
   };
 
