@@ -200,13 +200,13 @@ function Painel() {
       <div className="main-Painel">
         <div className="top-Section-Painel"></div>
         <div className="mid-Section-Painel">
-          {/* <Relatorios />
+          {/* <Relatorios /> */}
 
           <CadastrarVisitante />
 
-          <AdicionarVisita />
+          {/* <AdicionarVisita /> */}
 
-          <AlterarVisitante /> */}
+          {/* <AlterarVisitante /> */}
         </div>
         <div className="bot-Section-Painel"></div>
       </div>

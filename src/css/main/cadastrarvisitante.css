@@ -1,0 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.main-CadastrarVisitantes {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-CadastrarVisitantes {
+  display: flex;
+  justify-content: center;
+}
+
+.form-CadastrarVisitantes {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-CadastrarVisitantes {
+}
+
+.inputsForm-CadastrarVisitantes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
