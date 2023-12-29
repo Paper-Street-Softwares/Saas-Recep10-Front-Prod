@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import anime from "animejs";
 import { updateUser } from "../../functions/updateUser";
 import { deleteUser } from "../../functions/deleteUser";
+import style from "../../css/main/alterarvisitante.css";
+import inputstyle from "../../css/structure/input.css";
 
 const AlterarVisitante = () => {
   const baseUrl = "https://recep10-back.up.railway.app";
@@ -140,141 +142,140 @@ const AlterarVisitante = () => {
   };
 
   return (
-    <dialog id="dialog4" className={style2.visitantes}>
-      <form id="att">
-        <h1 id="vt1">Visitantes</h1>
-        <div id="quadro" className={style2.quadro}>
-          <SearchFilterUpdate onUserClick={handleClick} />
-        </div>
+    <div className="main-AlterarVisitante">
+      <div className="title-AlterarVisitante">
+        <p className="titles-Global" id="vt1">
+          Visitantes
+        </p>
+      </div>
+      <div className="form-AlterarVisitante">
+        <form id="att">
+          <div id="quadro">
+            <SearchFilterUpdate onUserClick={handleClick} />
+          </div>
+        </form>
         <div
           id="quadro2"
           className={`${style2.quadro2} ${dialogAtiva ? style2.active : ""}`}
         >
-          <h2 id="vt2" className={style2.visitante2}></h2>
-          <div id="infos" className={style2.infos}>
-            <label>
-              Nome:{" "}
-              <input
-                id="nomeUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.name}
-              />
-            </label>
-            <label>
-              Telefone:{" "}
-              <input
-                id="telefoneUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.phone}
-              />
-            </label>
-            <label>
-              Gênero:{" "}
-              <select
-                id="generoUpdate"
-                defaultValue=""
-                style={{ pointerEvents: "none", opacity: "50%" }}
-              >
-                <option value="" disabled>
-                  Gênero
-                </option>
-                <option>Masculino</option>
-                <option>Feminino</option>
-              </select>
-            </label>
-            <label>
-              Idade:{" "}
-              <input
-                id="idadeUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.age}
-              />
-            </label>
-            <label>
-              Endereço:{" "}
-              <input
-                id="enderecoUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.address}
-              />
-            </label>
-            <label>
-              Cidade e Estado:{" "}
-              <input
-                id="cidadeUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.cityAndState}
-              />
-            </label>
-            <label>
-              Religião:{" "}
-              <input
-                id="religiaoUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.religion}
-              />
-            </label>
-            <label>
-              Pequeno Grupo:{" "}
-              <input
-                id="grupoUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.smallGroup}
-              />
-            </label>
-            <label>
-              Estudo Bíblico:{" "}
-              <input
-                id="estudoUpdate"
-                maxLength={53}
-                type="text"
-                disabled
-                defaultValue={visitor.bibleStudy}
-              />
-            </label>
+          <p id="vt2" className="titles-Global">
+            Editar Dados
+          </p>
+          <div id="infos" className="painelUpdate-AlterarVisitante">
+            <input
+              className="inputs-Global"
+              id="nomeUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.name}
+              placeholder="Nome"
+            />
+            <input
+              className="inputs-Global"
+              id="telefoneUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.phone}
+              placeholder="Telefone"
+            />
+            <select
+              className="inputs-Global"
+              id="generoUpdate"
+              defaultValue=""
+              style={{ pointerEvents: "none", opacity: "50%" }}
+            >
+              <option value="" disabled>
+                Gênero
+              </option>
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+            <input
+              className="inputs-Global"
+              id="idadeUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.age}
+              placeholder="Idade"
+            />
+            <input
+              className="inputs-Global"
+              id="enderecoUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.address}
+              placeholder="Endereço"
+            />
+            <input
+              className="inputs-Global"
+              id="cidadeUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.cityAndState}
+              placeholder="Cidade e Estado"
+            />
+            <input
+              className="inputs-Global"
+              id="religiaoUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.religion}
+              placeholder="Religião"
+            />
+            <input
+              className="inputs-Global"
+              id="grupoUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.smallGroup}
+              placeholder="Pequeno Grupo"
+            />
+            <input
+              className="inputs-Global"
+              id="estudoUpdate"
+              maxLength={53}
+              type="text"
+              disabled
+              defaultValue={visitor.bibleStudy}
+              placeholder="Estudo Bíblico"
+            />
           </div>
-          <button
-            className={style2.btnalt}
-            id="edit"
-            style={{ pointerEvents: "none", opacity: "50%" }}
-            onClick={(event) => habilitarInput(event)}
-          >
-            EDITAR DADOS
-          </button>
-          <button
-            className={style2.btnexc}
-            id="del"
-            style={{ pointerEvents: "none", opacity: "50%" }}
-            onClick={handleDeleteUser}
-          >
-            APAGAR
-          </button>
-          <button
-            className={style2.btnatt}
-            id="upuser"
-            style={{ pointerEvents: "none", opacity: "50%" }}
-            onClick={handleUpdateUser}
-          >
-            ATUALIZAR
-          </button>
+          <div className="buttonGroup-AlterarVisitante">
+            <button
+              className="buttonAtt-Global"
+              id="edit"
+              style={{ pointerEvents: "none", opacity: "50%" }}
+              onClick={(event) => habilitarInput(event)}
+            >
+              EDITAR DADOS
+            </button>
+            <button
+              className="buttonBack-Global"
+              id="del"
+              style={{ pointerEvents: "none", opacity: "50%" }}
+              onClick={handleDeleteUser}
+            >
+              APAGAR
+            </button>
+            <button
+              className="button-Global"
+              id="upuser"
+              style={{ pointerEvents: "none", opacity: "50%" }}
+              onClick={handleUpdateUser}
+            >
+              ATUALIZAR
+            </button>
+          </div>
         </div>
-      </form>
-      <img onClick={fecharDialog4} alt="close2" className={style2.fechar}></img>
-    </dialog>
+      </div>
+    </div>
   );
 };
 

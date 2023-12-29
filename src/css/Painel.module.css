@@ -217,10 +217,6 @@ input {
   right: 130px;
 }
 
-.register2 li {
-  color: black;
-}
-
 .register input {
   width: 350px;
   line-height: 2;
@@ -385,7 +381,6 @@ h2 {
 }
 
 .content li {
-  color: rgb(0, 0, 0);
   transition: 0.3s;
   list-style: none;
   margin-top: 10px;
