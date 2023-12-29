@@ -7,8 +7,10 @@ const Header = () => {
       <div className="profilePic-Header" id="profilePic-Header">
         <img id="profilePic-Header" src={profilePic} />
       </div>
-      <div className="welcomeMesage-Header"></div>
-      <div className="userName-Header"></div>
+      <div className="textHeader-Header">
+        <div className="welcomeMesage-Header">Bem vindo,</div>
+        <div className="userName-Header">Ediscre</div>
+      </div>
     </div>
   );
 };
