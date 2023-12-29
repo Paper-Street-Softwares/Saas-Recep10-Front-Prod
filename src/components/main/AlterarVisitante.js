@@ -276,6 +276,141 @@ const AlterarVisitante = () => {
         </div>
       </div>
     </div>
+    // <dialog id="dialog4" className={style2.visitantes}>
+    //   <form id="att">
+    //     <h1 id="vt1">Visitantes</h1>
+    //     <div id="quadro" className={style2.quadro}>
+    //       <SearchFilterUpdate onUserClick={handleClick} />
+    //     </div>
+    //     <div
+    //       id="quadro2"
+    //       className={`${style2.quadro2} ${dialogAtiva ? style2.active : ""}`}
+    //     >
+    //       <h2 id="vt2" className={style2.visitante2}></h2>
+    //       <div id="infos" className={style2.infos}>
+    //         <label>
+    //           Nome:{" "}
+    //           <input
+    //             id="nomeUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.name}
+    //           />
+    //         </label>
+    //         <label>
+    //           Telefone:{" "}
+    //           <input
+    //             id="telefoneUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.phone}
+    //           />
+    //         </label>
+    //         <label>
+    //           Gênero:{" "}
+    //           <select
+    //             id="generoUpdate"
+    //             defaultValue=""
+    //             style={{ pointerEvents: "none", opacity: "50%" }}
+    //           >
+    //             <option value="" disabled>
+    //               Gênero
+    //             </option>
+    //             <option>Masculino</option>
+    //             <option>Feminino</option>
+    //           </select>
+    //         </label>
+    //         <label>
+    //           Idade:{" "}
+    //           <input
+    //             id="idadeUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.age}
+    //           />
+    //         </label>
+    //         <label>
+    //           Endereço:{" "}
+    //           <input
+    //             id="enderecoUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.address}
+    //           />
+    //         </label>
+    //         <label>
+    //           Cidade e Estado:{" "}
+    //           <input
+    //             id="cidadeUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.cityAndState}
+    //           />
+    //         </label>
+    //         <label>
+    //           Religião:{" "}
+    //           <input
+    //             id="religiaoUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.religion}
+    //           />
+    //         </label>
+    //         <label>
+    //           Pequeno Grupo:{" "}
+    //           <input
+    //             id="grupoUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.smallGroup}
+    //           />
+    //         </label>
+    //         <label>
+    //           Estudo Bíblico:{" "}
+    //           <input
+    //             id="estudoUpdate"
+    //             maxLength={53}
+    //             type="text"
+    //             disabled
+    //             defaultValue={visitor.bibleStudy}
+    //           />
+    //         </label>
+    //       </div>
+    //       <button
+    //         className={style2.btnalt}
+    //         id="edit"
+    //         style={{ pointerEvents: "none", opacity: "50%" }}
+    //         onClick={(event) => habilitarInput(event)}
+    //       >
+    //         EDITAR DADOS
+    //       </button>
+    //       <button
+    //         className={style2.btnexc}
+    //         id="del"
+    //         style={{ pointerEvents: "none", opacity: "50%" }}
+    //         onClick={handleDeleteUser}
+    //       >
+    //         APAGAR
+    //       </button>
+    //       <button
+    //         className={style2.btnatt}
+    //         id="upuser"
+    //         style={{ pointerEvents: "none", opacity: "50%" }}
+    //         onClick={handleUpdateUser}
+    //       >
+    //         ATUALIZAR
+    //       </button>
+    //     </div>
+    //   </form>
+    //   <img onClick={fecharDialog4} alt="close2" className={style2.fechar}></img>
+    // </dialog>
   );
 };
 

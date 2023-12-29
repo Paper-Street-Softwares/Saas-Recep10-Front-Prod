@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import anime from "animejs";
-import style from "../css/Painel.module.css";
-import inputstyle from "../css/structure/input.css";
 
 const SearchFilterUpdate = ({ onUserClick }) => {
   const [visitors, setVisitors] = useState([]);
@@ -76,7 +74,7 @@ const SearchFilterUpdate = ({ onUserClick }) => {
   };
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <input
         className="inputs-Global"
         type="text"
@@ -86,17 +84,19 @@ const SearchFilterUpdate = ({ onUserClick }) => {
       />
 
       {searchTerm && (
-        <ul className="uls-Global">
-          {names.map((visitor, index) => (
-            <li
-              className="lis-Global"
-              key={index}
-              onClick={() => handleUserClick(visitor.id, visitor.name)}
-            >
-              {visitor.name}
-            </li>
-          ))}
-        </ul>
+        <div className="float-list">
+          <ul className="uls-Global">
+            {names.map((visitor, index) => (
+              <li
+                className="lis-Global"
+                key={index}
+                onClick={() => handleUserClick(visitor.id, visitor.name)}
+              >
+                {visitor.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

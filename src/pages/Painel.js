@@ -34,7 +34,6 @@ function Painel() {
           {activeComponent === 'AlterarVisitante' && <AlterarVisitante />}
           {/* COMPONENTES QUE VÃO SER RENDERIZADOS */}
 
-
         </div>
         <div className="bot-Section-Painel"></div>
       </div>
