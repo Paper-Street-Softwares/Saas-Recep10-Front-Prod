@@ -38,7 +38,10 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   const handleAddVisit = async (event) => {
     try {
       if (!selectedUser || !visitDate) {
-        window.alert("Selecione uma Data e um Visitante!");
+        const successModall = document.getElementById('genericModal');
+        const msgModall = document.getElementById('msgmodal');
+        msgModall.innerHTML = 'Verifique se a data e o visitante estão selecionados.'
+        successModall.showModal();
         return;
       }
 
@@ -71,12 +74,16 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         "https://recep10-back.up.railway.app/api/visitas",
         visitData
       );
-      window.alert("Visita adicionada com sucesso!");
+      const successModall = document.getElementById('genericModal');
+      const msgModall = document.getElementById('msgmodal');
+      msgModall.innerHTML = 'Visita adicionada com sucesso ao visitante ' + selectedUser.name
+      successModall.showModal();
     } catch (error) {
       console.error("Erro ao realizar operações:", error);
-      window.alert(
-        "Ja existe uma data cadastrada neste dia para este visitante!"
-      );
+      const badModall = document.getElementById('genericModal');
+      const msgModall = document.getElementById('msgmodal');
+      msgModall.innerHTML = 'Ja existe uma visita cadastrada neste dia no visitante ' + selectedUser.name
+      badModall.showModal();
     }
   };
 

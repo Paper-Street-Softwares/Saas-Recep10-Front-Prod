@@ -11,7 +11,6 @@ const login = async (email, senha) => {
     );
 
     if (response.status === 200) {
-      alert("Autenticação realizada com sucesso");
       return true;
     }
 
