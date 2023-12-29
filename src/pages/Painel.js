@@ -5,6 +5,7 @@ import Navbar from "../components/structure/Navbar";
 import CadastrarVisitante from "../components/main/CadastrarVisitante";
 import AlterarVisitante from "../components/main/AlterarVisitante";
 import Header from "../components/structure/Header";
+import Modal from "../components/structure/Modal";
 
 function Painel() {
   // /*Não mover o baseUrl pra baixo*/
@@ -200,8 +201,13 @@ function Painel() {
       <div className="main-Painel">
         <div className="top-Section-Painel"></div>
         <div className="mid-Section-Painel">
+
           {/* <Relatorios /> */}
 
+
+          {/* <Modal/> */}
+
+          
           <CadastrarVisitante />
 
           {/* <AdicionarVisita /> */}
