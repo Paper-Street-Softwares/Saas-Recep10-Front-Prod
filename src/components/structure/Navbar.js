@@ -1,6 +1,12 @@
 // Navbar.js
 import React from "react";
-import { GrUserAdd, GrCalendar, GrHomeRounded, GrSearch } from "react-icons/gr";
+import {
+  GrUserAdd,
+  GrCalendar,
+  GrHomeRounded,
+  GrSearch,
+  GrBarChart,
+} from "react-icons/gr";
 import style from "../../css/structure/navbar.css";
 
 const Navbar = ({ onComponentChange }) => {
@@ -52,8 +58,11 @@ const Navbar = ({ onComponentChange }) => {
 
       {/* RELATORIOS */}
       <div className="individualIcon-Navbar">
-        <div onClick={() => onComponentChange('Relatorios')} className="iconNavbar-Navbar">
-          <GrSearch />
+        <div
+          onClick={() => onComponentChange("Relatorios")}
+          className="iconNavbar-Navbar"
+        >
+          <GrBarChart />
         </div>
         <div className="iconName-Navbar">Relatorios</div>
       </div>
