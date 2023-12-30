@@ -89,11 +89,7 @@ const Relatorios = () => {
         </tbody>
       </table>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="User Details"
-      >
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="User Details">
         {selectedUser && (
           <div>
             <h2 className="giantTitle-Global">{selectedUser.name}</h2>
