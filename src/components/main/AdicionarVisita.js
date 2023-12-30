@@ -106,6 +106,7 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         <form className="inputsForm-AdicionarVisita">
           <input
             className="date-Global"
+            placeholder="Insira a data"
             type="date"
             onChange={handleDateChange}
           ></input>
