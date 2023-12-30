@@ -49,7 +49,7 @@ const Relatorios = () => {
     setModalIsOpen(false);
   };
 
-  const rows_to_display = 10;
+  const rows_to_display = 7;
 
   return (
     <div className="tableGroup">

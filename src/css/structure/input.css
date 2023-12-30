@@ -76,12 +76,14 @@
 
 .lis-Global {
   text-align: left;
-  font-size: 14px;
-  color: #40c4cc;
+  font-size: 10px;
+  color: #0a0a0a67;
   border-bottom: 0.5px solid #0a0a0a1c;
   list-style: none;
   padding: 10px;
 }
+
+/* TESTE DE ESTILIZAÇÃO PARA RELATORIO  */
 
 td {
   border-top: 0.5px solid #0a0a0a1c;
