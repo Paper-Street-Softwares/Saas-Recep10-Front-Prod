@@ -111,38 +111,38 @@ const Relatorios = () => {
             <div>
               <h2 className="giantTitleModal-Global">{selectedUser.name}</h2>
               <p className="titlesModal-Global">
-                Telefone:
+                Telefone:{" "}
                 <span className="spanModal-Options">{selectedUser.phone}</span>
               </p>
               <p className="titlesModal-Global">
-                Gênero:
+                Gênero:{" "}
                 <span className="spanModal-Options">{selectedUser.gender}</span>
               </p>
               <p className="titlesModal-Global">
-                Idade:
+                Idade:{" "}
                 <span className="spanModal-Options">{selectedUser.age}</span>
               </p>
               <p className="titlesModal-Global">
-                Endereço:
+                Endereço:{" "}
                 <span className="spanModal-Options">
                   {selectedUser.address}
                 </span>
               </p>
               <p className="titlesModal-Global">
-                Cidade e Estado:
+                Cidade e Estado:{" "}
                 <span className="spanModal-Options">
                   {selectedUser.cityAndState}
                 </span>
               </p>
               <p className="titlesModal-Global">
-                Religião:
+                Religião:{" "}
                 <span className="spanModal-Options">
                   {selectedUser.religion}
                 </span>
               </p>
 
               <p className="titlesModal-Global">
-                Pequeno Grupo:
+                Pequeno Grupo:{" "}
                 <span className="spanModal-Options">
                   {selectedUser.smallGroup}
                 </span>
