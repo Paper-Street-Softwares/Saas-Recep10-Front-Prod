@@ -39,6 +39,7 @@
   margin-top: 15px;
   border-radius: 10px;
   border: none;
+  margin-bottom: 10px;
 }
 
 .buttonBack-Global {
@@ -85,17 +86,41 @@
 
 /* TESTE DE ESTILIZAÇÃO PARA RELATORIO  */
 
-td {
-  border-top: 0.5px solid #0a0a0a1c;
-}
-
 .tableGroup {
   display: flex;
-  height: 80vh;
   flex-direction: column;
   justify-content: center;
 }
 
-table {
-  height: 100%;
+.divSeparate {
+  min-height: 20px;
+}
+
+.trReport {
+  display: flex;
+  justify-content: space-between;
+  width: 110%;
+}
+
+.modalReport-Global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 80%;
+  border: 1px solid #0a0a0a31;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tBody-Report {
+  display: flex;
+  flex-direction: column;
 }
