@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Modal from 'react-modal';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Modal from "react-modal";
+import inputstyle from "../../css/structure/input.css";
 
-Modal.setAppElement('#root'); // Define o elemento raiz para acessibilidade
+Modal.setAppElement("#root"); // Define o elemento raiz para acessibilidade
 
 const Relatorios = () => {
   const [users, setUsers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -16,26 +17,30 @@ const Relatorios = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://recep10-back.up.railway.app/api/visitantes');
+      const response = await axios.get(
+        "https://recep10-back.up.railway.app/api/visitantes"
+      );
       setUsers(response.data);
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error("Error fetching users:", error);
     }
   };
 
   const filterUsers = () => {
-    return users.filter(user =>
+    return users.filter((user) =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   };
 
   const openModal = async (userId) => {
     try {
-      const response = await axios.get(`https://recep10-back.up.railway.app/api/visitantes/${userId}`);
+      const response = await axios.get(
+        `https://recep10-back.up.railway.app/api/visitantes/${userId}`
+      );
       setSelectedUser(response.data);
       setModalIsOpen(true);
     } catch (error) {
-      console.error('Error fetching user details:', error);
+      console.error("Error fetching user details:", error);
     }
   };
 
@@ -44,11 +49,14 @@ const Relatorios = () => {
     setModalIsOpen(false);
   };
 
+  const rows_to_display = 10;
+
   return (
-    <div>
+    <div className="tableGroup">
       <input
+        className="inputs-Global"
         type="text"
-        placeholder="Search by name"
+        placeholder="Busque pelo nome"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -56,21 +64,28 @@ const Relatorios = () => {
       <table>
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Visitas</th>
-            <th>Detalhes</th>
+            <th className="titles-Global">Nome</th>
+            <th className="titles-Global">Visitas</th>
+            <th className="titles-Global">Detalhes</th>
           </tr>
         </thead>
         <tbody>
-          {filterUsers().map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user._count.visits}</td>
-              <td>
-                <button onClick={() => openModal(user.id)}>Saiba Mais</button>
-              </td>
-            </tr>
-          ))}
+          {filterUsers()
+            .slice(0, rows_to_display)
+            .map((user) => (
+              <tr key={user.id}>
+                <td className="titles-Global">{user.name}</td>
+                <td className="titles-Global">{user._count.visits}</td>
+                <td>
+                  <button
+                    className="button-Global"
+                    onClick={() => openModal(user.id)}
+                  >
+                    Saiba Mais
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
 
@@ -81,18 +96,28 @@ const Relatorios = () => {
       >
         {selectedUser && (
           <div>
-            <h2>{selectedUser.name}</h2>
-            <p>Telefone: {selectedUser.phone}</p>
-            <p>Gênero: {selectedUser.gender}</p>
-            <p>Idade: {selectedUser.age}</p>
-            <p>Endereço: {selectedUser.address}</p>
-            <p>Cidade e Estado: {selectedUser.cityAndState}</p>
-            <p>Religião: {selectedUser.religion}</p>
-            <p>Pequeno Grupo: {selectedUser.smallGroup}</p>
-            <p>Estudo Bíblico: {selectedUser.bibleStudy}</p>
-            <p>Visitas: {selectedUser._count.visits}</p>
+            <h2 className="giantTitle-Global">{selectedUser.name}</h2>
+            <p className="titles-Global">Telefone: {selectedUser.phone}</p>
+            <p className="titles-Global">Gênero: {selectedUser.gender}</p>
+            <p className="titles-Global">Idade: {selectedUser.age}</p>
+            <p className="titles-Global">Endereço: {selectedUser.address}</p>
+            <p className="titles-Global">
+              Cidade e Estado: {selectedUser.cityAndState}
+            </p>
+            <p className="titles-Global">Religião: {selectedUser.religion}</p>
+            <p className="titles-Global">
+              Pequeno Grupo: {selectedUser.smallGroup}
+            </p>
+            <p className="titles-Global">
+              Estudo Bíblico: {selectedUser.bibleStudy}
+            </p>
+            <p className="titles-Global">
+              Visitas: {selectedUser._count.visits}
+            </p>
             {/* Adicione outras informações conforme necessário */}
-            <button onClick={closeModal}>Fechar</button>
+            <button className="buttonBack-Global" onClick={closeModal}>
+              Fechar
+            </button>
           </div>
         )}
       </Modal>
@@ -101,4 +126,3 @@ const Relatorios = () => {
 };
 
 export default Relatorios;
-
