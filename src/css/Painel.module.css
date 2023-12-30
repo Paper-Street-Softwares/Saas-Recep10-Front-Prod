@@ -363,14 +363,14 @@ h1 {
   margin: auto;
 }
 
-h2 {
+/* h2 {
   margin: auto;
   color: #34c4ac !important;
   position: relative;
   top: 40%;
   font-size: larger;
   transform: translateY(-50%);
-}
+} */
 
 .content input {
   padding: 8px;
