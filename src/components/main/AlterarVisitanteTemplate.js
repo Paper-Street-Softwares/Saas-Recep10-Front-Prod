@@ -1,6 +1,8 @@
 import React from "react";
 import anime from "animejs";
 import SearchFilterUpdate from "../../functions/SearchFilterUpdate";
+import "../../css/main/alterarvisitante.css";
+import "../../css/structure/input.css";
 
 const AlterarVisitanteTemplate = ({
   visitor,
@@ -15,7 +17,7 @@ const AlterarVisitanteTemplate = ({
     <div className="main-AlterarVisitante">
       <div className="title-AlterarVisitante">
         <p className="titles-Global" id="vt1">
-        Visitante {visitor.name}
+          Visitante {visitor.name}
         </p>
       </div>
       <div className="form-AlterarVisitante">
@@ -25,7 +27,9 @@ const AlterarVisitanteTemplate = ({
           </div>
         </form>
         <div
-          id="quadro2" style={{display: 'none'}} className={`quadro2 ${dialogAtiva ? "active" : ""}`}
+          id="quadro2"
+          style={{ display: "none" }}
+          className={`quadro2 ${dialogAtiva ? "active" : ""}`}
         >
           <p id="vt2" className="titles-Global">
             Editar Dados
@@ -120,7 +124,7 @@ const AlterarVisitanteTemplate = ({
             <button
               className="buttonAtt-Global"
               id="edit"
-              style={{ pointerEvents: "none", opacity: "50%" }}
+              style={{ pointerEvents: "none", opacity: "100%" }}
               onClick={(event) => habilitarInput(event)}
             >
               EDITAR DADOS
@@ -128,7 +132,7 @@ const AlterarVisitanteTemplate = ({
             <button
               className="buttonBack-Global"
               id="del"
-              style={{ pointerEvents: "none", opacity: "50%" }}
+              style={{ pointerEvents: "none", opacity: "20%" }}
               onClick={handleDeleteUser}
             >
               APAGAR
@@ -136,7 +140,7 @@ const AlterarVisitanteTemplate = ({
             <button
               className="button-Global"
               id="upuser"
-              style={{ pointerEvents: "none", opacity: "50%" }}
+              style={{ pointerEvents: "none", opacity: "20%" }}
               onClick={handleUpdateUser}
             >
               ATUALIZAR

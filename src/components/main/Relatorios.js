@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import inputstyle from "../../css/structure/input.css";
+import style from "../../css/main/relatorios.css";
 
 Modal.setAppElement("#root"); // Define o elemento raiz para acessibilidade
 
@@ -63,25 +64,29 @@ const Relatorios = () => {
 
       <div className="divSeparate"></div>
 
-      <table className="tableReport">
-        <thead>
-          <tr>
-            <th className="titles-Global">Nome</th>
-            <th className="titles-Global">Visitas</th>
-          </tr>
-        </thead>
-        <tbody className="tBody-Report">
+      <thead>
+        <tr className="trReport">
+          <th className="titles-Global">Nome</th>
+          <th className="titles-Global">Visitas</th>
+        </tr>
+      </thead>
+
+      <table className="uls-Global">
+        <tbody>
           {filterUsers()
             .slice(0, rows_to_display)
             .map((user) => (
               <tr className="trReport" key={user.id}>
-                <td
-                  onClick={() => openModal(user.id)}
-                  className="titles-Global"
-                >
-                  {user.name}
-                </td>
-                <td className="titles-Global">{user._count.visits}</td>
+                <div className="tdVisitas-Relatorios">
+                  <td onClick={() => openModal(user.id)} className="tds-Global">
+                    {user.name}
+                  </td>
+                </div>
+                <div className="tdVisitas-Relatorios">
+                  <td onClick={() => openModal(user.id)} className="tds-Global">
+                    {user._count.visits}
+                  </td>
+                </div>
                 {/* <td>
                   <button
                     className="button-Global"
@@ -94,7 +99,6 @@ const Relatorios = () => {
             ))}
         </tbody>
       </table>
-
 
       <div className="modalReport-Global">
         <Modal
@@ -131,7 +135,6 @@ const Relatorios = () => {
           )}
         </Modal>
       </div>
-
     </div>
   );
 };
