@@ -28,7 +28,7 @@
 #links-Login {
   text-align: right;
   font-size: 14px;
-  color: #23b39b;
+  color: #40c4cc;
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@
   display: block;
   margin-bottom: 5px;
   padding: 10px;
-  background-color: #23b79d;
+  background-color: #40c4cc;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -67,6 +67,7 @@
 
 #title-Login {
   text-align: left;
+  color: #40c4cc;
 }
 
 #form-Login {

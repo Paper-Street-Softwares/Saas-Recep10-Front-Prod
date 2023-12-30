@@ -15,7 +15,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .textHeader-Header {
@@ -26,12 +26,12 @@
 
 .welcomeMesage-Header {
   font-size: 10px;
-  color: #23b79d;
+  color: #40c4cc;
 }
 
 .userName-Header {
   display: flex;
   font-size: 14px;
-  color: #23b79d;
+  color: #40c4cc;
   font-weight: bold;
 }
