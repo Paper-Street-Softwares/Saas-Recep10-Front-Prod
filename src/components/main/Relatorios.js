@@ -95,6 +95,7 @@ const Relatorios = () => {
         </tbody>
       </table>
 
+
       <div className="modalReport-Global">
         <Modal
           className="modal"
@@ -130,6 +131,7 @@ const Relatorios = () => {
           )}
         </Modal>
       </div>
+
     </div>
   );
 };
