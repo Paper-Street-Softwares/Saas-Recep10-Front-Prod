@@ -41,16 +41,19 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       event.preventDefault();
       if (!selectedUser || !visitDate) {
         event.preventDefault();
-        const successModall = document.getElementById('genericModal');
-        const msgModall = document.getElementById('msgmodal');
-        msgModall.innerHTML = 'Verifique se a data e o visitante estão selecionados.'
+        const successModall = document.getElementById("genericModal");
+        const msgModall = document.getElementById("msgmodal");
+        msgModall.innerHTML =
+          "Verifique se a data e o visitante estão selecionados.";
         successModall.showModal();
         return;
         event.preventDefault();
       }
 
       // Carregar as visitas antes de verificar se o usuário já possui uma visita na data especificada
-      const response = await axios.get("https://recep10-back.up.railway.app/api/visitas");
+      const response = await axios.get(
+        "https://recep10-back.up.railway.app/api/visitas"
+      );
       const visits = response.data;
 
       // Verificar se o usuário já possui uma visita na data especificada
@@ -72,19 +75,24 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post("https://recep10-back.up.railway.app/api/visitas",visitData);
+      await axios.post(
+        "https://recep10-back.up.railway.app/api/visitas",
+        visitData
+      );
 
-      const successModall = document.getElementById('genericModal');
-      const msgModall = document.getElementById('msgmodal');
-      msgModall.innerHTML = 'Visita adicionada com sucesso ao visitante ' + selectedUser.name
+      const successModall = document.getElementById("genericModal");
+      const msgModall = document.getElementById("msgmodal");
+      msgModall.innerHTML =
+        "Visita adicionada com sucesso ao visitante " + selectedUser.name;
       successModall.showModal();
-
     } catch (error) {
       event.preventDefault();
       console.error("Erro ao realizar operações:", error);
-      const badModall = document.getElementById('genericModal');
-      const msgModall = document.getElementById('msgmodal');
-      msgModall.innerHTML = 'Ja existe uma visita cadastrada neste dia no visitante ' + selectedUser.name
+      const badModall = document.getElementById("genericModal");
+      const msgModall = document.getElementById("msgmodal");
+      msgModall.innerHTML =
+        "Ja existe uma visita cadastrada neste dia no visitante " +
+        selectedUser.name;
       badModall.showModal();
     }
   };
@@ -97,7 +105,7 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       <div className="form-AdicionarVisita">
         <form className="inputsForm-AdicionarVisita">
           <input
-            className="inputs-Global"
+            className="date-Global"
             type="date"
             onChange={handleDateChange}
           ></input>
