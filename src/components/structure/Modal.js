@@ -1,12 +1,14 @@
-import { fecharModal } from "../../functions/DialogController2"
+import { fecharModal } from "../../functions/DialogController2";
 
-function Modal(){
-    return(
+function Modal() {
+  return (
     <dialog id="genericModal">
-        <p id="msgmodal">Visitante registrado com sucesso!</p>
-        <button onClick={fecharModal} id="closeModal">Fechar</button>
+      <p id="msgmodal">Visitante registrado com sucesso!</p>
+      <button onClick={fecharModal} id="closeModal">
+        Fechar
+      </button>
     </dialog>
-    )
+  );
 }
 
-export default Modal
+export default Modal;

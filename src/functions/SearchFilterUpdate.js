@@ -73,6 +73,8 @@ const SearchFilterUpdate = ({ onUserClick }) => {
     }
   };
 
+  const max_items_to_display = 5;
+
   return (
     <div style={{ position: "relative" }}>
       <input
@@ -86,7 +88,7 @@ const SearchFilterUpdate = ({ onUserClick }) => {
       {searchTerm && (
         <div className="float-list">
           <ul className="uls-Global">
-            {names.map((visitor, index) => (
+            {names.slice(0, max_items_to_display).map((visitor, index) => (
               <li
                 className="lis-Global"
                 key={index}
