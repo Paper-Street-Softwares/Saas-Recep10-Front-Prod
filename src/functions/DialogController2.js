@@ -26,7 +26,7 @@ function enviarVisitante(event) {
     // Se verificaGenero for vazio, impedimos que o formulário seja enviado
 
     // Exibe uma mensagem de erro
-    window.alert("Selecione um gênero!!!")
+    window.alert("Selecione um gênero!")
     event.preventDefault();
   }
   else {
