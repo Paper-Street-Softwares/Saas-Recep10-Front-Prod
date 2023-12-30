@@ -132,4 +132,21 @@ select {
   -moz-appearance: none;
   appearance: none;
   background-color: white;
+  color: #797979;
+}
+
+.date-Global {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  position: relative;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #0a0a0a2d;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 10px;
 }
