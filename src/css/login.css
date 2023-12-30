@@ -111,3 +111,8 @@
   margin-bottom: 80px;
   width: 100%;
 }
+
+.forgotPass {
+  display: flex;
+  justify-content: end;
+}

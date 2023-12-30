@@ -38,6 +38,8 @@ const SearchFilter = ({ onUserClick }) => {
     setSearchTerm(userName); // Atualiza o termo de pesquisa para o nome clicado
   };
 
+  const max_items_to_display = 5;
+
   return (
     <div>
       <p className="titles-Global">Lista de Nomes</p>
@@ -50,7 +52,7 @@ const SearchFilter = ({ onUserClick }) => {
       />
       {searchTerm && (
         <ul className="uls-Global">
-          {names.map((visitor, index) => (
+          {names.slice(0, max_items_to_display).map((visitor, index) => (
             <li
               className="lis-Global"
               key={index}

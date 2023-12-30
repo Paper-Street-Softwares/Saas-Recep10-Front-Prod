@@ -85,9 +85,11 @@ const Login = () => {
                 </p>
               )}
             </div>
-            <a id="links-Login" href="https://wa.me/5561992781077">
-              Esqueceu sua senha?
-            </a>
+            <div className="forgotPass">
+              <a id="links-Login" href="https://wa.me/5561992781077">
+                Esqueceu sua senha?
+              </a>
+            </div>
           </form>
         </div>
         <div className="bot-Section-Login">
