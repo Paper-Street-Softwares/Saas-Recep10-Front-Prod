@@ -10,7 +10,7 @@ th {
 
 .titlesModal-Global {
   font-size: 12px;
-  color: #0a0a0a67;
+  color: #40c4cc;
   list-style: none;
   margin: 10px;
   padding: 5px;
@@ -25,5 +25,5 @@ th {
 }
 
 .spanModal-Options {
-  color: #40c4cc;
+  color: #0a0a0a67;
 }
