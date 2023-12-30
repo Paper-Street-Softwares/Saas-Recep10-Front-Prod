@@ -64,7 +64,7 @@ const Navbar = ({ onComponentChange }) => {
         >
           <GrBarChart />
         </div>
-        <div className="iconName-Navbar">Relatorios</div>
+        <div className="iconName-Navbar">Relatórios</div>
       </div>
 
       {/* MAIS */}

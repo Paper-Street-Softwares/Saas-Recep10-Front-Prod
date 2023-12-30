@@ -61,66 +61,75 @@ const Relatorios = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <table>
+      <div className="divSeparate"></div>
+
+      <table className="tableReport">
         <thead>
           <tr>
             <th className="titles-Global">Nome</th>
             <th className="titles-Global">Visitas</th>
-            <th className="titles-Global">Detalhes</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tBody-Report">
           {filterUsers()
             .slice(0, rows_to_display)
             .map((user) => (
-              <tr key={user.id}>
-                <td className="titles-Global">{user.name}</td>
+              <tr className="trReport" key={user.id}>
+                <td
+                  onClick={() => openModal(user.id)}
+                  className="titles-Global"
+                >
+                  {user.name}
+                </td>
                 <td className="titles-Global">{user._count.visits}</td>
-                <td>
+                {/* <td>
                   <button
                     className="button-Global"
                     onClick={() => openModal(user.id)}
                   >
-                    Saiba Mais
+                    Mais Info
                   </button>
-                </td>
+                </td> */}
               </tr>
             ))}
         </tbody>
       </table>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="User Details"
-      >
-        {selectedUser && (
-          <div>
-            <h2 className="giantTitle-Global">{selectedUser.name}</h2>
-            <p className="titles-Global">Telefone: {selectedUser.phone}</p>
-            <p className="titles-Global">Gênero: {selectedUser.gender}</p>
-            <p className="titles-Global">Idade: {selectedUser.age}</p>
-            <p className="titles-Global">Endereço: {selectedUser.address}</p>
-            <p className="titles-Global">
-              Cidade e Estado: {selectedUser.cityAndState}
-            </p>
-            <p className="titles-Global">Religião: {selectedUser.religion}</p>
-            <p className="titles-Global">
-              Pequeno Grupo: {selectedUser.smallGroup}
-            </p>
-            <p className="titles-Global">
-              Estudo Bíblico: {selectedUser.bibleStudy}
-            </p>
-            <p className="titles-Global">
-              Visitas: {selectedUser._count.visits}
-            </p>
-            {/* Adicione outras informações conforme necessário */}
-            <button className="buttonBack-Global" onClick={closeModal}>
-              Fechar
-            </button>
-          </div>
-        )}
-      </Modal>
+      <div className="modalReport-Global">
+        <Modal
+          className="modal"
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="User Details"
+        >
+          {selectedUser && (
+            <div>
+              <h2 className="giantTitle-Global">{selectedUser.name}</h2>
+              <p className="titles-Global">Telefone: {selectedUser.phone}</p>
+              <p className="titles-Global">Gênero: {selectedUser.gender}</p>
+              <p className="titles-Global">Idade: {selectedUser.age}</p>
+              <p className="titles-Global">Endereço: {selectedUser.address}</p>
+              <p className="titles-Global">
+                Cidade e Estado: {selectedUser.cityAndState}
+              </p>
+              <p className="titles-Global">Religião: {selectedUser.religion}</p>
+              <p className="titles-Global">
+                Pequeno Grupo: {selectedUser.smallGroup}
+              </p>
+              <p className="titles-Global">
+                Estudo Bíblico: {selectedUser.bibleStudy}
+              </p>
+              <p className="titles-Global">
+                Visitas: {selectedUser._count.visits}
+              </p>
+              {/* Adicione outras informações conforme necessário */}
+              <button className="buttonBack-Global" onClick={closeModal}>
+                Fechar
+              </button>
+            </div>
+          )}
+        </Modal>
+      </div>
     </div>
   );
 };
