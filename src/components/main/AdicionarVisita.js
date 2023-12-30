@@ -103,9 +103,6 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
           ></input>
           <SearchFilter onUserClick={handleUserClick} />
           <div className="buttonGroup">
-            <button onClick={handleBackClick} className="buttonBack-Global">
-              VOLTAR
-            </button>
             <button onClick={handleAddVisit} className="button-Global">
               ADICIONAR
             </button>

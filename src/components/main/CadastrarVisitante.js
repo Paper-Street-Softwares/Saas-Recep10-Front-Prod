@@ -82,9 +82,6 @@ const CadastrarVisitante = () => {
 
           <div className={style.btns}>
             <div className="buttonGroup">
-              <button onClick={fecharDialog2} className="buttonBack-Global">
-                VOLTAR
-              </button>
               <button
                 id="enviar"
                 onClick={enviarVisitante}
