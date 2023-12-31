@@ -22,7 +22,8 @@ export const updateUser = async (id) => {
 
   for (const input of inputs) {
     if (input.value === "") {
-      ExibirModal('Preencha todos os campos!');
+      trocarButton();
+      ExibirModal('Preencha pelo menos um campo!');
       return;
     }
   }
