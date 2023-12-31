@@ -16,15 +16,15 @@ function Home() {
       <p className="titles-Global">Suporte</p>
       <p className="text-Home">
         Caso precisa entrar em contato conosco para reportar alguma dificuldade
-        no uso do sistema ou para qualquer tipo de ajuda,
+        no uso do sistema ou para qualquer tipo de ajuda,&nbsp;
         <a id="links-Home" href="https://wa.me/5561992781077">
           clique aqui.
         </a>
       </p>
-      <p className="titles-Global">Como tratamos os dados armazenados aqui?</p>
+      {/* <p className="titles-Global">Como tratamos os dados armazenados aqui?</p>
       <p className="text-Home">
         Política de privacidade | Termos de uso | LGPD
-      </p>
+      </p> */}
     </div>
   );
 }

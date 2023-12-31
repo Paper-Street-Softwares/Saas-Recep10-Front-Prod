@@ -19,13 +19,10 @@ const AlterarVisitanteTemplate = ({
       <div className="title-AlterarVisitante">
         <p className="titles-Global">Alterar dados do visitante</p>
         <p className="text-Home">
-          Passo 1. Toque no campo "Visitante" e após digitar o nome, selecione o
-          visitante que deseja alterar. Novos campos irão surgir.
+          Passo 1. Toque no usuário após pesquisar pelo nome.
         </p>
         <p className="text-Home">
-          Passo 2. Clique em "Editar dados" para começar a alterar. Após, clique
-          em "Atualizar" para salvar. Caso deseja, clique em "Apagar" para
-          deletar o visitante.
+          Passo 2. Toque em "Editar dados" e depois, toque em "Atualizar".
         </p>
         <p className="titles-Global" id="vt1">
           Visitante: {visitor.name}
