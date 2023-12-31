@@ -20,7 +20,7 @@ const AlterarVisitanteTemplate = ({
           Visitante {visitor.name}
         </p>
       </div>
-      <div className="form-AlterarVisitante">
+      <div id="formUpdate" className="form-AlterarVisitante">
         <form id="att">
           <div id="quadro">
             <SearchFilterUpdate onUserClick={handleClick} />

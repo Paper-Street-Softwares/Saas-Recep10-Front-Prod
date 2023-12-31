@@ -1,8 +1,18 @@
-// updateUser.js
+import ExibirModal from "./ExibirModal";
 
 const apiUrl = 'https://recep10-back.up.railway.app/api/visitantes';
 
 export const updateUser = async (id) => {
+
+  const infosDiv = document.getElementById("infos");
+  const inputs = infosDiv.querySelectorAll("input");
+  
+  for (const input of inputs) {
+    if(input.value === ""){
+      ExibirModal('Preencha os campos!');
+    }
+  }
+
     const userData = {
         name: String(document.getElementById('nomeUpdate').value),
         phone: String(document.getElementById('telefoneUpdate').value),
@@ -30,7 +40,7 @@ export const updateUser = async (id) => {
             });
         
             if (response.ok) {
-              console.log('Usuário atualizado com sucesso!');
+              ExibirModal('Usuário atualizado com sucesso!');
               window.location.reload();
               return response.json();
             } else if (response.status === 404) {
