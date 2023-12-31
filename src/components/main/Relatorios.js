@@ -71,14 +71,17 @@ const Relatorios = () => {
 
       <div className="divSeparate"></div>
 
-      <thead>
-        <tr className="trReport">
-          <th className="titles-Global">Nome</th>
-          <th className="titles-Global">Visitas</th>
-        </tr>
-      </thead>
-
-      <table className="uls-Global">
+      <table className="tableReport-Report">
+        <thead>
+          <tr className="trReport">
+            <th className="titles-Global" id="titulo">
+              Nome
+            </th>
+            <th className="titles-Global" id="titulo">
+              Visitas
+            </th>
+          </tr>
+        </thead>
         <tbody>
           {filterUsers()
             .slice(0, rows_to_display)

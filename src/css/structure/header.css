@@ -8,8 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 25px;
+  width: 80%;
 }
 
 #profilePic-Header {
@@ -44,4 +43,8 @@
   display: flex;
   justify-content: right;
   margin-top: 5px;
+}
+
+.headerRigh-Header .welcomeMesage-Header {
+  text-align: end;
 }
