@@ -3,6 +3,20 @@ import ExibirModal from "./ExibirModal";
 
 const apiUrl = 'https://recep10-back.up.railway.app/api/visitantes';
 
+function trocarButton(){
+  const buttonNoAtt = document.getElementById('closeModalNoAtt');
+  buttonNoAtt.style.display = 'block';
+  const buttonAtt = document.getElementById('closeModal');
+  buttonAtt.style.display = 'none'
+}
+
+function trocarButton2(){
+  const buttonNoAtt = document.getElementById('closeModalNoAtt');
+  buttonNoAtt.style.display = 'none';
+  const buttonAtt = document.getElementById('closeModal');
+  buttonAtt.style.display = 'block'
+}
+
 export const updateUser = async (id) => {
   const infosDiv = document.getElementById("infos");
   const inputs = infosDiv.querySelectorAll("input");
@@ -45,6 +59,7 @@ export const updateUser = async (id) => {
   const x = document.getElementById('generoUpdate').value;
 
   if (x === '') {
+    trocarButton();
     ExibirModal("Escolha um gênero.");
   } else {
     try {
@@ -57,6 +72,7 @@ export const updateUser = async (id) => {
       });
 
       if (response.ok) {
+        trocarButton2();
         ExibirModal('Usuário atualizado com sucesso!');
         return response.json();
       } else if (response.status === 404) {
