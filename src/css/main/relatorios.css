@@ -27,3 +27,9 @@ th {
 .spanModal-Options {
   color: #0a0a0a67;
 }
+
+.searchReport {
+  position: fixed;
+  width: 80%;
+  top: 20%;
+}

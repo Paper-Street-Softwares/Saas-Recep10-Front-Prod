@@ -54,13 +54,15 @@ const Relatorios = () => {
 
   return (
     <div className="tableGroup">
-      <input
-        className="inputs-Global"
-        type="text"
-        placeholder="Busque pelo nome"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+      <div className="searchReport">
+        <input
+          className="inputs-Global"
+          type="text"
+          placeholder="Busque pelo nome"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       <div className="divSeparate"></div>
 
