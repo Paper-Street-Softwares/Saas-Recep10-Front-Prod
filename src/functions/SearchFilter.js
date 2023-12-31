@@ -42,7 +42,7 @@ const SearchFilter = ({ onUserClick }) => {
 
   return (
     <div>
-      <p className="titles-Global">Lista de Nomes</p>
+      <p className="titles-Global">Pesquisar visitante</p>
       <input
         className="inputs-Global"
         type="text"

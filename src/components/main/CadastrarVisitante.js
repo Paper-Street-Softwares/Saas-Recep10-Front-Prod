@@ -18,6 +18,9 @@ const CadastrarVisitante = () => {
     <div className="main-CadastrarVisitantes">
       <div className="title-CadastrarVisitantes">
         <p className="titles-Global">Cadastro de Visitante</p>
+        <p className="texts-Global">
+          Preencha todos os campos abaixo para adicionar um novo visitante.
+        </p>
       </div>
       <div className="form-CadastrarVisitantes">
         <form id="form" className="inputsForm-CadastrarVisitantes">

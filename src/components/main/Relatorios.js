@@ -54,6 +54,11 @@ const Relatorios = () => {
 
   return (
     <div className="tableGroup">
+      <p className="titles-Global">Relatórios</p>
+      <p className="texts-Global">
+        Passo 1. Caso queira saber detalhes de um visitante em específico,
+        digite o nome dele no campo abaixo e após localizar, toque em seu nome.
+      </p>
       <div className="searchReport">
         <input
           className="inputs-Global"

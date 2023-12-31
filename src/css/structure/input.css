@@ -29,6 +29,13 @@
   margin-top: 10px;
 }
 
+.texts-Global {
+  text-align: left;
+  font-size: 10px;
+  color: #222222;
+  margin-top: 10px;
+}
+
 .button-Global {
   background-color: #40c4cc;
   color: white;

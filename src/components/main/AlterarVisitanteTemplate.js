@@ -16,8 +16,18 @@ const AlterarVisitanteTemplate = ({
   return (
     <div className="main-AlterarVisitante">
       <div className="title-AlterarVisitante">
+        <p className="titles-Global">Alterar dados do visitante</p>
+        <p className="texts-Global">
+          Passo 1. Toque no campo "Visitante" e após digitar o nome, selecione o
+          visitante que deseja alterar. Novos campos irão surgir.
+        </p>
+        <p className="texts-Global">
+          Passo 2. Clique em "Editar dados" para começar a alterar. Após, clique
+          em "Atualizar" para salvar. Caso deseja, clique em "Apagar" para
+          deletar o visitante.
+        </p>
         <p className="titles-Global" id="vt1">
-          Visitante {visitor.name}
+          Visitante: {visitor.name}
         </p>
       </div>
       <div id="formUpdate" className="form-AlterarVisitante">
@@ -31,8 +41,8 @@ const AlterarVisitanteTemplate = ({
           style={{ display: "none" }}
           className={`quadro2 ${dialogAtiva ? "active" : ""}`}
         >
-          <p id="vt2" className="titles-Global">
-            Editar Dados
+          <p id="vt2" className="texts-Global">
+            Preencha todos ou apenas o campo que queira altarar
           </p>
           <div id="infos" className="painelUpdate-AlterarVisitante">
             <input
