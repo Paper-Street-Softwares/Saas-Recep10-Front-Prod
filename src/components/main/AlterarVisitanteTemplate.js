@@ -3,6 +3,7 @@ import anime from "animejs";
 import SearchFilterUpdate from "../../functions/SearchFilterUpdate";
 import "../../css/main/alterarvisitante.css";
 import "../../css/structure/input.css";
+import style from "../../css/main/home.css";
 
 const AlterarVisitanteTemplate = ({
   visitor,
@@ -17,11 +18,11 @@ const AlterarVisitanteTemplate = ({
     <div className="main-AlterarVisitante">
       <div className="title-AlterarVisitante">
         <p className="titles-Global">Alterar dados do visitante</p>
-        <p className="texts-Global">
+        <p className="text-Home">
           Passo 1. Toque no campo "Visitante" e após digitar o nome, selecione o
           visitante que deseja alterar. Novos campos irão surgir.
         </p>
-        <p className="texts-Global">
+        <p className="text-Home">
           Passo 2. Clique em "Editar dados" para começar a alterar. Após, clique
           em "Atualizar" para salvar. Caso deseja, clique em "Apagar" para
           deletar o visitante.

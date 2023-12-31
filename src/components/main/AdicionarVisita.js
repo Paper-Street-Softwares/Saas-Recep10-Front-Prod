@@ -101,11 +101,11 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
     <div className="main-AdicionarVisita">
       <div className="title-AdicionarVisita">
         <p className="titles-Global">Adicionar visita a um visitante</p>
-        <p className="texts-Global">
+        <p className="text-Home">
           Passo 1. Preencha o campo "Data" com o dia que deseja adicionar a
           vista.
         </p>
-        <p className="texts-Global">
+        <p className="text-Home">
           Passo 2. Clique no campo "Pesquisar visitante" e após digitar o nome,
           selecione o visitante que deseja adicionar. Após isso, só clicar no
           botão e aguardar.
