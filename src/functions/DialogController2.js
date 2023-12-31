@@ -40,6 +40,7 @@ async function enviarVisitante(event) {
 
   for (const input of inputs) {
     if (input.value === "") {
+      trocarButton();
       ExibirModal("Preencha todos os campos.");
       return;
     }
