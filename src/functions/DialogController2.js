@@ -20,6 +20,13 @@ function fecharSemAtt(event) {
 
 function trocarButton(){
   const buttonNoAtt = document.getElementById('closeModalNoAtt');
+  buttonNoAtt.style.display = 'block';
+  const buttonAtt = document.getElementById('closeModal');
+  buttonAtt.style.display = 'none'
+}
+
+function trocarButton2(){
+  const buttonNoAtt = document.getElementById('closeModalNoAtt');
   buttonNoAtt.style.display = 'none';
   const buttonAtt = document.getElementById('closeModal');
   buttonAtt.style.display = 'block'
@@ -42,6 +49,7 @@ async function enviarVisitante(event) {
   const phoneInput = document.getElementById('telefone');
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
+    trocarButton();
     ExibirModal('O campo de telefone só pode conter números.');
     event.preventDefault();
     return;
@@ -51,26 +59,78 @@ async function enviarVisitante(event) {
   const ageInput = document.getElementById('idade');
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
+    trocarButton();
     ExibirModal('O campo de idade só pode conter números.');
     event.preventDefault();
     return;
   }
 
+  // Adicionando verificações para o campo de nome
+  const nameInput = document.getElementById('nome');
+  const nameValue = nameInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(nameValue)) {
+    trocarButton();
+    ExibirModal('O campo de nome só pode conter letras.');
+    event.preventDefault();
+    return;
+  }
+
+  // Adicionando verificações para o campo de cidadeestado
+  const cityAndStateInput = document.getElementById('cidadeestado');
+  const cityAndStateValue = cityAndStateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(cityAndStateValue)) {
+    trocarButton();
+    ExibirModal('O campo de cidade e estado só pode conter letras.');
+    event.preventDefault();
+    return;
+  }
+
+  // Adicionando verificações para o campo de religiao
+  const religionInput = document.getElementById('religiao');
+  const religionValue = religionInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(religionValue)) {
+    trocarButton();
+    ExibirModal('O campo de religião só pode conter letras.');
+    event.preventDefault();
+    return;
+  }
+
+  // Adicionando verificações para o campo de grupo
+  const groupInput = document.getElementById('grupo');
+  const groupValue = groupInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(groupValue)) {
+    trocarButton();
+    ExibirModal('O campo de pequeno grupo só pode conter letras.');
+    event.preventDefault();
+    return;
+  }
+
+  // Adicionando verificações para o campo de estudo
+  const studyInput = document.getElementById('estudo');
+  const studyValue = studyInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(studyValue)) {
+    trocarButton();
+    ExibirModal('O campo de estudo bíblico só pode conter letras.');
+    event.preventDefault();
+    return;
+  }
+
   if (verificaGenero === '') {
+    trocarButton();
     ExibirModal("Selecione um Gênero!");
     event.preventDefault();
   } else {
-    trocarButton();
+    trocarButton2();
 
-    const name = String(document.getElementById('nome').value);
+    const name = String(nameValue);
     const phone = String(document.getElementById('telefone').value);
     const gender = String(document.getElementById('genero').value);
     const age = parseInt(document.getElementById('idade').value);
     const address = String(document.getElementById('endereco').value);
-    const cityAndState = String(document.getElementById('cidadeestado').value);
-    const religion = String(document.getElementById('religiao').value);
-    const smallGroup = String(document.getElementById('grupo').value);
-    const bibleStudy = String(document.getElementById('estudo').value);
+    const cityAndState = String(cityAndStateValue);
+    const religion = String(religionValue);
+    const smallGroup = String(groupValue);
+    const bibleStudy = String(studyValue);
 
     const registerVisitor = {
       name,
@@ -104,6 +164,7 @@ async function enviarVisitante(event) {
         ExibirModal("Visitante adicionado com sucesso!");
       } else if (res.status === 400) {
         // Tratando erros específicos do lado do servidor
+        trocarButton();
         ExibirModal("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
         console.log(result.error)
       } else {
