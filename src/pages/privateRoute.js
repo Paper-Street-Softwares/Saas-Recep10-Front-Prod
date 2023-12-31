@@ -11,6 +11,6 @@ export function PrivateRoute({ children }) {
     return isAuthenticated ? (
         children
     ) : (
-        <Navigate to="/home" replace={true} />
+        <Navigate to="/" replace={true} />
     );
 }
