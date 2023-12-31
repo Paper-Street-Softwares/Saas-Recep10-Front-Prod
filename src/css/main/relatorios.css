@@ -29,7 +29,6 @@ th {
 }
 
 .searchReport {
-  position: fixed;
-  width: 80%;
+  width: 100%;
   top: 10%;
 }
