@@ -85,8 +85,12 @@ const Relatorios = () => {
         <tbody>
           {filterUsers()
             .slice(0, rows_to_display)
-            .map((user) => (
-              <tr className="trReport" key={user.id}>
+            .map((user, index) => (
+              <tr
+                className="trReport"
+                id={index % 2 === 0 ? "trWhite" : "trGray"}
+                key={user.id}
+              >
                 <div className="tdVisitas-Relatorios">
                   <td onClick={() => openModal(user.id)} className="tds-Global">
                     {user.name}
