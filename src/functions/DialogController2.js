@@ -18,6 +18,13 @@ function fecharSemAtt(event) {
   event.preventDefault();
 }
 
+function trocarButton(){
+  const buttonNoAtt = document.getElementById('closeModalNoAtt');
+  buttonNoAtt.style.display = 'none';
+  const buttonAtt = document.getElementById('closeModal');
+  buttonAtt.style.display = 'block'
+}
+
 async function enviarVisitante(event) {
   const verificaGenero = document.getElementById('genero').value;
 
@@ -53,6 +60,8 @@ async function enviarVisitante(event) {
     ExibirModal("Selecione um Gênero!");
     event.preventDefault();
   } else {
+    trocarButton();
+
     const name = String(document.getElementById('nome').value);
     const phone = String(document.getElementById('telefone').value);
     const gender = String(document.getElementById('genero').value);
@@ -95,7 +104,8 @@ async function enviarVisitante(event) {
         ExibirModal("Visitante adicionado com sucesso!");
       } else if (res.status === 400) {
         // Tratando erros específicos do lado do servidor
-        ExibirModal(result.error); // Exiba a mensagem de erro retornada pela API
+        ExibirModal("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
+        console.log(result.error)
       } else {
         // Verificando se o campo `error` da resposta da API está definido
         if (result.error) {
