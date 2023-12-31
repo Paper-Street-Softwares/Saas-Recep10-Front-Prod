@@ -1,20 +1,19 @@
-// updateUser.js
 import ExibirModal from "./ExibirModal";
 
 const apiUrl = 'https://recep10-back.up.railway.app/api/visitantes';
 
-function trocarButton(){
+function trocarButton() {
   const buttonNoAtt = document.getElementById('closeModalNoAtt');
   buttonNoAtt.style.display = 'block';
   const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'none'
+  buttonAtt.style.display = 'none';
 }
 
-function trocarButton2(){
+function trocarButton2() {
   const buttonNoAtt = document.getElementById('closeModalNoAtt');
   buttonNoAtt.style.display = 'none';
   const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'block'
+  buttonAtt.style.display = 'block';
 }
 
 export const updateUser = async (id) => {
@@ -32,6 +31,7 @@ export const updateUser = async (id) => {
   const phoneInput = document.getElementById('telefoneUpdate');
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
+    trocarButton();
     ExibirModal('O campo de telefone só pode conter números.');
     return;
   }
@@ -40,20 +40,66 @@ export const updateUser = async (id) => {
   const ageInput = document.getElementById('idadeUpdate');
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
+    trocarButton();
     ExibirModal('O campo de idade só pode conter números.');
     return;
   }
 
+  // Adicionando verificações para o campo de nomeUpdate
+  const nameUpdateInput = document.getElementById('nomeUpdate');
+  const nameUpdateValue = nameUpdateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(nameUpdateValue)) {
+    trocarButton();
+    ExibirModal('O campo de nome só pode conter letras.');
+    return;
+  }
+
+  // Adicionando verificações para o campo de cidadeUpdate
+  const cityUpdateInput = document.getElementById('cidadeUpdate');
+  const cityUpdateValue = cityUpdateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(cityUpdateValue)) {
+    trocarButton();
+    ExibirModal('O campo de cidade e estado só pode conter letras.');
+    return;
+  }
+
+  // Adicionando verificações para o campo de religiaoUpdate
+  const religionUpdateInput = document.getElementById('religiaoUpdate');
+  const religionUpdateValue = religionUpdateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(religionUpdateValue)) {
+    trocarButton();
+    ExibirModal('O campo de religião só pode conter letras.');
+    return;
+  }
+
+  // Adicionando verificações para o campo de grupoUpdate
+  const groupUpdateInput = document.getElementById('grupoUpdate');
+  const groupUpdateValue = groupUpdateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(groupUpdateValue)) {
+    trocarButton();
+    ExibirModal('O campo de pequeno grupo só pode conter letras.');
+    return;
+  }
+
+  // Adicionando verificações para o campo de estudoUpdate
+  const studyUpdateInput = document.getElementById('estudoUpdate');
+  const studyUpdateValue = studyUpdateInput.value;
+  if (!/^[a-zA-Z\s]+$/.test(studyUpdateValue)) {
+    trocarButton();
+    ExibirModal('O campo de estudo bíblico só pode conter letras.');
+    return;
+  }
+
   const userData = {
-    name: String(document.getElementById('nomeUpdate').value),
+    name: String(nameUpdateValue),
     phone: phoneValue,
     gender: String(document.getElementById('generoUpdate').value),
     age: parseInt(ageValue),
     address: String(document.getElementById('enderecoUpdate').value),
-    cityAndState: String(document.getElementById('cidadeUpdate').value),
-    religion: String(document.getElementById('religiaoUpdate').value),
-    smallGroup: String(document.getElementById('grupoUpdate').value),
-    bibleStudy: String(document.getElementById('estudoUpdate').value),
+    cityAndState: String(cityUpdateValue),
+    religion: String(religionUpdateValue),
+    smallGroup: String(groupUpdateValue),
+    bibleStudy: String(studyUpdateValue),
   };
 
   const x = document.getElementById('generoUpdate').value;
