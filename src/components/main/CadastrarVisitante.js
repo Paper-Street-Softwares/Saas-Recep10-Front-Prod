@@ -5,8 +5,15 @@ import {
   enviarVisitante,
   fecharDialog2,
 } from "../../functions/DialogController2";
+// import React from "react";
+// import Select from "react-select";
 
 const CadastrarVisitante = () => {
+  // const options = [
+  //   { value: "option1", label: "Masculino" },
+  //   { value: "option2", label: "Feminino" },
+  // ];
+
   return (
     <div className="main-CadastrarVisitantes">
       <div className="title-CadastrarVisitantes">
@@ -29,6 +36,12 @@ const CadastrarVisitante = () => {
             pattern="[0-9]{9,17}"
             placeholder="Telefone"
           ></input>
+          {/* <Select
+            options={options}
+            className="inputs-Global"
+            id="genero"
+            defaultValue=""
+          /> */}
           <select className="inputs-Global" id="genero" defaultValue="">
             <option value="" disabled>
               Gênero
