@@ -6,9 +6,10 @@
 
 .header-Header {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  padding: 25px;
 }
 
 #profilePic-Header {
@@ -16,6 +17,7 @@
   height: 30px;
   border-radius: 50px;
   margin-right: 15px;
+  margin-top: 5px;
 }
 
 .textHeader-Header {
@@ -24,7 +26,8 @@
   justify-content: space-between;
 }
 
-.welcomeMesage-Header {
+.welcomeMesage-Header,
+.realTimeHeader-Header {
   font-size: 10px;
   color: #40c4cc;
 }
@@ -34,4 +37,9 @@
   font-size: 14px;
   color: #40c4cc;
   font-weight: bold;
+}
+
+.headerGroup {
+  display: flex;
+  justify-content: right;
 }
