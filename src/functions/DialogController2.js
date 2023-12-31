@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ExibirModal from '../functions/ExibirModal';
+import ExibirModal from "../functions/ExibirModal";
 
 function abrirDialog2() {
   const dialog = document.getElementById("dialog2");
@@ -7,36 +7,36 @@ function abrirDialog2() {
 }
 
 function fecharModal() {
-  const genericModall = document.getElementById('genericModal');
+  const genericModall = document.getElementById("genericModal");
   genericModall.close();
   window.location.reload();
 }
 
 function fecharSemAtt(event) {
-  const genericModall = document.getElementById('genericModal');
+  const genericModall = document.getElementById("genericModal");
   genericModall.close();
   event.preventDefault();
 }
 
-function trocarButton(){
-  const buttonNoAtt = document.getElementById('closeModalNoAtt');
-  buttonNoAtt.style.display = 'block';
-  const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'none'
+function trocarButton() {
+  const buttonNoAtt = document.getElementById("closeModalNoAtt");
+  buttonNoAtt.style.display = "block";
+  const buttonAtt = document.getElementById("closeModal");
+  buttonAtt.style.display = "none";
 }
 
-function trocarButton2(){
-  const buttonNoAtt = document.getElementById('closeModalNoAtt');
-  buttonNoAtt.style.display = 'none';
-  const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'block'
+function trocarButton2() {
+  const buttonNoAtt = document.getElementById("closeModalNoAtt");
+  buttonNoAtt.style.display = "none";
+  const buttonAtt = document.getElementById("closeModal");
+  buttonAtt.style.display = "block";
 }
 
 async function enviarVisitante(event) {
-  const verificaGenero = document.getElementById('genero').value;
+  const verificaGenero = document.getElementById("genero").value;
 
-  const getInputs = document.getElementById('infos');
-  const inputs = getInputs.querySelectorAll('input');
+  const getInputs = document.getElementById("infos");
+  const inputs = getInputs.querySelectorAll("input");
 
   for (const input of inputs) {
     if (input.value === "") {
@@ -47,87 +47,107 @@ async function enviarVisitante(event) {
   }
 
   // Adicionando verificações para o campo de telefone
-  const phoneInput = document.getElementById('telefone');
+  const phoneInput = document.getElementById("telefone");
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
     trocarButton();
-    ExibirModal('O campo de telefone só pode conter números.');
+    ExibirModal("O campo de telefone só pode conter números.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de idade
-  const ageInput = document.getElementById('idade');
+  const ageInput = document.getElementById("idade");
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
     trocarButton();
-    ExibirModal('O campo de idade só pode conter números.');
+    ExibirModal("O campo de idade só pode conter números.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de nome
-  const nameInput = document.getElementById('nome');
+  const nameInput = document.getElementById("nome");
   const nameValue = nameInput.value;
-  if (!/^[a-zA-Z\s]+$/.test(nameValue)) {
+  if (
+    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+      nameValue
+    )
+  ) {
     trocarButton();
-    ExibirModal('O campo de nome só pode conter letras.');
+    ExibirModal("O campo de nome só pode conter letras.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de cidadeestado
-  const cityAndStateInput = document.getElementById('cidadeestado');
+  const cityAndStateInput = document.getElementById("cidadeestado");
   const cityAndStateValue = cityAndStateInput.value;
-  if (!/^[a-zA-Z\s]+$/.test(cityAndStateValue)) {
+  if (
+    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+      cityAndStateValue
+    )
+  ) {
     trocarButton();
-    ExibirModal('O campo de cidade e estado só pode conter letras.');
+    ExibirModal("O campo de cidade e estado só pode conter letras.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de religiao
-  const religionInput = document.getElementById('religiao');
+  const religionInput = document.getElementById("religiao");
   const religionValue = religionInput.value;
-  if (!/^[a-zA-Z\s]+$/.test(religionValue)) {
+  if (
+    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+      religionValue
+    )
+  ) {
     trocarButton();
-    ExibirModal('O campo de religião só pode conter letras.');
+    ExibirModal("O campo de religião só pode conter letras.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de grupo
-  const groupInput = document.getElementById('grupo');
+  const groupInput = document.getElementById("grupo");
   const groupValue = groupInput.value;
-  if (!/^[a-zA-Z\s]+$/.test(groupValue)) {
+  if (
+    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+      groupValue
+    )
+  ) {
     trocarButton();
-    ExibirModal('O campo de pequeno grupo só pode conter letras.');
+    ExibirModal("O campo de pequeno grupo só pode conter letras.");
     event.preventDefault();
     return;
   }
 
   // Adicionando verificações para o campo de estudo
-  const studyInput = document.getElementById('estudo');
+  const studyInput = document.getElementById("estudo");
   const studyValue = studyInput.value;
-  if (!/^[a-zA-Z\s]+$/.test(studyValue)) {
+  if (
+    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+      studyValue
+    )
+  ) {
     trocarButton();
-    ExibirModal('O campo de estudo bíblico só pode conter letras.');
+    ExibirModal("O campo de estudo bíblico só pode conter letras.");
     event.preventDefault();
     return;
   }
 
-  if (verificaGenero === '') {
+  if (verificaGenero === "") {
     trocarButton();
-    ExibirModal("Selecione um Gênero!");
+    ExibirModal("Selecione um gênero (masculino ou feminino).");
     event.preventDefault();
   } else {
     trocarButton2();
 
     const name = String(nameValue);
-    const phone = String(document.getElementById('telefone').value);
-    const gender = String(document.getElementById('genero').value);
-    const age = parseInt(document.getElementById('idade').value);
-    const address = String(document.getElementById('endereco').value);
+    const phone = String(document.getElementById("telefone").value);
+    const gender = String(document.getElementById("genero").value);
+    const age = parseInt(document.getElementById("idade").value);
+    const address = String(document.getElementById("endereco").value);
     const cityAndState = String(cityAndStateValue);
     const religion = String(religionValue);
     const smallGroup = String(groupValue);
@@ -146,13 +166,16 @@ async function enviarVisitante(event) {
     };
 
     try {
-      const res = await fetch("https://recep10-back.up.railway.app/api/visitantes", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(registerVisitor),
-      });
+      const res = await fetch(
+        "https://recep10-back.up.railway.app/api/visitantes",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(registerVisitor),
+        }
+      );
 
       const result = await res.json();
 
@@ -167,7 +190,7 @@ async function enviarVisitante(event) {
         // Tratando erros específicos do lado do servidor
         trocarButton();
         ExibirModal("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
-        console.log(result.error)
+        console.log(result.error);
       } else {
         // Verificando se o campo `error` da resposta da API está definido
         if (result.error) {
@@ -182,4 +205,4 @@ async function enviarVisitante(event) {
   }
 }
 
-export { abrirDialog2, enviarVisitante, fecharModal, fecharSemAtt};
+export { abrirDialog2, enviarVisitante, fecharModal, fecharSemAtt };
