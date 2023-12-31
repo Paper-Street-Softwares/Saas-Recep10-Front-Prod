@@ -8,6 +8,12 @@ import "../../css/Visitantes.module.css"
 import "../../css/structure/input.css";
 
 import AlterarVisitanteTemplate from "./AlterarVisitanteTemplate";
+import ExibirModal from "../../functions/ExibirModal";
+
+function showDeleteModal(){
+  const pegarModal = document.getElementById('removervisitor');
+  pegarModal.showModal();
+}
 
 const AlterarVisitante = () => {
   const baseUrl = "https://recep10-back.up.railway.app";
@@ -16,24 +22,19 @@ const AlterarVisitante = () => {
   const [visitanteSelecionado, setVisitanteSelecionado] = useState(null);
 
   const handleDeleteUser = async (event) => {
-    const resultado = window.confirm(
-      "Deseja realmente apagar o visitante " +
-        visitor.name +
-        "? Se fizer isto, as visitas deste visitante também serão apagadas."
-    );
-    if (resultado) {
-      try {
-        const id = visitor.id;
-        if (!id) {
-          console.error("ID do visitante não encontrado.");
-          return;
-        }
-        await deleteUser(id);
-      } catch (error) {
-        console.error("Erro ao excluir usuário:", error);
+
+    try {
+      const id = visitor.id;
+      if (!id) {
+        console.error("ID do visitante não encontrado.");
+        return;
       }
-      window.location.reload();
+      await deleteUser(id);
+      ExibirModal("Usuário apagado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao excluir usuário:", error);
     }
+
   };
 
   const handleUpdateUser = async () => {
@@ -142,6 +143,7 @@ const AlterarVisitante = () => {
       habilitarInput={habilitarInput}
       handleClick={handleClick}
       dialogAtiva={dialogAtiva}
+      showDeleteModal={showDeleteModal}
     />
   );
 };

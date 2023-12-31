@@ -13,9 +13,18 @@ const AlterarVisitanteTemplate = ({
   habilitarInput,
   handleClick,
   dialogAtiva,
+  showDeleteModal,
 }) => {
   return (
     <div className="main-AlterarVisitante">
+
+      <dialog id="removervisitor" style={{zIndex: '300000'}}>
+        <div>
+        <p>Deseja realmente APAGAR este visitante?</p>
+        <button onClick={handleDeleteUser}>QUERO APAGAR</button>
+        </div>
+      </dialog>
+
       <div className="title-AlterarVisitante">
         <p className="titles-Global">Alterar dados do visitante</p>
         <p className="text-Home">
@@ -128,7 +137,7 @@ const AlterarVisitanteTemplate = ({
               placeholder="Estudo Bíblico"
             />
           </div>
-          <div className="buttonGroup-AlterarVisitante">
+          <div id="botoes" className="buttonGroup-AlterarVisitante">
             <button
               className="buttonAtt-Global"
               id="edit"
@@ -141,7 +150,7 @@ const AlterarVisitanteTemplate = ({
               className="buttonBack-Global"
               id="del"
               style={{ pointerEvents: "none", opacity: "20%" }}
-              onClick={handleDeleteUser}
+              onClick={showDeleteModal}
             >
               APAGAR
             </button>
