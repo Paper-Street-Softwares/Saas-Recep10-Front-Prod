@@ -32,3 +32,16 @@ th {
   width: 100%;
   top: 10%;
 }
+
+.tableReport-Report {
+  background-color: #0a0a0a0e;
+  border: #40c4cc;
+  margin: 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.trReport {
+  background-color: white;
+}
