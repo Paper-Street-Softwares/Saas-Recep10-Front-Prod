@@ -1,99 +1,78 @@
-
 import { useState } from "react";
+import ExibirModal from '../functions/ExibirModal'
 
 function abrirDialog2() {
-  
   const dialog = document.getElementById("dialog2");
   dialog.showModal();
 }
 
-function fecharDialog2(event) {
-  const dialog = document.getElementById("dialog2");
-  dialog.close();
-  event.preventDefault();
-}
-
-function fecharModal(event){
+function fecharModal() {
   const genericModall = document.getElementById('genericModal');
   genericModall.close();
 }
 
-function enviarVisitante(event) {
+async function enviarVisitante(event) {
+  const verificaGenero = document.getElementById('genero').value;
 
-  const verificaGenero = document.getElementById('genero').value
+  const getInputs = document.getElementById('infos');
+  const inputs = getInputs.querySelectorAll('input');
+  
+  for(const input of inputs){
+    if(input.value === ""){
+      ExibirModal("Preencha todos os campos.")
+      return;
+    }
+  }
 
   if (verificaGenero === '') {
-    // Se verificaGenero for vazio, impedimos que o formulário seja enviado
-
-    // Exibe uma mensagem de erro
-    window.alert("Selecione um gênero!")
+    ExibirModal("Selecione um Gênero!");
     event.preventDefault();
-  }
-  else {
-    const form = document.getElementById("form");
+  } else {
+    const name = String(document.getElementById('nome').value);
+    const phone = String(document.getElementById('telefone').value);
+    const gender = String(document.getElementById('genero').value);
+    const age = parseInt(document.getElementById('idade').value);
+    const address = String(document.getElementById('endereco').value);
+    const cityAndState = String(document.getElementById('cidadeestado').value);
+    const religion = String(document.getElementById('religiao').value);
+    const smallGroup = String(document.getElementById('grupo').value);
+    const bibleStudy = String(document.getElementById('estudo').value);
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-  
-  
-      //apenas inputs
-      const name = String(document.getElementById('nome').value)
-      const phone = String(document.getElementById('telefone').value)
-      const gender = String(document.getElementById('genero').value)
-      const age = parseInt(document.getElementById('idade').value)
-      const address = String(document.getElementById('endereco').value)
-      const cityAndState = String(document.getElementById('cidadeestado').value)
-      const religion = String(document.getElementById('religiao').value)
-      const smallGroup = String(document.getElementById('grupo').value)
-      const bibleStudy = String(document.getElementById('estudo').value)
-      //apenas inputs
-  
-      const data = new FormData(form);
-  
-      console.log(data);
-  
-      const registerVisitor = {
-        name,
-        phone,
-        gender,
-        age,
-        address,
-        cityAndState,
-        religion,
-        smallGroup,
-        bibleStudy,
-      };
-  
-      console.log(registerVisitor);
-  
-      try {
+    const registerVisitor = {
+      name,
+      phone,
+      gender,
+      age,
+      address,
+      cityAndState,
+      religion,
+      smallGroup,
+      bibleStudy,
+    };
 
-        const res = await fetch(
-          "https://recep10-back.up.railway.app/api/visitantes",
-          {
-            method: "POST",
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify(registerVisitor),
-          }
-        );
-  
-        const btn = document.getElementById("enviar")
-  
-        btn.disabled = true;
-  
-        if (res.status === 201) {
-          const genericModall = document.getElementById('genericModal');
-          genericModall.showModal();
-          window.location.reload();
-        }
-      } catch (err) {
-        console.log(err.message);
+    try {
+      const res = await fetch("https://recep10-back.up.railway.app/api/visitantes", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(registerVisitor),
+      });
+
+      const result = await res.json();
+
+      event.preventDefault(); // Evitando que a página recarregue por padrão
+
+      if (res.status === 201 && result.status === "ok") {
+        // Recarregar a página
+        window.location.reload();
+      } else {
+        ExibirModal("Erro ao cadastrar usuário");
       }
-  });
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 }
 
-}
-
-export { abrirDialog2, fecharDialog2, enviarVisitante, fecharModal };
+export { abrirDialog2, enviarVisitante, fecharModal };

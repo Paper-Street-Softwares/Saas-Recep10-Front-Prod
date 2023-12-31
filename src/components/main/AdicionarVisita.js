@@ -4,6 +4,7 @@ import style from "../../css/main/adicionarvisita.css";
 import inputstyle from "../../css/structure/input.css";
 import SearchFilter from "../../functions/SearchFilter";
 import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
+import ExibirModal from "../../functions/ExibirModal";
 
 const AdicionarVisita = ({ abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -21,7 +22,6 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   }, []);
 
   const handleUserClick = (userId, userName) => {
-    console.log("ID do usuário clicado:", userId);
     setSelectedUser({ id: userId, name: userName });
   };
 
@@ -38,16 +38,26 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   const handleAddVisit = async (event) => {
     event.preventDefault();
     try {
-      event.preventDefault();
-      if (!selectedUser || !visitDate) {
-        event.preventDefault();
-        const successModall = document.getElementById("genericModal");
-        const msgModall = document.getElementById("msgmodal");
-        msgModall.innerHTML =
-          "Verifique se a data e o visitante estão selecionados.";
-        successModall.showModal();
+      if (visitDate.length === 0) {
+        ExibirModal("Preencha a data corretamente.");
         return;
-        event.preventDefault();
+      }
+
+      if (visitDate.length !== 10) {
+        ExibirModal("Uma data deve conter no mínimo 10 caracteres");
+        return;
+      }
+
+      if (!selectedUser || !visitDate) {
+        ExibirModal("Verifique se a data e o visitante estão selecionados.");
+        return;
+      }
+
+      // Verificar se a data é no futuro
+      const currentDate = new Date().toISOString().split("T")[0];
+      if (visitDate > currentDate) {
+        ExibirModal("Não é possível adicionar visitas em datas futuras.");
+        return;
       }
 
       // Carregar as visitas antes de verificar se o usuário já possui uma visita na data especificada
@@ -65,7 +75,9 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       });
 
       if (hasVisitOnDate) {
-        window.alert("Já existe uma visita neste dia, selecione outra data.");
+        ExibirModal(
+          "Ja existe uma data cadastrada para este visitante neste dia."
+        );
         return;
       }
 
@@ -79,21 +91,15 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         "https://recep10-back.up.railway.app/api/visitas",
         visitData
       );
-
-      const successModall = document.getElementById("genericModal");
-      const msgModall = document.getElementById("msgmodal");
-      msgModall.innerHTML =
-        "Visita adicionada com sucesso ao visitante " + selectedUser.name;
-      successModall.showModal();
+      ExibirModal(
+        "Visita adicionada com sucesso ao visitante " + selectedUser.name
+      );
     } catch (error) {
-      event.preventDefault();
       console.error("Erro ao realizar operações:", error);
-      const badModall = document.getElementById("genericModal");
-      const msgModall = document.getElementById("msgmodal");
-      msgModall.innerHTML =
+      ExibirModal(
         "Ja existe uma visita cadastrada neste dia no visitante " +
-        selectedUser.name;
-      badModall.showModal();
+          selectedUser.name
+      );
     }
   };
 
@@ -103,7 +109,7 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         <p className="titles-Global">Adicionar visita a um visitante</p>
         <p className="text-Home">
           Passo 1. Preencha o campo "Data" com o dia que deseja adicionar a
-          vista.
+          visita.
         </p>
         <p className="text-Home">
           Passo 2. Clique no campo "Pesquisar visitante" e após digitar o nome,

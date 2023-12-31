@@ -36,8 +36,7 @@ const AlterarVisitante = () => {
     }
   };
 
-  const handleUpdateUser = async (event) => {
-    event.preventDefault();
+  const handleUpdateUser = async () => {
     const id = visitor.id;
     if (!id) {
       console.error("ID do visitante não encontrado.");
