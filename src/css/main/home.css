@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.main-Home {
+  width: 100%;
+}
+
+img {
+  max-width: 60%;
+  height: auto;
+}
+
+.text-Home {
+  font-size: 10px;
+  color: #0a0a0a67;
+  list-style: none;
+  margin: 10px;
+  padding: 5px;
+  text-align: left;
+}
+
+#links-Home {
+  text-align: right;
+  font-size: 11px;
+  color: #40c4cc;
+  text-decoration: none;
+}
