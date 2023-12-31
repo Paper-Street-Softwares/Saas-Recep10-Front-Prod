@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ExibirModal from '../functions/ExibirModal'
+import ExibirModal from '../functions/ExibirModal';
 
 function abrirDialog2() {
   const dialog = document.getElementById("dialog2");
@@ -9,6 +9,13 @@ function abrirDialog2() {
 function fecharModal() {
   const genericModall = document.getElementById('genericModal');
   genericModall.close();
+  window.location.reload();
+}
+
+function fecharSemAtt(event) {
+  const genericModall = document.getElementById('genericModal');
+  genericModall.close();
+  event.preventDefault();
 }
 
 async function enviarVisitante(event) {
@@ -16,12 +23,30 @@ async function enviarVisitante(event) {
 
   const getInputs = document.getElementById('infos');
   const inputs = getInputs.querySelectorAll('input');
-  
-  for(const input of inputs){
-    if(input.value === ""){
-      ExibirModal("Preencha todos os campos.")
+
+  for (const input of inputs) {
+    if (input.value === "") {
+      ExibirModal("Preencha todos os campos.");
       return;
     }
+  }
+
+  // Adicionando verificações para o campo de telefone
+  const phoneInput = document.getElementById('telefone');
+  const phoneValue = phoneInput.value;
+  if (!/^\d+$/.test(phoneValue)) {
+    ExibirModal('O campo de telefone só pode conter números.');
+    event.preventDefault();
+    return;
+  }
+
+  // Adicionando verificações para o campo de idade
+  const ageInput = document.getElementById('idade');
+  const ageValue = ageInput.value;
+  if (!/^\d+$/.test(ageValue)) {
+    ExibirModal('O campo de idade só pode conter números.');
+    event.preventDefault();
+    return;
   }
 
   if (verificaGenero === '') {
@@ -63,11 +88,21 @@ async function enviarVisitante(event) {
 
       event.preventDefault(); // Evitando que a página recarregue por padrão
 
-      if (res.status === 201 && result.status === "ok") {
-        // Recarregar a página
-        window.location.reload();
-      } else {
+      // Verificando se a resposta da API é um objeto válido
+      if (result === null) {
         ExibirModal("Erro ao cadastrar usuário");
+      } else if (res.status === 201) {
+        ExibirModal("Visitante adicionado com sucesso!");
+      } else if (res.status === 400) {
+        // Tratando erros específicos do lado do servidor
+        ExibirModal(result.error); // Exiba a mensagem de erro retornada pela API
+      } else {
+        // Verificando se o campo `error` da resposta da API está definido
+        if (result.error) {
+          ExibirModal(result.error);
+        } else {
+          ExibirModal("Erro ao cadastrar usuário");
+        }
       }
     } catch (err) {
       console.log(err.message);
@@ -75,4 +110,4 @@ async function enviarVisitante(event) {
   }
 }
 
-export { abrirDialog2, enviarVisitante, fecharModal };
+export { abrirDialog2, enviarVisitante, fecharModal, fecharSemAtt};

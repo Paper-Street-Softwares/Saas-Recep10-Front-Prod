@@ -6,6 +6,13 @@ import SearchFilter from "../../functions/SearchFilter";
 import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
 import ExibirModal from "../../functions/ExibirModal";
 
+function trocarButton(){
+  const buttonNoAtt = document.getElementById('closeModalNoAtt');
+  buttonNoAtt.style.display = 'block';
+  const buttonAtt = document.getElementById('closeModal');
+  buttonAtt.style.display = 'none'
+}
+
 const AdicionarVisita = ({ abrirDialog3 }) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [visitDate, setVisitDate] = useState("");
@@ -36,19 +43,22 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
   };
 
   const handleAddVisit = async (event) => {
-    event.preventDefault();
     try {
+      event.preventDefault();
       if (visitDate.length === 0) {
+        trocarButton();
         ExibirModal("Preencha a data corretamente.");
         return;
       }
 
       if (visitDate.length !== 10) {
+        trocarButton();
         ExibirModal("Uma data deve conter no mínimo 10 caracteres");
         return;
       }
 
       if (!selectedUser || !visitDate) {
+        trocarButton();
         ExibirModal("Verifique se a data e o visitante estão selecionados.");
         return;
       }
@@ -56,6 +66,7 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       // Verificar se a data é no futuro
       const currentDate = new Date().toISOString().split("T")[0];
       if (visitDate > currentDate) {
+        trocarButton();
         ExibirModal("Não é possível adicionar visitas em datas futuras.");
         return;
       }
@@ -75,9 +86,8 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       });
 
       if (hasVisitOnDate) {
-        ExibirModal(
-          "Ja existe uma data cadastrada para este visitante neste dia."
-        );
+        trocarButton();
+        ExibirModal("Ja existe uma data cadastrada para este visitante neste dia.");
         return;
       }
 
@@ -87,19 +97,13 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post(
-        "https://recep10-back.up.railway.app/api/visitas",
-        visitData
-      );
-      ExibirModal(
-        "Visita adicionada com sucesso ao visitante " + selectedUser.name
-      );
-    } catch (error) {
+      await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
+      trocarButton();
+      ExibirModal("Visita adicionada com sucesso ao visitante " + selectedUser.name);}
+      catch (error) {
+      trocarButton();
       console.error("Erro ao realizar operações:", error);
-      ExibirModal(
-        "Ja existe uma visita cadastrada neste dia no visitante " +
-          selectedUser.name
-      );
+      ExibirModal("Ja existe uma visita cadastrada neste dia no visitante " +selectedUser.name);
     }
   };
 

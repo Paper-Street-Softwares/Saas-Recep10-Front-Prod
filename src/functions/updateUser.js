@@ -58,7 +58,6 @@ export const updateUser = async (id) => {
 
       if (response.ok) {
         ExibirModal('Usuário atualizado com sucesso!');
-        window.location.reload();
         return response.json();
       } else if (response.status === 404) {
         console.error('Usuário não encontrado: ' + id);
