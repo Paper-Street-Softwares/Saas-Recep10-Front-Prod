@@ -110,11 +110,12 @@ tr {
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 390px) {
+
+/* @media (min-width: 390px) {
   input {
     height: 40px;
   }
-}
+} */
 
 @media (min-width: 1024px) {
   input {

@@ -145,7 +145,7 @@
   }
 }
 
-@media (min-width: 390px) {
+/* @media (min-width: 390px) {
   #buttonSignup-Login {
     height: 35px;
     font-size: 16px;
@@ -166,4 +166,4 @@
   #links-Login {
     font-size: 10px;
   }
-}
+} */

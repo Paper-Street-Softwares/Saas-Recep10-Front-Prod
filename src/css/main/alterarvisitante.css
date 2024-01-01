@@ -57,7 +57,7 @@
   }
 }
 
-@media (min-width: 390px) {
+/* @media (min-width: 390px) {
   .form-AlterarVisitante input {
     height: 40px;
   }
@@ -65,7 +65,7 @@
   .buttonGroup-AlterarVisitante {
     margin-bottom: 0;
   }
-}
+} */
 
 @media (min-width: 1024px) {
   .form-AlterarVisitante input {
