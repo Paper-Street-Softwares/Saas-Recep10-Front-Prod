@@ -23,7 +23,9 @@ export const updateUser = async (id) => {
   for (const input of inputs) {
     if (input.value === "") {
       trocarButton();
-      ExibirModal("Preencha pelo menos um campo!");
+
+      alert('Preencha pelo menos um campo!');
+
       return;
     }
   }
@@ -33,7 +35,9 @@ export const updateUser = async (id) => {
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
     trocarButton();
-    ExibirModal("O campo de telefone só pode conter números.");
+
+    alert('O campo de telefone só pode conter números.');
+
     return;
   }
 
@@ -42,7 +46,9 @@ export const updateUser = async (id) => {
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
     trocarButton();
-    ExibirModal("O campo de idade só pode conter números.");
+
+    alert('O campo de idade só pode conter números.');
+
     return;
   }
 
@@ -51,7 +57,9 @@ export const updateUser = async (id) => {
   const nameUpdateValue = nameUpdateInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(nameUpdateValue)) {
     trocarButton();
-    ExibirModal("O campo de nome só pode conter letras.");
+
+    alert('O campo de nome só pode conter letras.');
+
     return;
   }
 
@@ -60,7 +68,9 @@ export const updateUser = async (id) => {
   const cityUpdateValue = cityUpdateInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityUpdateValue)) {
     trocarButton();
-    ExibirModal("O campo de cidade e estado só pode conter letras.");
+
+    alert('O campo de cidade e estado só pode conter letras.');
+
     return;
   }
 
@@ -69,7 +79,9 @@ export const updateUser = async (id) => {
   const religionUpdateValue = religionUpdateInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionUpdateValue)) {
     trocarButton();
-    ExibirModal("O campo de religião só pode conter letras.");
+
+    alert('O campo de religião só pode conter letras.');
+
     return;
   }
 
@@ -78,7 +90,9 @@ export const updateUser = async (id) => {
   const groupUpdateValue = groupUpdateInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupUpdateValue)) {
     trocarButton();
-    ExibirModal("O campo de pequeno grupo só pode conter letras.");
+
+    alert('O campo de pequeno grupo só pode conter letras.');
+
     return;
   }
 
@@ -87,7 +101,9 @@ export const updateUser = async (id) => {
   const studyUpdateValue = studyUpdateInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyUpdateValue)) {
     trocarButton();
-    ExibirModal("O campo de estudo bíblico só pode conter letras.");
+
+    alert('O campo de estudo bíblico só pode conter letras.');
+
     return;
   }
 
@@ -107,7 +123,9 @@ export const updateUser = async (id) => {
 
   if (x === "") {
     trocarButton();
-    ExibirModal("Escolha um gênero (masculino ou feminino).");
+
+    alert("Escolha um gênero.");
+
   } else {
     try {
       const response = await fetch(`${apiUrl}/${id}`, {
@@ -120,7 +138,9 @@ export const updateUser = async (id) => {
 
       if (response.ok) {
         trocarButton2();
-        ExibirModal("Usuário atualizado com sucesso!");
+
+        alert('Usuário atualizado com sucesso!');
+
         return response.json();
       } else if (response.status === 404) {
         console.error("Usuário não encontrado: " + id);

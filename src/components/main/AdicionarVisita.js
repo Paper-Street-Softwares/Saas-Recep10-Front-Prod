@@ -102,14 +102,13 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitData
       );
       trocarButton();
-      alert("Visita adicionada com sucesso ao visitante " + selectedUser.name);
-    } catch (error) {
+      
+      alert("Visita adicionada com sucesso ao visitante " + selectedUser.name);}
+      catch (error) {
       trocarButton();
       console.error("Erro ao realizar operações:", error);
-      alert(
-        "Ja existe uma visita cadastrada neste dia no visitante " +
-          selectedUser.name
-      );
+      alert("Ja existe uma visita cadastrada neste dia no visitante " +selectedUser.name);
+
     }
   };
 
