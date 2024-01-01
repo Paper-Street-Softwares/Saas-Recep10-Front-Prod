@@ -6,11 +6,11 @@ import SearchFilter from "../../functions/SearchFilter";
 import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
 import ExibirModal from "../../functions/ExibirModal";
 
-function trocarButton(){
-  const buttonNoAtt = document.getElementById('closeModalNoAtt');
-  buttonNoAtt.style.display = 'block';
-  const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'none'
+function trocarButton() {
+  const buttonNoAtt = document.getElementById("closeModalNoAtt");
+  buttonNoAtt.style.display = "block";
+  const buttonAtt = document.getElementById("closeModal");
+  buttonAtt.style.display = "none";
 }
 
 const AdicionarVisita = ({ abrirDialog3 }) => {
@@ -47,19 +47,25 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       event.preventDefault();
       if (visitDate.length === 0) {
         trocarButton();
-        ExibirModal("Preencha a data corretamente.");
+
+        alert("Preencha a data corretamente.");
+        // ExibirModal("Preencha a data corretamente.");
         return;
       }
 
       if (visitDate.length !== 10) {
         trocarButton();
-        ExibirModal("Uma data deve conter no mínimo 10 caracteres");
+        alert(
+          "Uma data deve ter o seguinte padrão: 31/12/2023. Verifique a data inserida e tente novamente."
+        );
+        // ExibirModal("Uma data deve conter no mínimo 10 caracteres");
         return;
       }
 
       if (!selectedUser || !visitDate) {
         trocarButton();
-        ExibirModal("Verifique se a data e o visitante estão selecionados.");
+        alert("Verifique se a data e o visitante estão selecionados.");
+        // ExibirModal("Verifique se a data e o visitante estão selecionados.");
         return;
       }
 
@@ -67,7 +73,8 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
       const currentDate = new Date().toISOString().split("T")[0];
       if (visitDate > currentDate) {
         trocarButton();
-        ExibirModal("Não é possível adicionar visitas em datas futuras.");
+        alert("Não é possível adicionar visitas em datas futuras.");
+        // ExibirModal("Não é possível adicionar visitas em datas futuras.");
         return;
       }
 
@@ -87,7 +94,8 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
 
       if (hasVisitOnDate) {
         trocarButton();
-        ExibirModal("Ja existe uma data cadastrada para este visitante neste dia.");
+        alert("Ja existe uma data cadastrada para este visitante neste dia.");
+        // ExibirModal("Ja existe uma data cadastrada para este visitante neste dia.");
         return;
       }
 
@@ -97,13 +105,26 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
+      await axios.post(
+        "https://recep10-back.up.railway.app/api/visitas",
+        visitData
+      );
       trocarButton();
-      ExibirModal("Visita adicionada com sucesso ao visitante " + selectedUser.name);}
-      catch (error) {
+      alert(
+        "Visita adicionada com sucesso para o visitante " +
+          selectedUser.name +
+          `.`
+      );
+    } catch (error) {
+      // ExibirModal("Visita adicionada com sucesso ao visitante " + selectedUser.name);}
       trocarButton();
       console.error("Erro ao realizar operações:", error);
-      ExibirModal("Ja existe uma visita cadastrada neste dia no visitante " +selectedUser.name);
+      alert(
+        `Já existe uma visita cadastrada neste dia para o visitante ` +
+          selectedUser.name +
+          `.`
+      );
+      // ExibirModal("Ja existe uma visita cadastrada neste dia no visitante " +selectedUser.name);
     }
   };
 
