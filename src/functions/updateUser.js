@@ -24,7 +24,7 @@ export const updateUser = async (id) => {
     if (input.value === "") {
       trocarButton();
 
-      alert('Preencha pelo menos um campo!');
+      alert("Preencha pelo menos um campo!");
 
       return;
     }
@@ -36,7 +36,7 @@ export const updateUser = async (id) => {
   if (!/^\d+$/.test(phoneValue)) {
     trocarButton();
 
-    alert('O campo de telefone só pode conter números.');
+    alert("O campo de telefone só pode conter números.");
 
     return;
   }
@@ -47,7 +47,7 @@ export const updateUser = async (id) => {
   if (!/^\d+$/.test(ageValue)) {
     trocarButton();
 
-    alert('O campo de idade só pode conter números.');
+    alert("O campo de idade só pode conter números.");
 
     return;
   }
@@ -58,7 +58,7 @@ export const updateUser = async (id) => {
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(nameUpdateValue)) {
     trocarButton();
 
-    alert('O campo de nome só pode conter letras.');
+    alert("O campo de nome só pode conter letras.");
 
     return;
   }
@@ -69,7 +69,7 @@ export const updateUser = async (id) => {
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityUpdateValue)) {
     trocarButton();
 
-    alert('O campo de cidade e estado só pode conter letras.');
+    alert("O campo de cidade e estado só pode conter letras.");
 
     return;
   }
@@ -80,7 +80,7 @@ export const updateUser = async (id) => {
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionUpdateValue)) {
     trocarButton();
 
-    alert('O campo de religião só pode conter letras.');
+    alert("O campo de religião só pode conter letras.");
 
     return;
   }
@@ -91,7 +91,7 @@ export const updateUser = async (id) => {
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupUpdateValue)) {
     trocarButton();
 
-    alert('O campo de pequeno grupo só pode conter letras.');
+    alert("O campo de pequeno grupo só pode conter letras.");
 
     return;
   }
@@ -102,7 +102,7 @@ export const updateUser = async (id) => {
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyUpdateValue)) {
     trocarButton();
 
-    alert('O campo de estudo bíblico só pode conter letras.');
+    alert("O campo de estudo bíblico só pode conter letras.");
 
     return;
   }
@@ -125,7 +125,6 @@ export const updateUser = async (id) => {
     trocarButton();
 
     alert("Escolha um gênero.");
-
   } else {
     try {
       const response = await fetch(`${apiUrl}/${id}`, {
@@ -139,7 +138,8 @@ export const updateUser = async (id) => {
       if (response.ok) {
         trocarButton2();
 
-        alert('Usuário atualizado com sucesso!');
+        alert("Usuário atualizado com sucesso!");
+        window.location.reload();
 
         return response.json();
       } else if (response.status === 404) {
