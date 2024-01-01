@@ -1,6 +1,7 @@
 import style from "../../css/main/cadastrarvisitante.css";
 import inputstyle from "../../css/structure/input.css";
 import { enviarVisitante } from "../../functions/DialogController2";
+import PrimeiraLetraMaiuscula from "../util/PrimeiraLetraMaiuscula";
 
 const CadastrarVisitante = () => {
   return (
@@ -13,13 +14,13 @@ const CadastrarVisitante = () => {
       </div>
       <div id="infos" className="form-CadastrarVisitantes">
         <form id="form" className="inputsForm-CadastrarVisitantes">
-          <input
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={53}
             id="nome"
             type="text"
             placeholder="Nome"
-          ></input>
+          />
           <input
             className="inputs-Global"
             maxLength={17}
@@ -43,41 +44,41 @@ const CadastrarVisitante = () => {
             pattern="[0-9]{1,3}"
             placeholder="Idade"
           />
-          <input
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={50}
             id="endereco"
             type="text"
             placeholder="Endereço"
-          ></input>
-          <input
+          />
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={50}
             id="cidadeestado"
             type="text"
             placeholder="Cidade e Estado"
-          ></input>
-          <input
+          />
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={20}
             id="religiao"
             type="text"
             placeholder="Religião"
-          ></input>
-          <input
+          />
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={53}
             id="grupo"
             type="text"
             placeholder="Frequenta pequeno grupo? Se sim, qual?"
-          ></input>
-          <input
+          />
+          <PrimeiraLetraMaiuscula
             className="inputs-Global"
             maxLength={53}
             id="estudo"
             type="text"
             placeholder="Faz estudo bíblico? Se sim, com quem?"
-          ></input>
+          />
 
           <div className={style.btns}>
             <div className="buttonGroup">
