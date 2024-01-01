@@ -20,6 +20,12 @@ tr {
   padding: 5px;
 }
 
+.titlesGlobal-Report {
+  text-align: left;
+  font-size: 14px;
+  color: #40c4cc;
+}
+
 .titlesModal-Global {
   font-size: 12px;
   color: #40c4cc;
@@ -97,7 +103,7 @@ tr {
   margin-bottom: 10px;
 }
 
-.qwerty {
+.modalContainer-Report {
   display: flex;
   position: relative;
   margin-top: 15%;

@@ -50,7 +50,7 @@ const AlterarVisitanteTemplate = ({
           className={`quadro2 ${dialogAtiva ? "active" : ""}`}
         >
           <p id="vt2" className="texts-Global">
-            Preencha todos ou apenas o campo que queira altarar
+            Preencha todos ou apenas o campo que queira alterar.
           </p>
           <div id="infos" className="painelUpdate-AlterarVisitante">
             <input

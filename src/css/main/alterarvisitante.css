@@ -47,9 +47,23 @@
   text-align: left;
 }
 
+@media (min-width: 320px) {
+  .buttonGroup-AlterarVisitante {
+    margin-bottom: 50%;
+  }
+
+  .title-AlterarVisitante {
+    margin-top: 0;
+  }
+}
+
 @media (min-width: 390px) {
   .form-AlterarVisitante input {
     height: 40px;
+  }
+
+  .buttonGroup-AlterarVisitante {
+    margin-bottom: 0;
   }
 }
 
