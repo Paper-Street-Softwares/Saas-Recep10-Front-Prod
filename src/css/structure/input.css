@@ -32,7 +32,7 @@
 .texts-Global {
   text-align: left;
   font-size: 10px;
-  color: #222222;
+  color: #0a0a0a31;
   margin-top: 10px;
 }
 
@@ -120,18 +120,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  width: 80%;
-  border: 1px solid #0a0a0a31;
-  border-radius: 10px;
-  padding: 10px;
 }
 
 select {

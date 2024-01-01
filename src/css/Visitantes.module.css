@@ -127,27 +127,8 @@
   width: 30%;
 }
 
-.visitantes p {
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background-color: #3e3f5c;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.visitantes p:hover {
-  background-color: #5d5f86;
-}
-
 .quadro li {
   color: black;
-}
-
-.quadro .nomes p {
-  display: flex;
-  justify-content: center;
 }
 
 ::-webkit-scrollbar-thumb {

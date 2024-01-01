@@ -6,11 +6,11 @@ import SearchFilter from "../../functions/SearchFilter";
 import { abrirDialog3, fecharDialog3 } from "../../functions/DialogController3";
 import ExibirModal from "../../functions/ExibirModal";
 
-function trocarButton(){
-  const buttonNoAtt = document.getElementById('closeModalNoAtt');
-  buttonNoAtt.style.display = 'block';
-  const buttonAtt = document.getElementById('closeModal');
-  buttonAtt.style.display = 'none'
+function trocarButton() {
+  const buttonNoAtt = document.getElementById("closeModalNoAtt");
+  buttonNoAtt.style.display = "block";
+  const buttonAtt = document.getElementById("closeModal");
+  buttonAtt.style.display = "none";
 }
 
 const AdicionarVisita = ({ abrirDialog3 }) => {
@@ -97,13 +97,18 @@ const AdicionarVisita = ({ abrirDialog3 }) => {
         visitanteId: selectedUser.id,
       };
 
-      await axios.post("https://recep10-back.up.railway.app/api/visitas", visitData);
+      await axios.post(
+        "https://recep10-back.up.railway.app/api/visitas",
+        visitData
+      );
       trocarButton();
+      
       alert("Visita adicionada com sucesso ao visitante " + selectedUser.name);}
       catch (error) {
       trocarButton();
       console.error("Erro ao realizar operações:", error);
       alert("Ja existe uma visita cadastrada neste dia no visitante " +selectedUser.name);
+
     }
   };
 

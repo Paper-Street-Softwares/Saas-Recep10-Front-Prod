@@ -38,7 +38,7 @@ const SearchFilter = ({ onUserClick }) => {
     setSearchTerm(userName); // Atualiza o termo de pesquisa para o nome clicado
   };
 
-  const max_items_to_display = 5;
+  const max_items_to_display = 3;
 
   return (
     <div>

@@ -3,11 +3,17 @@ import "../../css/modal.css"
 
 function Modal() {
   return (
-    <div>
+    <div className="modalContent-Modal">
       <dialog id="genericModal">
-        <p id="msgmodal">Visitante registrado com sucesso!</p>
-        <button className="button-Global" onClick={fecharModal} id="closeModal">
-          Fechar
+        <p className="titles-Global" id="msgmodal">
+          Visitante registrado com sucesso!
+        </p>
+        <button
+          className="buttonBack-Global"
+          onClick={fecharModal}
+          id="closeModal"
+        >
+          FECHAR
         </button>
         <button style={{display: 'none'}} className="button-Global" onClick={fecharSemAtt} id="closeModalNoAtt">
           Fechar
