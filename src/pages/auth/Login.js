@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "../../css/login.css";
+import "../../css/structure/input.css";
 import loginFunction from "../../functions/auth/login";
 import logoRecep10 from "../../images/logoRecep10.png";
 

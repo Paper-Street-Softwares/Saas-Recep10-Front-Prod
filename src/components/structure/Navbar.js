@@ -14,57 +14,67 @@ const Navbar = ({ onComponentChange }) => {
     <div className="navbar-Navbar">
       {/* HOME */}
       <div className="individualIcon-Navbar">
-        <div
-          onClick={() => onComponentChange("home")}
-          className="iconNavbar-Navbar"
-        >
-          <GrHomeRounded />
+        <div className="iconContainer">
+          <a
+            onClick={() => onComponentChange("home")}
+            className="iconNavbar-Navbar"
+          >
+            <GrHomeRounded />
+          </a>
+          <div className="iconName-Navbar">Início</div>
         </div>
-        <div className="iconName-Navbar">Início</div>
       </div>
 
       {/* CADASTRO */}
       <div className="individualIcon-Navbar">
-        <div
-          onClick={() => onComponentChange("CadastrarVisitante")}
-          className="iconNavbar-Navbar"
-        >
-          <GrUserAdd />
+        <div className="iconContainer">
+          <a
+            onClick={() => onComponentChange("CadastrarVisitante")}
+            className="iconNavbar-Navbar"
+          >
+            <GrUserAdd />
+          </a>
+          <div className="iconName-Navbar">Cadastro</div>
         </div>
-        <div className="iconName-Navbar">Cadastro</div>
       </div>
 
       {/* VISITA */}
       <div className="individualIcon-Navbar">
-        <div
-          onClick={() => onComponentChange("AdicionarVisita")}
-          className="iconNavbar-Navbar"
-        >
-          <GrCalendar />
+        <div className="iconContainer">
+          <a
+            onClick={() => onComponentChange("AdicionarVisita")}
+            className="iconNavbar-Navbar"
+          >
+            <GrCalendar />
+          </a>
+          <div className="iconName-Navbar">Visita</div>
         </div>
-        <div className="iconName-Navbar">Visita</div>
       </div>
 
       {/* ALTERAR */}
       <div className="individualIcon-Navbar">
-        <div
-          onClick={() => onComponentChange("AlterarVisitante")}
-          className="iconNavbar-Navbar"
-        >
-          <GrSearch />
+        <div className="iconContainer">
+          <a
+            onClick={() => onComponentChange("AlterarVisitante")}
+            className="iconNavbar-Navbar"
+          >
+            <GrSearch />
+          </a>
+          <div className="iconName-Navbar">Alterar</div>
         </div>
-        <div className="iconName-Navbar">Alterar</div>
       </div>
 
       {/* RELATORIOS */}
       <div className="individualIcon-Navbar">
-        <div
-          onClick={() => onComponentChange("Relatorios")}
-          className="iconNavbar-Navbar"
-        >
-          <GrBarChart />
+        <div className="iconContainer">
+          <a
+            onClick={() => onComponentChange("Relatorios")}
+            className="iconNavbar-Navbar"
+          >
+            <GrBarChart />
+          </a>
+          <div className="iconName-Navbar">Relatórios</div>
         </div>
-        <div className="iconName-Navbar">Relatórios</div>
       </div>
 
       {/* MAIS */}

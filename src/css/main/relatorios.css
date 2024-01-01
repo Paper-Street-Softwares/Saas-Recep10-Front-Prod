@@ -20,6 +20,12 @@ tr {
   padding: 5px;
 }
 
+.titlesGlobal-Report {
+  text-align: left;
+  font-size: 14px;
+  color: #40c4cc;
+}
+
 .titlesModal-Global {
   font-size: 12px;
   color: #40c4cc;
@@ -86,6 +92,10 @@ tr {
   padding: 10px;
 }
 
+.modalReport-Report + #removervisitor {
+  z-index: 300000;
+}
+
 .titleReport-Global {
   font-size: 20px;
   color: #40c4cc;
@@ -93,10 +103,21 @@ tr {
   margin-bottom: 10px;
 }
 
-.qwerty {
+.modalContainer-Report {
   display: flex;
   position: relative;
   margin-top: 15%;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 390px) {
+  input {
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  input {
+    height: 60px;
+  }
 }

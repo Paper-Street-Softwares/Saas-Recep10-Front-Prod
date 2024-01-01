@@ -68,6 +68,7 @@
 #title-Login {
   text-align: left;
   color: #40c4cc;
+  font-size: 16px;
 }
 
 #form-Login {
@@ -115,4 +116,54 @@
 .forgotPass {
   display: flex;
   justify-content: end;
+}
+
+@media (min-width: 1024px) {
+  .main-Login {
+    width: 25%;
+  }
+
+  #buttonSignup-Login {
+    height: 35px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inputs-Login input {
+    height: 35px;
+  }
+
+  #title-Login {
+    font-size: 12px;
+  }
+
+  #texts-Login,
+  #links-Login {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 390px) {
+  #buttonSignup-Login {
+    height: 35px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inputs-Login input {
+    height: 35px;
+  }
+
+  #title-Login {
+    font-size: 12px;
+  }
+
+  #texts-Login,
+  #links-Login {
+    font-size: 10px;
+  }
 }

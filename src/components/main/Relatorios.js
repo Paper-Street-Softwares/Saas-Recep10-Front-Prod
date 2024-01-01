@@ -74,10 +74,10 @@ const Relatorios = () => {
       <table className="tableReport-Report">
         <thead>
           <tr className="trReport">
-            <th className="titles-Global" id="titulo">
+            <th className="titlesGlobal-Report" id="titulo">
               Nome
             </th>
-            <th className="titles-Global" id="titulo">
+            <th className="titlesGlobal-Report" id="titulo">
               Visitas
             </th>
           </tr>
@@ -122,7 +122,7 @@ const Relatorios = () => {
           contentLabel="User Details"
         >
           {selectedUser && (
-            <div className="qwerty">
+            <div className="modalContainer-Report">
               <div className="modalReport-Report">
                 <h2 className="titleReport-Global">{selectedUser.name}</h2>
                 <p className="titlesModal-Global">

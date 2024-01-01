@@ -47,3 +47,25 @@
 .headerRigh-Header .welcomeMesage-Header {
   text-align: end;
 }
+
+@media (min-width: 390px) {
+  .welcomeMesage-Header,
+  .realTimeHeader-Header {
+    font-size: 12px;
+  }
+
+  .userName-Header {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcomeMesage-Header,
+  .realTimeHeader-Header {
+    font-size: 16px;
+  }
+
+  .userName-Header {
+    font-size: 20px;
+  }
+}
