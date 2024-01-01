@@ -122,61 +122,67 @@ const Relatorios = () => {
           contentLabel="User Details"
         >
           {selectedUser && (
-            <div>
-              <h2 className="giantTitleModal-Global">{selectedUser.name}</h2>
-              <p className="titlesModal-Global">
-                Telefone:{" "}
-                <span className="spanModal-Options">{selectedUser.phone}</span>
-              </p>
-              <p className="titlesModal-Global">
-                Gênero:{" "}
-                <span className="spanModal-Options">{selectedUser.gender}</span>
-              </p>
-              <p className="titlesModal-Global">
-                Idade:{" "}
-                <span className="spanModal-Options">{selectedUser.age}</span>
-              </p>
-              <p className="titlesModal-Global">
-                Endereço:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser.address}
-                </span>
-              </p>
-              <p className="titlesModal-Global">
-                Cidade e Estado:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser.cityAndState}
-                </span>
-              </p>
-              <p className="titlesModal-Global">
-                Religião:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser.religion}
-                </span>
-              </p>
+            <div className="qwerty">
+              <div className="modalReport-Report">
+                <h2 className="titleReport-Global">{selectedUser.name}</h2>
+                <p className="titlesModal-Global">
+                  Telefone:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.phone}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Gênero:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.gender}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Idade:{" "}
+                  <span className="spanModal-Options">{selectedUser.age}</span>
+                </p>
+                <p className="titlesModal-Global">
+                  Endereço:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.address}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Cidade e Estado:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.cityAndState}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Religião:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.religion}
+                  </span>
+                </p>
 
-              <p className="titlesModal-Global">
-                Pequeno Grupo:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser.smallGroup}
-                </span>
-              </p>
-              <p className="titlesModal-Global">
-                Estudo Bíblico:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser.bibleStudy}
-                </span>
-              </p>
-              <p className="titlesModal-Global">
-                Visitas:{" "}
-                <span className="spanModal-Options">
-                  {selectedUser._count.visits}
-                </span>
-              </p>
-              {/* Adicione outras informações conforme necessário */}
-              <button className="buttonBack-Global" onClick={closeModal}>
-                Fechar
-              </button>
+                <p className="titlesModal-Global">
+                  Pequeno Grupo:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.smallGroup}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Estudo Bíblico:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser.bibleStudy}
+                  </span>
+                </p>
+                <p className="titlesModal-Global">
+                  Visitas:{" "}
+                  <span className="spanModal-Options">
+                    {selectedUser._count.visits}
+                  </span>
+                </p>
+                {/* Adicione outras informações conforme necessário */}
+                <button className="buttonBack-Global" onClick={closeModal}>
+                  Fechar
+                </button>
+              </div>
             </div>
           )}
         </Modal>
