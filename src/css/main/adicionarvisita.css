@@ -31,11 +31,11 @@
   width: 100%;
 }
 
-@media (min-width: 390px) {
+/* @media (min-width: 390px) {
   .inputsForm-AdicionarVisita input {
     height: 40px;
   }
-}
+} */
 
 @media (min-width: 1024px) {
   .inputsForm-AdicionarVisita input {
