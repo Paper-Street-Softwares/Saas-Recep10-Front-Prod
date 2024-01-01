@@ -73,7 +73,7 @@ const SearchFilterUpdate = ({ onUserClick }) => {
     }
   };
 
-  const max_items_to_display = 5;
+  const max_items_to_display = 3;
 
   return (
     <div style={{ position: "relative" }}>

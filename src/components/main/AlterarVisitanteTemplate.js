@@ -152,7 +152,7 @@ const AlterarVisitanteTemplate = ({
               style={{ pointerEvents: "none", opacity: "20%" }}
               onClick={showDeleteModal}
             >
-              APAGAR
+              APAGAR VISITANTE
             </button>
             <button
               className="button-Global"
