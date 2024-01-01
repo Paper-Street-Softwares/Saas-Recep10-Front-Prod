@@ -150,7 +150,7 @@ const AlterarVisitanteTemplate = ({
               className="buttonBack-Global"
               id="del"
               style={{ pointerEvents: "none", opacity: "20%" }}
-              onClick={showDeleteModal}
+              onClick={handleDeleteUser}
             >
               APAGAR
             </button>

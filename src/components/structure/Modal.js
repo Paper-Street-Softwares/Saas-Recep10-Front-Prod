@@ -1,4 +1,5 @@
 import { fecharModal, fecharSemAtt } from "../../functions/DialogController2";
+import "../../css/modal.css"
 
 function Modal() {
   return (

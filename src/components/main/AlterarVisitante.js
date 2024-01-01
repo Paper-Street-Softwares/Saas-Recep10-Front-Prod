@@ -23,19 +23,24 @@ const AlterarVisitante = () => {
 
   const handleDeleteUser = async (event) => {
 
-    try {
-      const id = visitor.id;
-      if (!id) {
-        console.error("ID do visitante não encontrado.");
-        return;
+    var resultado = window.confirm("Deseja realmente apagar o visitante?");
+
+    if(resultado){
+      try {
+        const id = visitor.id;
+        if (!id) {
+          console.error("ID do visitante não encontrado.");
+          return;
+        }
+        await deleteUser(id);
+        alert("Usuário apagado com sucesso!");
+      } catch (error) {
+        console.error("Erro ao excluir usuário:", error);
       }
-      await deleteUser(id);
-      ExibirModal("Usuário apagado com sucesso!");
-    } catch (error) {
-      console.error("Erro ao excluir usuário:", error);
+  
+    };
     }
 
-  };
 
   const handleUpdateUser = async () => {
     const id = visitor.id;

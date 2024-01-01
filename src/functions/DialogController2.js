@@ -41,7 +41,7 @@ async function enviarVisitante(event) {
   for (const input of inputs) {
     if (input.value === "") {
       trocarButton();
-      ExibirModal("Preencha todos os campos.");
+      alert("Preencha todos os campos.");
       return;
     }
   }
@@ -51,7 +51,7 @@ async function enviarVisitante(event) {
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
     trocarButton();
-    ExibirModal('O campo de telefone só pode conter números.');
+    alert('O campo de telefone só pode conter números.');
     event.preventDefault();
     return;
   }
@@ -61,7 +61,7 @@ async function enviarVisitante(event) {
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
     trocarButton();
-    ExibirModal('O campo de idade só pode conter números.');
+    alert('O campo de idade só pode conter números.');
     event.preventDefault();
     return;
   }
@@ -71,7 +71,7 @@ async function enviarVisitante(event) {
   const nameValue = nameInput.value;
   if (!/^[a-zA-Z\s]+$/.test(nameValue)) {
     trocarButton();
-    ExibirModal('O campo de nome só pode conter letras.');
+    alert('O campo de nome só pode conter letras.');
     event.preventDefault();
     return;
   }
@@ -81,7 +81,7 @@ async function enviarVisitante(event) {
   const cityAndStateValue = cityAndStateInput.value;
   if (!/^[a-zA-Z\s]+$/.test(cityAndStateValue)) {
     trocarButton();
-    ExibirModal('O campo de cidade e estado só pode conter letras.');
+    alert('O campo de cidade e estado só pode conter letras.');
     event.preventDefault();
     return;
   }
@@ -91,7 +91,7 @@ async function enviarVisitante(event) {
   const religionValue = religionInput.value;
   if (!/^[a-zA-Z\s]+$/.test(religionValue)) {
     trocarButton();
-    ExibirModal('O campo de religião só pode conter letras.');
+    alert('O campo de religião só pode conter letras.');
     event.preventDefault();
     return;
   }
@@ -101,7 +101,7 @@ async function enviarVisitante(event) {
   const groupValue = groupInput.value;
   if (!/^[a-zA-Z\s]+$/.test(groupValue)) {
     trocarButton();
-    ExibirModal('O campo de pequeno grupo só pode conter letras.');
+    alert('O campo de pequeno grupo só pode conter letras.');
     event.preventDefault();
     return;
   }
@@ -111,14 +111,14 @@ async function enviarVisitante(event) {
   const studyValue = studyInput.value;
   if (!/^[a-zA-Z\s]+$/.test(studyValue)) {
     trocarButton();
-    ExibirModal('O campo de estudo bíblico só pode conter letras.');
+    alert('O campo de estudo bíblico só pode conter letras.');
     event.preventDefault();
     return;
   }
 
   if (verificaGenero === '') {
     trocarButton();
-    ExibirModal("Selecione um Gênero!");
+    alert("Selecione um Gênero!");
     event.preventDefault();
   } else {
     trocarButton2();
@@ -160,20 +160,20 @@ async function enviarVisitante(event) {
 
       // Verificando se a resposta da API é um objeto válido
       if (result === null) {
-        ExibirModal("Erro ao cadastrar usuário");
+        alert("Erro ao cadastrar usuário");
       } else if (res.status === 201) {
-        ExibirModal("Visitante adicionado com sucesso!");
+        alert("Visitante adicionado com sucesso!");
       } else if (res.status === 400) {
         // Tratando erros específicos do lado do servidor
         trocarButton();
-        ExibirModal("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
+        alert("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
         console.log(result.error)
       } else {
         // Verificando se o campo `error` da resposta da API está definido
         if (result.error) {
-          ExibirModal(result.error);
+          alert(result.error);
         } else {
-          ExibirModal("Erro ao cadastrar usuário");
+          alert("Erro ao cadastrar usuário");
         }
       }
     } catch (err) {
