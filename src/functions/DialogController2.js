@@ -51,7 +51,7 @@ async function enviarVisitante(event) {
   const phoneValue = phoneInput.value;
   if (!/^\d+$/.test(phoneValue)) {
     trocarButton();
-    alert('O campo de telefone só pode conter números.');
+    alert("O campo de telefone só pode conter números.");
 
     event.preventDefault();
     return;
@@ -62,8 +62,8 @@ async function enviarVisitante(event) {
   const ageValue = ageInput.value;
   if (!/^\d+$/.test(ageValue)) {
     trocarButton();
-    
-    alert('O campo de idade só pode conter números.');
+
+    alert("O campo de idade só pode conter números.");
     event.preventDefault();
     return;
   }
@@ -71,13 +71,9 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de nome
   const nameInput = document.getElementById("nome");
   const nameValue = nameInput.value;
-  if (
-    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
-      nameValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(nameValue)) {
     trocarButton();
-    alert('O campo de nome só pode conter letras.');
+    alert("O campo de nome só pode conter letras.");
     event.preventDefault();
     return;
   }
@@ -85,14 +81,10 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de cidadeestado
   const cityAndStateInput = document.getElementById("cidadeestado");
   const cityAndStateValue = cityAndStateInput.value;
-  if (
-    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
-      cityAndStateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityAndStateValue)) {
     trocarButton();
 
-    alert('O campo de cidade e estado só pode conter letras.');
+    alert("O campo de cidade e estado só pode conter letras.");
 
     event.preventDefault();
     return;
@@ -101,13 +93,9 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de religiao
   const religionInput = document.getElementById("religiao");
   const religionValue = religionInput.value;
-  if (
-    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
-      religionValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionValue)) {
     trocarButton();
-    alert('O campo de religião só pode conter letras.');
+    alert("O campo de religião só pode conter letras.");
 
     event.preventDefault();
     return;
@@ -116,14 +104,10 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de grupo
   const groupInput = document.getElementById("grupo");
   const groupValue = groupInput.value;
-  if (
-    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
-      groupValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupValue)) {
     trocarButton();
 
-    alert('O campo de pequeno grupo só pode conter letras.');
+    alert("O campo de pequeno grupo só pode conter letras.");
 
     event.preventDefault();
     return;
@@ -132,14 +116,10 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de estudo
   const studyInput = document.getElementById("estudo");
   const studyValue = studyInput.value;
-  if (
-    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
-      studyValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyValue)) {
     trocarButton();
 
-    alert('O campo de estudo bíblico só pode conter letras.');
+    alert("O campo de estudo bíblico só pode conter letras.");
 
     event.preventDefault();
     return;
@@ -196,13 +176,13 @@ async function enviarVisitante(event) {
         alert("Erro ao cadastrar usuário");
       } else if (res.status === 201) {
         alert("Visitante adicionado com sucesso!");
+        window.location.reload();
       } else if (res.status === 400) {
         // Tratando erros específicos do lado do servidor
         trocarButton();
 
         alert("Um usuário com este telefone ja existe."); // Exiba a mensagem de erro retornada pela API
-        console.log(result.error)
-
+        console.log(result.error);
       } else {
         // Verificando se o campo `error` da resposta da API está definido
         if (result.error) {

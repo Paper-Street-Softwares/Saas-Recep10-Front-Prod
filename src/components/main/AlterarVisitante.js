@@ -10,8 +10,8 @@ import "../../css/structure/input.css";
 import AlterarVisitanteTemplate from "./AlterarVisitanteTemplate";
 import ExibirModal from "../../functions/ExibirModal";
 
-function showDeleteModal(){
-  const pegarModal = document.getElementById('removervisitor');
+function showDeleteModal() {
+  const pegarModal = document.getElementById("removervisitor");
   pegarModal.showModal();
 }
 
@@ -22,10 +22,9 @@ const AlterarVisitante = () => {
   const [visitanteSelecionado, setVisitanteSelecionado] = useState(null);
 
   const handleDeleteUser = async (event) => {
-
     var resultado = window.confirm("Deseja realmente apagar o visitante?");
 
-    if(resultado){
+    if (resultado) {
       try {
         const id = visitor.id;
         if (!id) {
@@ -34,13 +33,12 @@ const AlterarVisitante = () => {
         }
         await deleteUser(id);
         alert("Usuário apagado com sucesso!");
+        window.location.reload();
       } catch (error) {
         console.error("Erro ao excluir usuário:", error);
       }
-  
-    };
     }
-
+  };
 
   const handleUpdateUser = async () => {
     const id = visitor.id;
