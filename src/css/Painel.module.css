@@ -25,7 +25,7 @@
 .footer-Painel {
 } */
 
-.content {
+/* .content {
   width: 100%;
   height: 8%;
   display: flex;
@@ -60,13 +60,13 @@ input {
   height: auto;
   margin: 20px 50px 0 50px;
   transition: 0.3s;
-}
+} */
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.15);
-}
+} */
 
-.card p {
+/* .card p {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +78,7 @@ input {
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
-}
+} */
 
 .dashboard {
   display: flex;
@@ -151,10 +151,10 @@ input {
   top: 0;
 }
 
-.regaut p {
+/* .regaut p {
   display: flex;
   justify-content: center;
-}
+} */
 
 .regaut button {
   background-color: #ff9999;
@@ -261,7 +261,7 @@ input {
   margin-left: 10px;
 }
 
-.formulario2 #nameInput {
+/* .formulario2 #nameInput {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -287,9 +287,9 @@ input {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
-.formulario select {
+/* .formulario select {
   color: #cac6c6b4;
   border-color: #cac6c6b4;
   border-radius: 5px;
@@ -308,9 +308,9 @@ input {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
-.btns {
+/* .btns {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -361,7 +361,7 @@ h1 {
   transform: translateY(-50%);
   font-size: 62px;
   margin: auto;
-}
+} */
 
 /* h2 {
   margin: auto;
@@ -372,13 +372,13 @@ h1 {
   transform: translateY(-50%);
 } */
 
-.content input {
+/* .content input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
+} */
 
-.content ul {
+/* .content ul {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -412,10 +412,10 @@ h1 {
 
 .painelicons img:hover {
   transform: scale(1.04);
-}
+} */
 
 @media (max-width: 767px) {
-  .dashboard {
+  /* .dashboard {
     flex-direction: column;
     height: auto;
     align-items: center;
@@ -438,15 +438,15 @@ h1 {
     flex-direction: row;
     top: 0;
     margin: 10px 0;
-  }
+  } */
 
-  .card p {
+  /* .card p {
     font-size: 1rem;
-  }
+  } */
 }
 
 @media (max-width: 430px) {
-  .body {
+  /* .body {
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
@@ -468,31 +468,31 @@ h1 {
   .register select {
     padding: 10px;
     height: 40px;
-  }
+  } */
 
-  .navbar {
+  /* .navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
     background-color: rgb(254, 254, 254);
-  }
-
+  } */
+  /* 
   .navbarborder {
     position: absolute;
     width: 100%;
     height: 1px;
     background-image: linear-gradient(to right, transparent, #ddd, transparent);
-  }
+  } */
 
-  .card p {
+  /* .card p {
     width: 100%;
     box-sizing: border-box;
     color: black;
-  }
+  } */
 
-  .card {
+  /* .card {
     background-color: rgba(255, 0, 0, 0);
     border-radius: 8px;
     max-width: calc(50% - 20px);
@@ -508,9 +508,9 @@ h1 {
 
   .card:hover {
     transform: none;
-  }
+  } */
 
-  .card p {
+  /* .card p {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
@@ -518,9 +518,9 @@ h1 {
     line-height: 40px;
     margin: 0 10px;
     color: black;
-  }
+  } */
 
-  .formulario2 ul {
+  /* .formulario2 ul {
     border: #24bc9e;
     margin: 20px;
     box-shadow: 0 0 10px #178b74a2;
@@ -531,9 +531,9 @@ h1 {
   .formulario2 li {
     color: #24bc9e;
     letter-spacing: 2px;
-  }
+  } */
 
-  h1 {
+  /* h1 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
     margin-top: 150px;
@@ -544,15 +544,15 @@ h1 {
   h2 {
     font-size: small !important;
     margin-top: 15px;
-  }
+  } */
 
-  .icon {
+  /* .icon {
     font-size: 24px;
     padding: 10px;
     color: #23b39b;
-  }
+  } */
 
-  .btns {
+  /* .btns {
     position: absolute;
     bottom: 0;
     margin-top: 20px;
@@ -573,9 +573,9 @@ h1 {
     z-index: 1000;
     background-color: #fff;
     border: 1px solid #ccc;
-  }
+  } */
 
-  .float-list ul {
+  /* .float-list ul {
     list-style: none !important;
     margin: 0;
     padding: 0;
@@ -584,15 +584,15 @@ h1 {
   .float-list li {
     padding: 8px;
     cursor: pointer;
-  }
+  } */
 
   .float-list li:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f0f000;
   }
 }
-
+/* 
 @media (max-width: 400px) {
   h1 {
     font-size: 40px;
   }
-}
+} */

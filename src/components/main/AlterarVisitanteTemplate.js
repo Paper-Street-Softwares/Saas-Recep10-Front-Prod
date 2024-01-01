@@ -146,7 +146,7 @@ const AlterarVisitanteTemplate = ({
               style={{ pointerEvents: "none", opacity: "20%" }}
               onClick={handleDeleteUser}
             >
-              APAGAR
+              APAGAR VISITANTE
             </button>
             <button
               className="button-Global"

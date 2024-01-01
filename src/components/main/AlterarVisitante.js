@@ -4,7 +4,7 @@ import anime from "animejs";
 import SearchFilterUpdate from "../../functions/SearchFilterUpdate";
 import { updateUser } from "../../functions/updateUser";
 import { deleteUser } from "../../functions/deleteUser";
-import "../../css/Visitantes.module.css"
+import "../../css/Visitantes.module.css";
 import "../../css/structure/input.css";
 
 import AlterarVisitanteTemplate from "./AlterarVisitanteTemplate";
@@ -73,6 +73,7 @@ const AlterarVisitante = () => {
     vt1.style.opacity = "0";
 
     vt2.innerHTML = "Editar Dados";
+    vt2.classList.add("giantTitle-Global");
 
     d4.style.opacity = "1";
     d4.style.transition = "0.5s";
