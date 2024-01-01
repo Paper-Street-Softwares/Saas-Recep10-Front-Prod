@@ -70,7 +70,7 @@ async function enviarVisitante(event) {
   const nameInput = document.getElementById("nome");
   const nameValue = nameInput.value;
   if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
       nameValue
     )
   ) {
@@ -84,7 +84,7 @@ async function enviarVisitante(event) {
   const cityAndStateInput = document.getElementById("cidadeestado");
   const cityAndStateValue = cityAndStateInput.value;
   if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
       cityAndStateValue
     )
   ) {
@@ -98,7 +98,7 @@ async function enviarVisitante(event) {
   const religionInput = document.getElementById("religiao");
   const religionValue = religionInput.value;
   if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
       religionValue
     )
   ) {
@@ -112,7 +112,7 @@ async function enviarVisitante(event) {
   const groupInput = document.getElementById("grupo");
   const groupValue = groupInput.value;
   if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
       groupValue
     )
   ) {
@@ -126,7 +126,7 @@ async function enviarVisitante(event) {
   const studyInput = document.getElementById("estudo");
   const studyValue = studyInput.value;
   if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
+    !/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(
       studyValue
     )
   ) {

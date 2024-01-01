@@ -49,11 +49,7 @@ export const updateUser = async (id) => {
   // Adicionando verificações para o campo de nomeUpdate
   const nameUpdateInput = document.getElementById("nomeUpdate");
   const nameUpdateValue = nameUpdateInput.value;
-  if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
-      nameUpdateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(nameUpdateValue)) {
     trocarButton();
     ExibirModal("O campo de nome só pode conter letras.");
     return;
@@ -62,11 +58,7 @@ export const updateUser = async (id) => {
   // Adicionando verificações para o campo de cidadeUpdate
   const cityUpdateInput = document.getElementById("cidadeUpdate");
   const cityUpdateValue = cityUpdateInput.value;
-  if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
-      cityUpdateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityUpdateValue)) {
     trocarButton();
     ExibirModal("O campo de cidade e estado só pode conter letras.");
     return;
@@ -75,11 +67,7 @@ export const updateUser = async (id) => {
   // Adicionando verificações para o campo de religiaoUpdate
   const religionUpdateInput = document.getElementById("religiaoUpdate");
   const religionUpdateValue = religionUpdateInput.value;
-  if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
-      religionUpdateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionUpdateValue)) {
     trocarButton();
     ExibirModal("O campo de religião só pode conter letras.");
     return;
@@ -88,11 +76,7 @@ export const updateUser = async (id) => {
   // Adicionando verificações para o campo de grupoUpdate
   const groupUpdateInput = document.getElementById("grupoUpdate");
   const groupUpdateValue = groupUpdateInput.value;
-  if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
-      groupUpdateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupUpdateValue)) {
     trocarButton();
     ExibirModal("O campo de pequeno grupo só pode conter letras.");
     return;
@@ -101,11 +85,7 @@ export const updateUser = async (id) => {
   // Adicionando verificações para o campo de estudoUpdate
   const studyUpdateInput = document.getElementById("estudoUpdate");
   const studyUpdateValue = studyUpdateInput.value;
-  if (
-    !/^[a-zA-Z\sãõáéíóúâêîôûàèìòùäëïöüçñÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÄËÏÖÜÇÑ\-]+$/.test(
-      studyUpdateValue
-    )
-  ) {
+  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyUpdateValue)) {
     trocarButton();
     ExibirModal("O campo de estudo bíblico só pode conter letras.");
     return;
