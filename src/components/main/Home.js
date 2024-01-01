@@ -9,9 +9,8 @@ function Home() {
         Recepção Nota 10 - Agora seus visitantes se tornarão membros ativos!
       </p>
       <p className="text-Home">
-        Bem-vindo ao nosso aplicativo de recepção de visitantes! Explore
-        facilmente horários de serviço, encontre informações sobre funcionamento
-        e descubra eventos especiais. Estamos animados para recebê-lo!
+        Bem-vindo ao Recepção Nota 10! Estamos felizes por tê-lo conosco.
+        Explore todas as facilidades e sinta-se à vontade. Curta sua estadia!
       </p>
       <p className="titles-Global">Suporte</p>
       <p className="text-Home">
