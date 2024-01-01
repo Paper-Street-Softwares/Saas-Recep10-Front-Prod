@@ -2,8 +2,16 @@ import style from "../../css/main/cadastrarvisitante.css";
 import inputstyle from "../../css/structure/input.css";
 import { enviarVisitante } from "../../functions/DialogController2";
 import PrimeiraLetraMaiuscula from "../util/PrimeiraLetraMaiuscula";
+import { formatarInputTelefone } from "../util/FormatarInputTelefone";
+import React, { useState } from "react";
 
 const CadastrarVisitante = () => {
+  const [telefone, setTelefone] = useState("");
+
+  const handleTelefoneChange = (event) => {
+    setTelefone(formatarInputTelefone(event.target.value));
+  };
+
   return (
     <div className="main-CadastrarVisitantes">
       <div className="title-CadastrarVisitantes">
@@ -23,11 +31,13 @@ const CadastrarVisitante = () => {
           />
           <input
             className="inputs-Global"
-            maxLength={17}
+            maxLength={16}
             id="telefone"
             type="text"
-            pattern="[0-9]{9,17}"
+            pattern="[0-9]{9,16}"
             placeholder="Telefone"
+            value={telefone}
+            onChange={handleTelefoneChange}
           ></input>
           <select className="inputs-Global" id="genero" defaultValue="">
             <option value="" disabled>
