@@ -49,7 +49,7 @@ async function enviarVisitante(event) {
   // Adicionando verificações para o campo de telefone
   const phoneInput = document.getElementById("telefone");
   const phoneValue = phoneInput.value;
-  if (!/^\d+$/.test(phoneValue)) {
+  if (!/^\(\d{2}\) \d{1}\.\d{4}-\d{4}$/.test(phoneValue)) {
     trocarButton();
     alert("O campo de telefone só pode conter números.");
 
