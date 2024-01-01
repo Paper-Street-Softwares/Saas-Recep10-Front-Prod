@@ -86,6 +86,10 @@ tr {
   padding: 10px;
 }
 
+.modalReport-Report + #removervisitor {
+  z-index: 300000;
+}
+
 .titleReport-Global {
   font-size: 20px;
   color: #40c4cc;
@@ -99,4 +103,15 @@ tr {
   margin-top: 15%;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 390px) {
+  input {
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  input {
+    height: 60px;
+  }
 }

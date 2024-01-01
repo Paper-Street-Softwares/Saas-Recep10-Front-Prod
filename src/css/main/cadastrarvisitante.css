@@ -36,3 +36,15 @@
   justify-content: space-around;
   gap: 10px;
 }
+
+@media (min-width: 390px) {
+  .inputsForm-CadastrarVisitantes input {
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inputsForm-CadastrarVisitantes input {
+    height: 60px;
+  }
+}

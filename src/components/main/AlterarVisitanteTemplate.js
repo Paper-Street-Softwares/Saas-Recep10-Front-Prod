@@ -17,11 +17,12 @@ const AlterarVisitanteTemplate = ({
 }) => {
   return (
     <div className="main-AlterarVisitante">
-
-      <dialog id="removervisitor" style={{zIndex: '300000'}}>
+      <dialog id="removervisitor" style={{ zIndex: "300000" }}>
         <div>
-        <p>Deseja realmente APAGAR este visitante?</p>
-        <button onClick={handleDeleteUser}>QUERO APAGAR</button>
+          <p>Deseja realmente APAGAR este visitante?</p>
+          <button className="buttonBack-Global" onClick={handleDeleteUser}>
+            QUERO APAGAR
+          </button>
         </div>
       </dialog>
 

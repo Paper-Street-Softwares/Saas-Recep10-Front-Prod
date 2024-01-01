@@ -26,3 +26,15 @@ img {
   color: #40c4cc;
   text-decoration: none;
 }
+
+@media (min-width: 390px) {
+  .text-Home {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-Home {
+    font-size: 14px;
+  }
+}
