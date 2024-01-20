@@ -38,100 +38,119 @@ async function enviarVisitante(event) {
   const getInputs = document.getElementById("infos");
   const inputs = getInputs.querySelectorAll("input");
 
-  for (const input of inputs) {
-    if (input.value === "") {
-      trocarButton();
-      alert("Preencha todos os campos.");
-      return;
-    }
-  }
-
   // Adicionando verificações para o campo de telefone
   const phoneInput = document.getElementById("telefone");
   const phoneValue = phoneInput.value;
-  if (!/^\(\d{2}\) \d{1}\.\d{4}-\d{4}$/.test(phoneValue)) {
-    trocarButton();
-    alert("O campo de telefone só pode conter números.");
 
-    event.preventDefault();
-    return;
-  }
-
-  // Adicionando verificações para o campo de idade
-  const ageInput = document.getElementById("idade");
-  const ageValue = ageInput.value;
-  if (!/^\d+$/.test(ageValue)) {
-    trocarButton();
-
-    alert("O campo de idade só pode conter números.");
-    event.preventDefault();
-    return;
-  }
+  // for (const input of inputs) {
+  //   if (input.value === "") {
+  //     if (phoneValue === "") {
+  //       console.log(`Telefone em branco`);
+  //     } else {
+  //       trocarButton();
+  //       alert("Preencha todos os campos.");
+  //       return;
+  //     }
+  //   }
+  // }
 
   // Adicionando verificações para o campo de nome
   const nameInput = document.getElementById("nome");
   const nameValue = nameInput.value;
   if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(nameValue)) {
     trocarButton();
-    alert("O campo de nome só pode conter letras.");
-    event.preventDefault();
-    return;
-  }
-
-  // Adicionando verificações para o campo de cidadeestado
-  const cityAndStateInput = document.getElementById("cidadeestado");
-  const cityAndStateValue = cityAndStateInput.value;
-  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityAndStateValue)) {
-    trocarButton();
-
-    alert("O campo de cidade e estado só pode conter letras.");
-
-    event.preventDefault();
-    return;
-  }
-
-  // Adicionando verificações para o campo de religiao
-  const religionInput = document.getElementById("religiao");
-  const religionValue = religionInput.value;
-  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionValue)) {
-    trocarButton();
-    alert("O campo de religião só pode conter letras.");
-
-    event.preventDefault();
-    return;
-  }
-
-  // Adicionando verificações para o campo de grupo
-  const groupInput = document.getElementById("grupo");
-  const groupValue = groupInput.value;
-  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupValue)) {
-    trocarButton();
-
-    alert("O campo de pequeno grupo só pode conter letras.");
-
-    event.preventDefault();
-    return;
-  }
-
-  // Adicionando verificações para o campo de estudo
-  const studyInput = document.getElementById("estudo");
-  const studyValue = studyInput.value;
-  if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyValue)) {
-    trocarButton();
-
-    alert("O campo de estudo bíblico só pode conter letras.");
-
+    alert("O campo de nome só pode conter letras e não pode ficar vazio.");
     event.preventDefault();
     return;
   }
 
   if (verificaGenero === "") {
     trocarButton();
-    alert("Selecione um Gênero!");
+    alert("Selecione um gênero.");
 
     event.preventDefault();
   } else {
     trocarButton2();
+
+    // Adicionando verificações para o campo de idade
+    const ageInput = document.getElementById("idade");
+    const ageValue = ageInput.value;
+    if (!/^\d+$/.test(ageValue)) {
+      trocarButton();
+
+      alert("O campo de idade só pode conter números e não pode ficar vazio.");
+      event.preventDefault();
+      return;
+    }
+
+    // Adicionando verificações para o campo de endereco
+    const addressInput = document.getElementById("endereco");
+    const addressValue = addressInput.value;
+    if (!/^[a-zA-Z0-9ãáàâéêíóôõúç\s,\(\)\-]+$/.test(addressValue)) {
+      trocarButton();
+
+      alert(
+        "O campo de endereço só pode conter letras e não pode ficar vazio."
+      );
+
+      event.preventDefault();
+      return;
+    }
+
+    // Adicionando verificações para o campo de cidadeestado
+    const cityAndStateInput = document.getElementById("cidadeestado");
+    const cityAndStateValue = cityAndStateInput.value;
+    if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(cityAndStateValue)) {
+      trocarButton();
+
+      alert(
+        "O campo de cidade e estado só pode conter letras e não pode ficar vazio."
+      );
+
+      event.preventDefault();
+      return;
+    }
+
+    // Adicionando verificações para o campo de religiao
+    const religionInput = document.getElementById("religiao");
+    const religionValue = religionInput.value;
+    if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(religionValue)) {
+      trocarButton();
+      alert(
+        "O campo de religião só pode conter letras e não pode ficar vazio."
+      );
+
+      event.preventDefault();
+      return;
+    }
+
+    // Adicionando verificações para o campo de grupo
+    const groupInput = document.getElementById("grupo");
+    const groupValue = groupInput.value;
+    if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(groupValue)) {
+      trocarButton();
+
+      alert(
+        "O campo de pequeno grupo só pode conter letras e não pode ficar vazio."
+      );
+
+      event.preventDefault();
+      return;
+    }
+
+    // Adicionando verificações para o campo de estudo
+    const studyInput = document.getElementById("estudo");
+    const studyValue = studyInput.value;
+    if (!/^[a-zA-Zãáàâéêíóôõúç\s\-\,\(\)]+$/.test(studyValue)) {
+      trocarButton();
+
+      alert(
+        "O campo de estudo bíblico só pode conter letras e não pode ficar vazio."
+      );
+
+      event.preventDefault();
+      return;
+    }
 
     const name = String(nameValue);
     const phone = String(document.getElementById("telefone").value);
