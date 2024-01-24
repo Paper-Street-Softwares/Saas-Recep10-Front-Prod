@@ -14,10 +14,11 @@ img {
 }
 
 .text-Home {
-  font-size: 10px;
-  color: #0a0a0a67;
+  font-size: 12px;
   list-style: none;
   text-align: left;
+  color: #0a0a0aa4;
+  font-weight: bolder;
 }
 
 #links-Home {

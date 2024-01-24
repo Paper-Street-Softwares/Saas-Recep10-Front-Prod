@@ -13,7 +13,11 @@
   border: 1px solid #0a0a0a2d;
   margin-top: 10px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 12px;
+}
+
+.inputs-Global::placeholder {
+  color: #0a0a0aa4;
 }
 
 .giantTitle-Global {
@@ -31,7 +35,7 @@
 
 .texts-Global {
   text-align: left;
-  font-size: 10px;
+  font-size: 12px;
   color: #0a0a0a31;
   margin-top: 10px;
 }
@@ -39,7 +43,7 @@
 .button-Global {
   background-color: #40c4cc;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   box-shadow: none;
   width: 100%;
   height: 30px;
@@ -52,7 +56,7 @@
 .buttonBack-Global {
   background-color: #dbf3f3;
   color: #4ca494;
-  font-size: 10px;
+  font-size: 12px;
   box-shadow: none;
   width: 100%;
   height: 30px;
@@ -64,7 +68,7 @@
 .buttonAtt-Global {
   background-color: #f7c11fa4;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 12px;
   box-shadow: none;
   width: 100%;
   height: 30px;
@@ -84,16 +88,18 @@
 
 .lis-Global {
   text-align: left;
-  font-size: 10px;
-  color: #0a0a0a67;
+  font-size: 12px;
+  color: #0a0a0aa4;
+  font-weight: bolder;
   border-bottom: 0.5px solid #0a0a0a1c;
   list-style: none;
   padding: 10px;
 }
 
 .tds-Global {
-  font-size: 10px;
-  color: #0a0a0a67;
+  font-size: 12px;
+  color: #0a0a0aa4;
+  font-weight: bolder;
   list-style: none;
   margin: 10px;
   padding: 5px;
@@ -143,7 +149,7 @@ select {
   border: 1px solid #0a0a0a2d;
   margin-top: 10px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 12px;
   height: 30px;
 }
 
