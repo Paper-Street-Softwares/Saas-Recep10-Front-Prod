@@ -10,3 +10,9 @@ body {
   height: 100vh;
   background-color: #282932;
 }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
